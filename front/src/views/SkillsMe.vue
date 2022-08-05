@@ -11,15 +11,18 @@
           style="filter: saturate(139%)"
           max-width="100px"
           src="../assets/geometric.png"
-        /><v-img
+        />
+        <v-img
           style="filter: saturate(139%)"
           max-width="100px"
           src="../assets/geometric.png"
-        /><v-img
+        />
+        <v-img
           style="filter: saturate(139%)"
           max-width="100px"
           src="../assets/geometric.png"
-        /><v-img
+        />
+        <v-img
           style="filter: saturate(139%)"
           max-width="100px"
           src="../assets/geometric.png"

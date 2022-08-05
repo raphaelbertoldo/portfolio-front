@@ -12,7 +12,12 @@
       "
       src="https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg"
     />
-    <RouterTab v-if="!$route.path.startsWith('/admin')" />
+
+    <RouterTab
+      v-if="
+        !$route.path.startsWith('/admin') && $vuetify.breakpoint.width > 600
+      "
+    />
     <v-main class="black">
       <v-scroll-x-transition mode="in" hide-on-leave="true">
         <router-view></router-view>

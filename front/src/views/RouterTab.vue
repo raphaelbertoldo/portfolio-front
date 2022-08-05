@@ -1,5 +1,33 @@
 <template>
   <div>
+    <v-navigation-drawer
+      app
+      dark
+      v-model="drawerbar"
+      class="d-flex elevation-0"
+      style="
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+      "
+    >
+      <v-list dense nav class="pt-16 mt-16">
+        <v-list-item
+          v-for="item in items"
+          :key="item"
+          link
+          :to="item.to"
+          class=""
+        >
+          <v-list-item-content>
+            <v-list-item-title to="/habilidades" class="my-6 gradiente-text-1"
+              ><h2>
+                {{ item.title }}
+              </h2></v-list-item-title
+            >
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
     <v-app-bar
       app
       v-model="topbar"
@@ -10,26 +38,41 @@
       "
     >
       <v-icon
-        v-if="$vuetify.breakpoint.xsOnly && drawerbar === false"
-        @click="drawerbar = true"
-        >mdi-menu
-      </v-icon>
-      <v-icon v-if="drawerbar === true" @click="drawerbar = false"
-        >mdi-arrow-left
-      </v-icon>
+        color="white"
+        @click="drawerbar = !drawerbar"
+        v-if="$vuetify.breakpoint.mobile"
+        >mdi-menu</v-icon
+      >
+
       <v-tabs
+        v-if="!$vuetify.breakpoint.md"
         class="d-flex justify-center"
         center-active
         dark
         color="secondary"
       >
         <v-tabs-slider color="primary"></v-tabs-slider>
-        <v-tab to="/">Inicio</v-tab>
-        <v-tab to="/habilidades">Habilidades</v-tab>
-        <v-tab>Portfólio</v-tab>
-        <v-tab>Experiência</v-tab>
-        <v-tab>Contato</v-tab>
+        <v-tab v-for="item in items" :key="item" :to="item.to"
+          >{{ item.title }}
+        </v-tab>
       </v-tabs>
     </v-app-bar>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      drawerbar: false,
+      items: [
+        { title: "Inicio", to: "/" },
+        { title: "Habilidades", to: "/habilidades" },
+        { title: "Portfólio", to: "/habilidades" },
+        { title: "Experiência", to: "/habilidades" },
+        { title: "Contato", to: "/habilidades" },
+      ],
+      right: null,
+    };
+  },
+};
+</script>
