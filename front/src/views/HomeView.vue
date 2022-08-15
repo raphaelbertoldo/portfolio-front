@@ -24,15 +24,15 @@
           </p>
         </div>
         <div class="d-flex flex flex-row-reverse mt-16">
-          <v-btn outlined color="primary" class="ml-8 show-me-3 blue-neon"
-            >HABILIDADES</v-btn
-          >
-          <v-btn outlined color="primary" class="ml-8 show-me-2 blue-neon"
-            >PORTFÓLIO</v-btn
-          >
-          <v-btn outlined color="primary" class="ml-8 show-me-1 blue-neon"
-            >EXPERIÊNCIA</v-btn
-          >
+          <v-btn outlined color="primary" class="ml-8 show-me-3 blue-neon">
+            HABILIDADES
+          </v-btn>
+          <v-btn outlined color="primary" class="ml-8 show-me-2 blue-neon">
+            PORTFÓLIO
+          </v-btn>
+          <v-btn outlined color="primary" class="ml-8 show-me-1 blue-neon">
+            EXPERIÊNCIA
+          </v-btn>
         </div>
       </v-col>
       <v-col cols="6" class="flex d-flex align-center justify-center mt-n10">

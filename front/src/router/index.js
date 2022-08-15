@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SkillsMe from '../views/SkillsMe.vue'
 import AdminHome from '../views/admin/AdminHome.vue'
+import AdminLogin from '../views/admin/AdminLogin.vue'
 import Skills from '../views/admin/AddSkills.vue'
 
 Vue.use(VueRouter)
@@ -12,10 +13,16 @@ const routes = [
     path: '/admin/home',
     name: 'AdminHome',
     component: AdminHome
-  },{
+  },
+  {
+    path: '/admin/login',
+    name: 'AdminLogin',
+    component: AdminLogin
+  },
+  {
     path: '/admin/skills',
     name: 'Skills',
-    component: Skills
+    component: Skills 
   },
   {
     path: '/',

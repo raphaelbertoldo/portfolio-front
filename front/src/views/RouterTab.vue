@@ -27,6 +27,14 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block to="/admin/login">
+            <v-icon small class="mr-2">mdi-lock-open-outline</v-icon>
+            Painel Admin
+          </v-btn>
+        </div>
+      </template>
     </v-navigation-drawer>
     <v-app-bar
       app
@@ -37,12 +45,7 @@
         backdrop-filter: blur(5px);
       "
     >
-      <v-icon
-        color="white"
-        @click="drawerbar = !drawerbar"
-        v-if="$vuetify.breakpoint.mobile"
-        >mdi-menu</v-icon
-      >
+      <v-icon color="white" @click="drawerbar = !drawerbar">mdi-menu</v-icon>
 
       <v-tabs
         v-if="!$vuetify.breakpoint.md"
@@ -52,8 +55,8 @@
         color="secondary"
       >
         <v-tabs-slider color="primary"></v-tabs-slider>
-        <v-tab v-for="item in items" :key="item" :to="item.to"
-          >{{ item.title }}
+        <v-tab v-for="item in items" :key="item" :to="item.to">
+          {{ item.title }}
         </v-tab>
       </v-tabs>
     </v-app-bar>

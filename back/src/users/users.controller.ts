@@ -1,6 +1,17 @@
 import { User } from './user';
 import { UsersService } from './users.service';
-import { Controller, Get, Param, Body, Post, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Body,
+  Post,
+  Put,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
+import { LocalAuthGuard } from 'auth/shared/local-auth.guard';
 
 @Controller('users')
 export class UsersController {
@@ -19,6 +30,27 @@ export class UsersController {
   @Post()
   async create(@Body() user: User): Promise<User> {
     return this.usersService.create(user);
+  }
+
+  @Post('/signup')
+  async addUser(
+    @Body('password') userPassword: string,
+    @Body('username') userName: string,
+  ) {
+    const saltOrRounds = 10;
+    const hashedPassword = await bcrypt.hash(userPassword, saltOrRounds);
+    const result = await this.usersService.insertUser(userName, hashedPassword);
+    return {
+      msg: 'User successfully registered',
+      userId: result.id,
+      userName: result.username,
+    };
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Post('/login')
+  login(@Request() req): any {
+    return { User: req.user, msg: 'User logged in' };
   }
 
   @Put(':id')

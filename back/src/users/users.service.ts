@@ -21,11 +21,27 @@ export class UsersService {
 
   async create(user: User) {
     const createdUser = new this.userModel(user);
+    console.log(user);
     return await createdUser.save();
   }
 
   async update(id: string, user: User) {
     await this.userModel.updateOne({ _id: id }, User).exec();
     return this.getById(id);
+  }
+
+  async insertUser(userName: string, password: string) {
+    const username = userName.toLowerCase();
+    const newUser = new this.userModel({
+      username,
+      password,
+    });
+    await newUser.save();
+    return newUser;
+  }
+  async getUser(userName: string) {
+    const username = userName.toLowerCase();
+    const user = await this.userModel.findOne({ username });
+    return user;
   }
 }
