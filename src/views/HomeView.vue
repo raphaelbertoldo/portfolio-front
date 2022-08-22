@@ -3,11 +3,11 @@
     <div class="">
       <v-img
         src="../assets/ufo.png"
-        style="max-width: 320px; position: absolute; padding-left: -100px"
+        style="position: absolute; padding-left: -100px"
         class="float-air"
       ></v-img>
     </div>
-    <v-row class="align-center justify-center px-n16 mx-16 mt-n16">
+    <v-row class="align-center mt-16 d-flex justify-center px-n16 mx-16">
       <v-col cols="6" class="flex align-center">
         <!-- <h2 class="yellow--text">{{ me }}</h2> -->
         <div
@@ -15,11 +15,18 @@
           class="d-flex flex-column justify-center"
         >
           <p
-            class="gradiente-text-1 no-flex line typing-animation content pl-8"
+            class="
+              gradiente-yellow-1
+              no-flex
+              line
+              typing-animation
+              content
+              pl-8
+            "
           >
             Olá, meu nome e {{ me[0].firstName }},
           </p>
-          <p class="gradiente-text-1 line typing-animation2 pl-10">
+          <p class="gradiente-yellow-1 line typing-animation2 pl-10">
             sou desenvolvedor web.
           </p>
         </div>
@@ -36,12 +43,12 @@
         </div>
       </v-col>
       <v-col cols="6" class="flex d-flex align-center justify-center mt-n10">
-        <v-img
-          src="../assets/me-photo.png"
-          style="max-width: 720px"
-          class="pulse-op mt-n16"
-        >
-        </v-img>
+        <div
+          :class="$vuetify.breakpoint.mobile ? 'avatar-mb' : 'avatar '"
+          style="position: absolute"
+          class="shadow-fx-1"
+        ></div>
+
         <!-- <v-img
           src="../assets/me-photo.png"
           class="
@@ -55,6 +62,7 @@
           style="max-width: 420px"
         /> -->
       </v-col>
+      <div><h1 class="text--white">aq</h1></div>
     </v-row>
   </div>
 </template>
@@ -99,6 +107,21 @@ export default {
 };
 </script>
 <style scoped>
+.shadow-fx-1 {
+  filter: drop-shadow(0px 0px 40px #07aff2a6);
+}
+.avatar {
+  margin-top: 80px;
+  height: 702px;
+  width: 702px;
+  background: url(../assets/ReadyPlayerMe-Avatar.png) no-repeat;
+}
+.avatar-mb {
+  margin-top: 40px;
+  height: 400px;
+  width: 400;
+  background: url(../assets/ReadyPlayerMe-Avatar-mb.png) no-repeat;
+}
 .float-air {
   opacity: 0;
   margin-left: -300px;
@@ -164,17 +187,17 @@ export default {
 .show-me-1 {
   opacity: 0;
 
-  animation: delay 0.5s 10s forwards normal, pulse-neon 3s 12s infinite normal;
+  animation: delay 0.5s 8s forwards normal, pulse-neon 3s 12s infinite normal;
 }
 .show-me-2 {
   opacity: 0;
 
-  animation: delay 0.5s 10.5s forwards normal, pulse-neon 3s 12s infinite normal;
+  animation: delay 0.5s 8.5s forwards normal, pulse-neon 3s 12s infinite normal;
 }
 .show-me-3 {
   opacity: 0;
 
-  animation: delay 0.5s 11s forwards normal, pulse-neon 3s 12s infinite normal;
+  animation: delay 0.5s 9s forwards normal, pulse-neon 3s 12s infinite normal;
 }
 
 @keyframes delay {
@@ -205,11 +228,11 @@ export default {
 }
 .typing-animation {
   animation: blinkCursor 0.5s infinite normal,
-    hideCursor 0.5s 5s forwards normal, typing 3s steps(40) 1s normal both;
+    hideCursor 0.5s 5s forwards normal, typing 1.5s steps(40) 1s normal both;
 }
 .typing-animation2 {
   animation: blinkCursor 0.5s 5s infinite normal,
-    typing2 3s steps(40) 6s normal both;
+    typing2 1.5s steps(40) 6s normal both;
 }
 @keyframes typing {
   from {

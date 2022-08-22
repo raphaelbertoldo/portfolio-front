@@ -1,5 +1,6 @@
 <template class="">
   <v-app class="">
+    <!-- <div style="margin: 0; padding: 0: position: absolute">sdassadsad</div> -->
     <v-img
       style="
         position: fixed;

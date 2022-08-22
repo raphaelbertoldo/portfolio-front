@@ -19,7 +19,7 @@
           class=""
         >
           <v-list-item-content>
-            <v-list-item-title to="/habilidades" class="my-6 gradiente-text-1"
+            <v-list-item-title to="/habilidades" class="my-6 gradiente-yellow-1"
               ><h2>
                 {{ item.title }}
               </h2></v-list-item-title
