@@ -1,11 +1,12 @@
 <template class="red">
   <v-app
-    class=""
-    style="background-color: red; left: 0; top: 0; width: 100%; height: 100%"
+    class="no-scroll"
+    style="overflow: hidden; left: 0; top: 0; width: 100%; height: 100%"
   >
     <v-img
-      class="red"
+      class="d-flex"
       style="
+        overflow: hidden;
         position: fixed;
         filter: blur(20px);
         opacity: 0.5;
@@ -50,6 +51,7 @@ export default {
 .size-all {
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 
 .color-2 {

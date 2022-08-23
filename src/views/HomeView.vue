@@ -1,5 +1,5 @@
 <template>
-  <div class="flex size-all">
+  <div class="flex size-all black">
     <div class="d-flex" style="min-height: 100%; margin: 0">
       <v-img
         src="../assets/ufo.png"
@@ -21,9 +21,10 @@
         style="position: absolute"
         class="float-air-4"
       />
-      <v-row class="align-center d-flex justify-center pxcap-n16 mx-md-16">
+      <v-row class="align-center d-flex justify-center pa-n16 mx-md-16">
         <v-col cols="12" md="6">
           <div
+            v-if="!$vuetify.breakpoint.mobile"
             style="width: auto; max-width: 8em"
             class="d-flex flex-column justify-center"
           >
@@ -43,14 +44,76 @@
               sou desenvolvedor web.
             </p>
           </div>
-          <div class="d-flex flex flex-row-reverse mt-16">
-            <v-btn outlined color="primary" class="ml-8 show-me-3 blue-neon">
+          <div
+            v-if="$vuetify.breakpoint.mobile"
+            class="d-flex flex-column justify-center mx-auto mt-n16"
+          >
+            <div class="mx-auto" style="width: 330px">
+              <p
+                class="
+                  gradiente-yellow-1
+                  no-flex
+                  line-b
+                  typing-animation-b
+                  content
+                "
+              >
+                Olá, meu nome e Raphael,
+              </p>
+              <p class="gradiente-yellow-1 line-b typing-animation2-b">
+                sou desenvolvedor web.
+              </p>
+            </div>
+          </div>
+          <div
+            class="mt-16 d-flex mx-1 flex-row-reverse mb-16"
+            v-if="!$vuetify.breakpoint.mobile"
+          >
+            <v-btn
+              outlined
+              color="primary"
+              class="mx-4 my-2 show-me-3 blue-neon"
+            >
               HABILIDADES
             </v-btn>
-            <v-btn outlined color="primary" class="ml-8 show-me-2 blue-neon">
+            <v-btn
+              outlined
+              color="primary"
+              class="mx-4 my-2 show-me-2 blue-neon"
+            >
               PORTFÓLIO
             </v-btn>
-            <v-btn outlined color="primary" class="ml-8 show-me-1 blue-neon">
+            <v-btn
+              outlined
+              color="primary"
+              class="mx-4 my-2 show-me-1 blue-neon"
+            >
+              EXPERIÊNCIA
+            </v-btn>
+          </div>
+          <div
+            class="flex-column d-flex mx-16 mb-16"
+            v-if="$vuetify.breakpoint.mobile"
+          >
+            <v-btn
+              outlined
+              color="primary"
+              class="mx-10 my-2 show-me-3 blue-neon"
+            >
+              HABILIDADES
+            </v-btn>
+            <v-btn
+              outlined
+              color="primary"
+              class="mx-10 my-2 show-me-2 blue-neon"
+            >
+              PORTFÓLIO
+            </v-btn>
+            <v-btn
+              outlined
+              color="primary"
+              class="mx-10 my-2 show-me-1 blue-neon"
+            >
               EXPERIÊNCIA
             </v-btn>
           </div>
@@ -58,7 +121,7 @@
         <v-col
           cols="12"
           md="6"
-          class="flex d-flex align-center justify-center mt-n10"
+          class="flex d-flex align-center justify-center mt-md-n10"
         >
           <div style="position: absolute" class="shadow-fx-1 avatar"></div>
           <!-- <v-img
@@ -243,8 +306,13 @@ export default {
 }
 .line {
   border-right: 2px solid rgba(254, 106, 55, 0);
-
   font-size: 3em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.line-b {
+  border-right: 2px solid rgba(254, 106, 55, 0);
+  font-size: 22px;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -256,6 +324,14 @@ export default {
   animation: blinkCursor 0.5s 5s infinite normal,
     typing2 1.5s steps(40) 6s normal both;
 }
+.typing-animation-b {
+  animation: blinkCursor 0.5s infinite normal,
+    hideCursor 0.5s 5s forwards normal, typing-b 1.5s steps(40) 1s normal both;
+}
+.typing-animation2-b {
+  animation: blinkCursor 0.5s 5s infinite normal,
+    typing2-b 1.5s steps(40) 6s normal both;
+}
 @keyframes typing {
   from {
     width: 0;
@@ -265,12 +341,29 @@ export default {
     padding-right: -120px;
   }
 }
+@keyframes typing-b {
+  from {
+    width: 0;
+  }
+  to {
+    width: 330px;
+    padding-right: -120px;
+  }
+}
 @keyframes typing2 {
   from {
     width: 0;
   }
   to {
     width: 700px;
+  }
+}
+@keyframes typing2-b {
+  from {
+    width: 0;
+  }
+  to {
+    width: 300px;
   }
 }
 @keyframes blinkCursor {
