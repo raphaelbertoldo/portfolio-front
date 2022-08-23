@@ -46,7 +46,7 @@
           </div>
           <div
             v-if="$vuetify.breakpoint.mobile"
-            class="d-flex flex-column justify-center mx-auto mt-n16"
+            class="d-flex justify-center mx-auto mt-n16"
           >
             <div class="mx-auto" style="width: 330px">
               <p

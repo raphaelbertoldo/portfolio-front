@@ -11,7 +11,7 @@
         backdrop-filter: blur(5px);
       "
     >
-      <v-list dense nav class="pt-16 mt-16">
+      <v-list dense nav class="pt-md-16 mt-md-16">
         <v-list-item
           v-for="item in items"
           :key="item"
@@ -49,7 +49,7 @@
       <v-icon color="white" @click="drawerbar = !drawerbar">mdi-menu</v-icon>
 
       <v-tabs
-        v-if="!$vuetify.breakpoint.md"
+        v-if="!$vuetify.breakpoint.md && $vuetify.breakpoint.width > 600"
         class="d-flex justify-center"
         center-active
         dark
