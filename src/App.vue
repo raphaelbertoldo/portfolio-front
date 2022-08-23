@@ -1,15 +1,21 @@
-<template class="">
-  <v-app class="">
-    <!-- <div style="margin: 0; padding: 0: position: absolute">sdassadsad</div> -->
+<template class="red">
+  <v-app
+    class=""
+    style="background-color: red; left: 0; top: 0; width: 100%; height: 100%"
+  >
     <v-img
+      class="red"
       style="
         position: fixed;
-        opacity: 0.2;
-        filter: blur(3px);
+        filter: blur(20px);
+        opacity: 0.5;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
+        background-image: black;
+
+        background-color: black;
       "
       src="https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg"
     />
@@ -19,15 +25,13 @@
         !$route.path.startsWith('/admin') && $vuetify.breakpoint.width > 600
       "
     />
-    <v-main class="black">
-      <v-scroll-x-transition mode="in" hide-on-leave="true">
-        <router-view></router-view>
-      </v-scroll-x-transition>
+    <v-main>
+      <div class="size-all">
+        <v-scroll-x-transition mode="in" hide-on-leave="true">
+          <router-view></router-view>
+        </v-scroll-x-transition>
+      </div>
     </v-main>
-
-    <v-footer app class="transparent">
-      <!-- -->
-    </v-footer>
   </v-app>
 </template>
 
@@ -44,12 +48,10 @@ export default {
 </script>
 <style>
 .size-all {
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
-.black {
-  background-color: #13293d;
-}
+
 .color-2 {
   color: #006494;
 }

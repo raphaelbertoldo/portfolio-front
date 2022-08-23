@@ -1,8 +1,9 @@
 <template>
   <div>
     <v-navigation-drawer
-      app
-      dark
+      absolute
+      bottom
+      temporary
       v-model="drawerbar"
       class="d-flex elevation-0"
       style="
@@ -27,14 +28,14 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <template v-slot:append>
+      <!-- <template v-slot:append>
         <div class="pa-2">
           <v-btn block to="/admin/login">
             <v-icon small class="mr-2">mdi-lock-open-outline</v-icon>
             Painel Admin
           </v-btn>
         </div>
-      </template>
+      </template> -->
     </v-navigation-drawer>
     <v-app-bar
       app

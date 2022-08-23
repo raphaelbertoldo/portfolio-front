@@ -1,109 +1,96 @@
 <template>
-  <div class="d-flex" style="min-height: 100%">
-    <div class="">
+  <div class="flex size-all">
+    <div class="d-flex" style="min-height: 100%; margin: 0">
       <v-img
         src="../assets/ufo.png"
         style="position: absolute; padding-left: -100px"
         class="float-air"
-      ></v-img>
-    </div>
-    <v-row class="align-center mt-16 d-flex justify-center px-n16 mx-16">
-      <v-col cols="6" class="flex align-center">
-        <!-- <h2 class="yellow--text">{{ me }}</h2> -->
-        <div
-          style="width: auto; max-width: 15em"
-          class="d-flex flex-column justify-center"
-        >
-          <p
-            class="
-              gradiente-yellow-1
-              no-flex
-              line
-              typing-animation
-              content
-              pl-8
-            "
+      />
+      <v-img
+        src="../assets/ufo.png"
+        style="position: absolute"
+        class="float-air-2"
+      />
+      <v-img
+        src="../assets/ufo.png"
+        style="position: absolute"
+        class="float-air-3"
+      />
+      <v-img
+        src="../assets/ufo.png"
+        style="position: absolute"
+        class="float-air-4"
+      />
+      <v-row class="align-center d-flex justify-center pxcap-n16 mx-md-16">
+        <v-col cols="12" md="6">
+          <div
+            style="width: auto; max-width: 8em"
+            class="d-flex flex-column justify-center"
           >
-            Olá, meu nome e {{ me[0].firstName }},
-          </p>
-          <p class="gradiente-yellow-1 line typing-animation2 pl-10">
-            sou desenvolvedor web.
-          </p>
-        </div>
-        <div class="d-flex flex flex-row-reverse mt-16">
-          <v-btn outlined color="primary" class="ml-8 show-me-3 blue-neon">
-            HABILIDADES
-          </v-btn>
-          <v-btn outlined color="primary" class="ml-8 show-me-2 blue-neon">
-            PORTFÓLIO
-          </v-btn>
-          <v-btn outlined color="primary" class="ml-8 show-me-1 blue-neon">
-            EXPERIÊNCIA
-          </v-btn>
-        </div>
-      </v-col>
-      <v-col cols="6" class="flex d-flex align-center justify-center mt-n10">
-        <div
-          :class="$vuetify.breakpoint.mobile ? 'avatar-mb' : 'avatar '"
-          style="position: absolute"
-          class="shadow-fx-1"
-        ></div>
-
-        <!-- <v-img
-          src="../assets/me-photo.png"
-          class="
-            blue-neon
-            rounded-circle
-            gradiente-1
-            d-flex
-            align-center
-            justify-center
-          "
-          style="max-width: 420px"
-        /> -->
-      </v-col>
-      <div><h1 class="text--white">aq</h1></div>
-    </v-row>
+            <p
+              class="
+                gradiente-yellow-1
+                no-flex
+                line
+                typing-animation
+                content
+                pl-8
+              "
+            >
+              Olá, meu nome e Raphael,
+            </p>
+            <p class="gradiente-yellow-1 line typing-animation2 pl-10">
+              sou desenvolvedor web.
+            </p>
+          </div>
+          <div class="d-flex flex flex-row-reverse mt-16">
+            <v-btn outlined color="primary" class="ml-8 show-me-3 blue-neon">
+              HABILIDADES
+            </v-btn>
+            <v-btn outlined color="primary" class="ml-8 show-me-2 blue-neon">
+              PORTFÓLIO
+            </v-btn>
+            <v-btn outlined color="primary" class="ml-8 show-me-1 blue-neon">
+              EXPERIÊNCIA
+            </v-btn>
+          </div>
+        </v-col>
+        <v-col
+          cols="12"
+          md="6"
+          class="flex d-flex align-center justify-center mt-n10"
+        >
+          <div style="position: absolute" class="shadow-fx-1 avatar"></div>
+          <!-- <v-img
+            src="../assets/me-photo.png"
+            class="
+              blue-neon
+              rounded-circle
+              gradiente-1
+              d-flex
+              align-center
+              justify-center
+            "
+            style="max-width: 420px"
+          /> -->
+        </v-col>
+      </v-row>
+    </div>
+    <div>
+      <!-- <div style="position: absolute" class="shadow-fx-1 avatar"></div> -->
+    </div>
   </div>
 </template>
 
 <script>
-import me from "../services/me";
 export default {
-  created() {
-    this.postMe();
-  },
-  methods: {
-    // deleteUser(item) {
-    //   const id = item._id;
-    //   api
-    //     .delete(`/me/delete/${id}`)
-    //     .then(() => {
-    //       console.log("Usuário deletado com sucesso");
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // },
-  },
-  data() {
-    return {
-      me: null,
-    };
-  },
-  mounted() {
-    me.list()
-      .then((res) => {
-        this.me = res.data;
-        console.log(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
   name: "HomeView",
-
-  components: {},
+  data: () => ({
+    me: {
+      name: "Raphael",
+      lastname: "Ferreira Bertoldo",
+    },
+  }),
 };
 </script>
 <style scoped>
@@ -114,28 +101,66 @@ export default {
   margin-top: 80px;
   height: 702px;
   width: 702px;
-  background: url(../assets/ReadyPlayerMe-Avatar.png) no-repeat;
+  background: url(https://i.ibb.co/s3BX0f6/Ready-Player-Me-Avatar-5.png)
+    no-repeat;
 }
 .avatar-mb {
   margin-top: 40px;
-  height: 400px;
-  width: 400;
-  background: url(../assets/ReadyPlayerMe-Avatar-mb.png) no-repeat;
+  max-width: 200px;
+
+  background: url(https://i.ibb.co/cL4sjyh/Ready-Player-Me-Avatar-mb.png)
+    no-repeat;
 }
 .float-air {
   opacity: 0;
-  margin-left: -300px;
-  margin-top: -300px;
+  margin-left: 300px;
+  margin-top: 300px;
 
-  animation: float-airplane 8s 1s infinite normal;
+  animation: float-airplane 3s 4s;
+  animation-fill-mode: unset;
+}
+.float-air-2 {
+  /* opacity: 0; */
+  margin-left: 100%;
+  margin-top: 300px;
+  animation: float-airplane-2 2s 10s;
+  animation-fill-mode: unset;
+}
+.float-air-3 {
+  /* opacity: 0; */
+  max-width: 200px;
+  margin-left: 100%;
+  margin-top: 300px;
+  animation: float-airplane-2 3s 11s;
+  animation-fill-mode: unset;
+}
+.float-air-4 {
+  max-width: 200px;
+
+  /* opacity: 0; */
+  margin-left: 100%;
+  margin-top: 300px;
+  animation: float-airplane-2 3s 11.2s;
+  animation-fill-mode: unset;
 }
 .pulse-op {
   animation: pulseop 1s 0s 5s backwards alternate;
 }
+@keyframes float-airplane-2 {
+  0% {
+    transform: rotate(10deg);
+    margin-top: 300px;
+    margin-left: 100%;
+  }
+  100% {
+    transform: rotate(30deg);
+    margin-top: 0px;
+    margin-left: -100%;
+  }
+}
 @keyframes float-airplane {
   0% {
     opacity: 0;
-
     margin-left: -300px;
     margin-top: -300px;
   }
@@ -186,17 +211,14 @@ export default {
 }
 .show-me-1 {
   opacity: 0;
-
   animation: delay 0.5s 8s forwards normal, pulse-neon 3s 12s infinite normal;
 }
 .show-me-2 {
   opacity: 0;
-
   animation: delay 0.5s 8.5s forwards normal, pulse-neon 3s 12s infinite normal;
 }
 .show-me-3 {
   opacity: 0;
-
   animation: delay 0.5s 9s forwards normal, pulse-neon 3s 12s infinite normal;
 }
 
@@ -239,7 +261,7 @@ export default {
     width: 0;
   }
   to {
-    width: 15em;
+    width: 740px;
     padding-right: -120px;
   }
 }
@@ -248,7 +270,7 @@ export default {
     width: 0;
   }
   to {
-    width: 14em;
+    width: 700px;
   }
 }
 @keyframes blinkCursor {
