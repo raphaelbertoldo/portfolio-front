@@ -6,7 +6,10 @@
           v-for="(skill, i) in skills"
           :key="i"
           :class="
-            i === 6 || i === 18 || i === 30 || i === 42 ? 'ml-7 mt-n4' : ''
+            (i === 6 || i === 18 || i === 30 || i === 42) &&
+            !$vuetify.breakpoint.mobile
+              ? 'ml-7 mt-n4'
+              : ''
           "
         >
           <div
@@ -23,33 +26,41 @@
           </div>
         </div>
       </v-col>
-      {{ skills }}
+      <!-- {{ skills }} -->
     </v-row>
   </div>
 </template>
 <style scoped>
 </style>
 <script>
-import skills from "@/services/skills";
 export default {
-  mounted() {
-    this.getSkills();
-  },
-  methods: {
-    getSkills() {
-      return skills
-        .list()
-        .then((res) => {
-          this.skills = res.data;
-          console.log(res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
   data: () => ({
-    skills: [],
+    skills: [
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+    ],
   }),
 };
 </script>

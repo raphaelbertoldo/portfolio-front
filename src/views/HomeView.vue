@@ -46,7 +46,7 @@
           </div>
           <div
             v-if="$vuetify.breakpoint.mobile"
-            class="d-flex justify-center mx-auto mt-n16"
+            class="d-flex justify-center mx-auto mt-n14"
           >
             <div class="mx-auto" style="width: 330px">
               <p
@@ -121,9 +121,21 @@
         <v-col
           cols="12"
           md="6"
-          class="flex d-flex align-center justify-center mt-md-n10"
+          class="
+            flex
+            d-flex
+            align-center
+            justify-center
+            mt-md-n10
+            ml-6
+            mt-6
+            mb-n16
+          "
         >
-          <div style="position: absolute" class="shadow-fx-1 avatar"></div>
+          <div
+            style="position: absolute"
+            class="shadow-fx-1 avatar-mb mx-auto pl-6"
+          ></div>
           <!-- <v-img
             src="../assets/me-photo.png"
             class="
@@ -138,9 +150,6 @@
           /> -->
         </v-col>
       </v-row>
-    </div>
-    <div>
-      <!-- <div style="position: absolute" class="shadow-fx-1 avatar"></div> -->
     </div>
   </div>
 </template>
@@ -168,10 +177,10 @@ export default {
     no-repeat;
 }
 .avatar-mb {
-  margin-top: 40px;
-  max-width: 200px;
-
-  background: url(https://i.ibb.co/cL4sjyh/Ready-Player-Me-Avatar-mb.png)
+  margin-top: 80px;
+  height: 702px;
+  width: 375px;
+  background: url(https://i.ibb.co/khbw2Qj/Ready-Player-Me-Avatar-mobile.png)
     no-repeat;
 }
 .float-air {
