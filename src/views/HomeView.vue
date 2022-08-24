@@ -164,8 +164,7 @@ export default {
   margin-top: 80px;
   height: 702px;
   width: 702px;
-  background: url(https://i.ibb.co/s3BX0f6/Ready-Player-Me-Avatar-5.png)
-    no-repeat;
+  background: url(https://i.ibb.co/yBSvLXX/Ready-Player-Me-Avatar.png) no-repeat;
 }
 .avatar-mb {
   margin-top: 80px;
