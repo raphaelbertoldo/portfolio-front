@@ -1,12 +1,14 @@
 <template>
-  <div class="">
+  <div class="" style="overflow: auto">
     <div class="my-md-10 my-4 flex d-flex block">
       <h1 class="mx-auto block white--text mb-6">Skills</h1>
     </div>
     <v-row class="d-flex flex-columns">
       <div
         :style="
-          $vuetify.breakpoint.width > 650 ? 'width: 1125px' : 'width: 375px'
+          $vuetify.breakpoint.width > 650
+            ? 'min-width: 1125px; max-width: 1125px'
+            : 'width: 375px'
         "
         class="d-flex flex-wrap px-4"
         :class="$vuetify.breakpoint.width > 650 ? 'mx-16' : 'mx-auto'"
