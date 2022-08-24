@@ -121,20 +121,11 @@
         <v-col
           cols="12"
           md="6"
-          class="
-            flex
-            d-flex
-            align-center
-            justify-center
-            mt-md-n10
-            ml-6
-            mt-6
-            mb-n16
-          "
+          class="flex d-flex align-center justify-center mt-md-n10 mt-6 mb-n16"
         >
           <div
             style="position: absolute"
-            class="shadow-fx-1 avatar-mb mx-auto pl-6"
+            class="shadow-fx-1 avatar mx-auto pl-6"
           ></div>
           <!-- <v-img
             src="../assets/me-photo.png"

@@ -1,24 +1,36 @@
 <template>
-  <div class="d-flex flex-wrap ma-10">
+  <div class="d-flex flex-wrap ma-md-10">
     <v-row>
-      <v-col cols="8" class="d-flex flex-wrap">
+      <v-col
+        style="position: fixed"
+        cols="12"
+        :md="$vuetify.breakpoint.width ? 8 : 8"
+        class="d-flex flex-wrap mx-md-16 px-md-16"
+      >
         <div
           v-for="(skill, i) in skills"
           :key="i"
           :class="
             (i === 6 || i === 18 || i === 30 || i === 42) &&
             !$vuetify.breakpoint.mobile
-              ? 'ml-7 mt-n4'
+              ? 'ml-md-7 mt-md-n4'
               : ''
           "
         >
           <div
-            class="hexagon ma-2 d-flex align-center justify-center text-center"
+            class="
+              hexagon
+              ma-md-2
+              d-flex
+              align-center
+              justify-center
+              text-center
+            "
             :class="
               i === 6 || i === 18 || i === 30 || i === 42
-                ? 'ml-16 mt-n4'
+                ? 'ml-md-16 mt-md-n4'
                 : '' || i > 5
-                ? 'mt-n8'
+                ? 'mt-md-n8'
                 : ''
             "
           >
@@ -37,7 +49,19 @@ export default {
   data: () => ({
     skills: [
       {
-        skillame: "HTML5",
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
         experience: "HTML5",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
@@ -49,7 +73,211 @@ export default {
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
         skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillame: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
+        experience: "HTML5",
+        description:
+          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+      },
+      {
+        skillName: "HTML5",
         experience: "HTML5",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
