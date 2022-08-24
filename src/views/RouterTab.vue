@@ -2,7 +2,6 @@
   <div class="">
     <v-navigation-drawer
       absolute
-      bottom
       temporary
       v-model="drawerbar"
       class="d-flex elevation-0"
@@ -11,18 +10,18 @@
         backdrop-filter: blur(5px);
       "
     >
-      <v-list dense nav class="pt-md-16 mt-md-16">
+      <v-list dense nav class="mt-16">
         <v-list-item
-          v-for="(item, i) in items"
+          v-for="(itemDrawerBar, i) in items"
           :key="i"
           link
-          :to="item.to"
+          :to="itemDrawerBar.to"
           class=""
         >
           <v-list-item-content>
             <v-list-item-title to="/habilidades" class="my-6 gradiente-yellow-1"
               ><h2>
-                {{ item.title }}
+                {{ itemDrawerBar.title }}
               </h2></v-list-item-title
             >
           </v-list-item-content>
@@ -56,7 +55,7 @@
         color="secondary"
       >
         <v-tabs-slider color="primary"></v-tabs-slider>
-        <v-tab v-for="item in items" :key="item" :to="item.to">
+        <v-tab v-for="(item, ii) in items" :key="ii" :to="item.to">
           {{ item.title }}
         </v-tab>
       </v-tabs>
@@ -69,13 +68,9 @@ export default {
     return {
       drawerbar: false,
       topbar: true,
-
       items: [
         { title: "Inicio", to: "/" },
         { title: "Habilidades", to: "/habilidades" },
-        { title: "Portfólio", to: "/habilidades" },
-        { title: "Experiência", to: "/habilidades" },
-        { title: "Contato", to: "/habilidades" },
       ],
       right: null,
     };

@@ -1,9 +1,14 @@
 <template>
-  <div class="" style="overflow: auto">
-    <div class="my-md-10 my-4 flex d-flex block">
-      <h1 class="mx-auto block white--text mb-6">Skills</h1>
+  <div class="">
+    <div class="align-centermy-md-10 my-4 flex d-flex block ml-16 pl-16">
+      <v-icon size="80" class="gradiente-yellow-1 mx-6"
+        >mdi-account-hard-hat-outline
+      </v-icon>
+      <h1 class="block gradiente-yellow-1 mt-4" style="font-size: 42pt">
+        Skills
+      </h1>
     </div>
-    <v-row class="d-flex flex-columns">
+    <v-row class="d-flex flex-columns" style="overflow: auto">
       <div
         :style="
           $vuetify.breakpoint.width > 650
@@ -74,7 +79,6 @@
           </div>
         </div>
       </div>
-
       <!-- {{ skills }} -->
     </v-row>
   </div>

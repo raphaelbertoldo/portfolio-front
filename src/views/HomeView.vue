@@ -73,13 +73,15 @@
             v-if="!$vuetify.breakpoint.mobile"
           >
             <v-btn
+              v-for="(btn, b) in routesBtns"
+              :key="b"
               outlined
               color="primary"
               class="mx-4 my-2 show-me-3 blue-neon"
             >
-              HABILIDADES
+              <roter-link :to="btn.to">{{ btn.title }}</roter-link>
             </v-btn>
-            <v-btn
+            <!-- <v-btn
               outlined
               color="primary"
               class="mx-4 my-2 show-me-2 blue-neon"
@@ -92,7 +94,7 @@
               class="mx-4 my-2 show-me-1 blue-neon"
             >
               EXPERIÊNCIA
-            </v-btn>
+            </v-btn> -->
           </div>
           <div
             class="flex-column d-flex mx-16 mb-16"
@@ -156,6 +158,10 @@ export default {
       name: "Raphael",
       lastname: "Ferreira Bertoldo",
     },
+    routesBtns: [
+      { title: "Inicio", to: "/" },
+      { title: "Habilidades", to: "/habilidades" },
+    ],
   }),
 };
 </script>

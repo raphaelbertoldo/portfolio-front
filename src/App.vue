@@ -15,13 +15,12 @@
         width: 100%;
         height: 100%;
         background-image: black;
-
         background-color: black;
       "
       src="https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg"
     />
 
-    <RouterTab v-if="!$route.path.startsWith('/admin')" />
+    <RouterTab />
     <v-main class="black">
       <div class="size-all">
         <router-view></router-view>
