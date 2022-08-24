@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <v-navigation-drawer
       absolute
       bottom
@@ -13,8 +13,8 @@
     >
       <v-list dense nav class="pt-md-16 mt-md-16">
         <v-list-item
-          v-for="item in items"
-          :key="item"
+          v-for="(item, i) in items"
+          :key="i"
           link
           :to="item.to"
           class=""
@@ -42,7 +42,7 @@
       v-model="topbar"
       class="elevation-0"
       style="
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(5px);
       "
     >
@@ -68,6 +68,8 @@ export default {
   data() {
     return {
       drawerbar: false,
+      topbar: true,
+
       items: [
         { title: "Inicio", to: "/" },
         { title: "Habilidades", to: "/habilidades" },

@@ -58,8 +58,10 @@
 .hexagon:hover {
     clip-path: polygon(50% 0, 100% 25%, 100% 72%, 50% 100%, 0 75%, 0 25%);
     width: 150px;
+    cursor: pointer;
     height: 170px;
     background: #68e2ff
+    
 
 
 }

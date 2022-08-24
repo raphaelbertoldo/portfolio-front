@@ -1,5 +1,8 @@
 <template>
-  <div class="flex size-all black">
+  <div class="flex size-all background-back-1">
+    <img
+      src="https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg"
+    />
     <div class="d-flex" style="min-height: 100%; margin: 0">
       <v-img
         src="../assets/ufo.png"
@@ -157,6 +160,30 @@ export default {
 };
 </script>
 <style scoped>
+.background-back-1 {
+  position: relative;
+  overflow: hidden;
+  background: rgb(2, 41, 56);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 41, 56, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.background-back-1 div {
+  position: relative;
+  z-index: 2;
+}
+.background-back-1 img {
+  /* background-image: url(https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg); */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0.2;
+  filter: blur(4px);
+}
 .shadow-fx-1 {
   filter: drop-shadow(0px 0px 40px #07aff2a6);
 }
@@ -177,7 +204,6 @@ export default {
   opacity: 0;
   margin-left: 300px;
   margin-top: 300px;
-
   animation: float-airplane 3s 4s;
   animation-fill-mode: unset;
 }
@@ -198,7 +224,6 @@ export default {
 }
 .float-air-4 {
   max-width: 200px;
-
   /* opacity: 0; */
   margin-left: 100%;
   margin-top: 300px;

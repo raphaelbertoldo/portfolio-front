@@ -1,6 +1,6 @@
 <template class="red">
   <v-app
-    class="no-scroll"
+    class="black no-scroll"
     style="overflow: hidden; left: 0; top: 0; width: 100%; height: 100%"
   >
     <v-img
@@ -22,11 +22,9 @@
     />
 
     <RouterTab v-if="!$route.path.startsWith('/admin')" />
-    <v-main>
+    <v-main class="black">
       <div class="size-all">
-        <v-scroll-x-transition mode="in" hide-on-leave="true">
-          <router-view></router-view>
-        </v-scroll-x-transition>
+        <router-view></router-view>
       </div>
     </v-main>
   </v-app>
