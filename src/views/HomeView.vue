@@ -79,7 +79,7 @@
               color="primary"
               class="mx-4 my-2 show-me-3 blue-neon"
             >
-              <roter-link :to="btn.to">{{ btn.title }}</roter-link>
+              <!-- <roter-link :to="btn.to">{{ btn.title }}</roter-link> -->
             </v-btn>
             <!-- <v-btn
               outlined
@@ -166,30 +166,6 @@ export default {
 };
 </script>
 <style scoped>
-.background-back-1 {
-  position: relative;
-  overflow: hidden;
-  background: rgb(2, 41, 56);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 41, 56, 1) 0%,
-    rgba(0, 0, 0, 1) 100%
-  );
-}
-.background-back-1 div {
-  position: relative;
-  z-index: 2;
-}
-.background-back-1 img {
-  /* background-image: url(https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg); */
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-  opacity: 0.2;
-  filter: blur(4px);
-}
 .shadow-fx-1 {
   filter: drop-shadow(0px 0px 40px #07aff2a6);
 }
@@ -221,7 +197,6 @@ export default {
   animation-fill-mode: unset;
 }
 .float-air-3 {
-  /* opacity: 0; */
   max-width: 200px;
   margin-left: 100%;
   margin-top: 300px;
@@ -229,8 +204,7 @@ export default {
   animation-fill-mode: unset;
 }
 .float-air-4 {
-  max-width: 200px;
-  /* opacity: 0; */
+  max-width: 150px;
   margin-left: 100%;
   margin-top: 300px;
   animation: float-airplane-2 3s 11.2s;

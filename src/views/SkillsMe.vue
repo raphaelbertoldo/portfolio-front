@@ -1,14 +1,12 @@
 <template>
   <div class="">
-    <div class="align-centermy-md-10 my-4 flex d-flex block ml-16 pl-16">
-      <v-icon size="80" class="gradiente-yellow-1 mx-6"
-        >mdi-account-hard-hat-outline
-      </v-icon>
+    <div class="align-center my-md-10 my-4 flex d-flex block ml-md-16 pl-md-16">
+      <v-icon size="80" class="gradiente-yellow-1 mx-md-6">mdi-bee </v-icon>
       <h1 class="block gradiente-yellow-1 mt-4" style="font-size: 42pt">
         Skills
       </h1>
     </div>
-    <v-row class="d-flex flex-columns" style="overflow: auto">
+    <div class="d-flex" style="overflow: auto">
       <div
         :style="
           $vuetify.breakpoint.width > 650
@@ -47,7 +45,16 @@
           "
         >
           <div
-            class="hexagon ma-2 d-flex align-center justify-center text-center"
+            @click="selectSkill(i)"
+            class="
+              hexagon
+              gradiente-blue
+              ma-2
+              d-flex
+              align-center
+              justify-center
+              text-center
+            "
             :class="
               $vuetify.breakpoint.width > 650
                 ? i === 6 || i === 18 || i === 30 || i === 42
@@ -75,257 +82,265 @@
                 : ''
             "
           >
-            <span>{{ skill.skillName }}</span>
+            <div class="">
+              <v-img max-width="80px" :src="skill.url"></v-img>
+            </div>
           </div>
         </div>
       </div>
-      <!-- {{ skills }} -->
-    </v-row>
+      <v-card
+        v-if="$vuetify.breakpoint.width > 1500"
+        class="
+          ml-n8 ml-md-n16
+          d-flex
+          mx-auto
+          glass-fx
+          gradiente-blue
+          rounded-xl
+        "
+        style="width: 500px"
+      >
+        <div class="d-flex ma-4">
+          <v-img
+            class="mt-6"
+            :src="selectSkillCard.url"
+            max-width="100px"
+            max-height="100px"
+          />
+          <div style="width: 350px">
+            <v-card-title class="font-weight-bold">{{
+              selectSkillCard.skillName
+            }}</v-card-title>
+            <v-card-subtitle class="mt-1">{{
+              selectSkillCard.description
+            }}</v-card-subtitle>
+          </div>
+        </div>
+      </v-card>
+    </div>
   </div>
 </template>
 <style scoped>
 </style>
 <script>
 export default {
+  methods: {
+    selectSkill(i) {
+      this.selectSkillCard = this.skills[i];
+    },
+  },
   data: () => ({
+    selectSkillCard: "",
     skills: [
       {
-        skillName: "HTML5",
+        skillName: "HTML5 1",
         experience: "HTML5",
+        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
+        description:
+          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
+      },
+      {
+        skillName: "CSS3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
+      },
+      {
+        skillName: "HTML5 3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 1",
         experience: "HTML5",
+        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
+        description:
+          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
+      },
+      {
+        skillName: "CSS3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
+      },
+      {
+        skillName: "HTML5 3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 1",
         experience: "HTML5",
+        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
+        description:
+          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
+      },
+      {
+        skillName: "CSS3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
+      },
+      {
+        skillName: "HTML5 3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 1",
         experience: "HTML5",
+        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
+        description:
+          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
+      },
+      {
+        skillName: "CSS3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
+      },
+      {
+        skillName: "HTML5 3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 1",
         experience: "HTML5",
+        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
+        description:
+          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
+      },
+      {
+        skillName: "CSS3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
+      },
+      {
+        skillName: "HTML5 3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 1",
         experience: "HTML5",
+        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
+        description:
+          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
+      },
+      {
+        skillName: "CSS3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
+      },
+      {
+        skillName: "HTML5 3",
+        experience: "HTML5",
+        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },
       {
-        skillName: "HTML5",
+        skillName: "HTML5 4",
         experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5",
-        experience: "HTML5",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
           "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
       },

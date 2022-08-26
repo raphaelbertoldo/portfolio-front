@@ -19,28 +19,78 @@
       "
       src="https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg"
     />
-
     <RouterTab />
     <v-main class="black">
-      <div class="size-all">
-        <router-view></router-view>
-      </div>
+      <v-dialog
+        fullscreen
+        hide-overlay
+        v-model="dialog"
+        persistent
+        class="close"
+      >
+        {{ closeComp }}
+        <LoadingPage :dialog="dialog" :closeComp="closeComp" class="close" />
+      </v-dialog>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import RouterTab from "../src/views/RouterTab.vue";
+import LoadingPage from "./components/LoadingPage.vue";
 export default {
   name: "App",
-  components: { RouterTab },
+  methods: {
+    closeDialog() {
+      console.log("okok");
+
+      setTimeout(function () {
+        this.dialog = false;
+        console.log(this.dialog);
+        return this.dialog;
+      }, 1000);
+    },
+  },
+  computed: {
+    closeComp() {
+      return this.dialog;
+    },
+  },
+  // methods: {
+  //   closeDialog() {
+  //     console.log("okok");
+  //     setTimeout(function () {
+  //       this.dialog = false;
+  //       console.log(this.dialog);
+  //     }, 1000);
+  //   },
+  // },
+  components: { RouterTab, LoadingPage },
   data: () => ({
     topbar: true,
     drawerbar: false,
+    dialog: false,
   }),
 };
 </script>
 <style>
+.close {
+  /* animation: closeAnim 1s 2s both normal; */
+  display: none;
+}
+@keyframes closeAnim {
+  from {
+  }
+  to {
+    display: none;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.7) -50%,
+      rgb(0, 255, 68) 100%
+    );
+  }
+}
 .size-all {
   width: 100%;
   height: 100%;
