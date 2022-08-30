@@ -83,14 +83,21 @@
             "
           >
             <div class="">
-              <v-img max-width="80px" :src="skill.url"></v-img>
+              <v-img max-width="80px" :src="skill.url" class="shadow-2"></v-img>
             </div>
           </div>
         </div>
       </div>
       <v-card
         v-if="$vuetify.breakpoint.width > 1500"
+        :style="
+          selectSkillCard.skillName
+            ? 'min-height: auto'
+            : 'max-height: 100px; min-height: auto'
+        "
         class="
+          align-center
+          justify-center
           ml-n8 ml-md-n16
           d-flex
           mx-auto
@@ -98,22 +105,30 @@
           gradiente-blue
           rounded-xl
         "
-        style="width: 500px"
       >
-        <div class="d-flex ma-4">
-          <v-img
-            class="mt-6"
-            :src="selectSkillCard.url"
-            max-width="100px"
-            max-height="100px"
-          />
-          <div style="width: 350px">
-            <v-card-title class="font-weight-bold">{{
-              selectSkillCard.skillName
-            }}</v-card-title>
-            <v-card-subtitle class="mt-1">{{
-              selectSkillCard.description
-            }}</v-card-subtitle>
+        <div
+          class="mx-4 d-flex align-center justify-center"
+          style="height: auto"
+        >
+          <div class="ma-4">
+            <v-img
+              class="shadow-2"
+              :src="selectSkillCard.url"
+              max-width="100px"
+              max-height="100px"
+            />
+          </div>
+          <div
+            style="width: 350px"
+            key=""
+            :class="!selectSkillCard.skillName ? 'd-flex align-center' : ''"
+          >
+            <v-card-title class="font-weight-bold">
+              {{ selectSkillCard.skillName || "Selecione uma HardSkill" }}
+            </v-card-title>
+            <v-card-subtitle class="mt-1">
+              {{ selectSkillCard.description }}
+            </v-card-subtitle>
           </div>
         </div>
       </v-card>
@@ -121,6 +136,10 @@
   </div>
 </template>
 <style scoped>
+.shadow-2 {
+  /* -8px 11px 7px 18px rgba(0,0,0,0.89) */
+  filter: drop-shadow(-5px 10px 1px #000000a6);
+}
 </style>
 <script>
 export default {
@@ -133,216 +152,60 @@ export default {
     selectSkillCard: "",
     skills: [
       {
-        skillName: "HTML5 1",
-        experience: "HTML5",
+        skillName: "HTML5",
+        experience: "Avançado",
         url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
         description:
-          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
+          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML.",
       },
       {
         skillName: "CSS3",
-        experience: "HTML5",
+        experience: "Avançado",
         url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
+        description:
+          "Cascading Style Sheets é um mecanismo para adicionar estilo a um documento web. O código CSS pode ser aplicado diretamente nas tags ou ficar contido dentro das tags <style>. Também é possível, em vez de colocar a formatação dentro do documento, criar um link para um arquivo CSS que contém os estilos.",
       },
       {
-        skillName: "HTML5 3",
-        experience: "HTML5",
+        skillName: "JavaScript",
+        experience: "Avnaçado",
         url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
         description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+          "JavaScript é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma. Juntamente com HTML e CSS, o JavaScript é uma das três principais tecnologias da World Wide Web.",
       },
       {
-        skillName: "HTML5 4",
-        experience: "HTML5",
+        skillName: "NodeJs",
+        experience: "Intermediário",
         url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
         description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+          "Node.js é um software de código aberto, multiplataforma, baseado no interpretador V8 do Google e que permite a execução de códigos JavaScript fora de um navegador web. ",
       },
       {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
+        skillName: "TypeScript",
+        experience: "Intermediário",
+        url: "https://i.ibb.co/hWzqGzs/640px-Devicon-css3-plain-svg-3.png",
         description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+          "TypeScript é uma linguagem de programação de código aberto desenvolvida pela Microsoft. É um superconjunto sintático estrito de JavaScript e adiciona tipagem estática opcional à linguagem.",
       },
       {
-        skillName: "HTML5 1",
-        experience: "HTML5",
-        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
+        skillName: "NestJs",
+        experience: "Intermediário",
+        url: "https://i.ibb.co/jV1DTsX/640px-Devicon-css3-plain-svg-4.png",
         description:
-          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
+          "NestJS é um framework Node.js de código aberto destinado ao desenvolvimento de aplicativos do lado do servidor. Foi criado por Kamil Mysliwiec e lançado em 2017. Sob o capô, por padrão, o NestJS faz uso do framework Express.js, sendo também compatível com o Fastify. Sua arquitetura é fortemente inspirada no Angular.",
       },
       {
-        skillName: "CSS3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
-      },
-      {
-        skillName: "HTML5 3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
+        skillName: "Vue",
+        experience: "Avançado",
+        url: "https://i.ibb.co/swCHVYh/vue.png",
         description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+          "Vue.js é um framework JavaScript de código-aberto, focado no desenvolvimento de interfaces de usuário e aplicativos de página única.",
       },
       {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
+        skillName: "Vuetify",
+        experience: "Avançado",
+        url: "https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-light.svg",
         description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 1",
-        experience: "HTML5",
-        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
-        description:
-          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
-      },
-      {
-        skillName: "CSS3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
-      },
-      {
-        skillName: "HTML5 3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 1",
-        experience: "HTML5",
-        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
-        description:
-          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
-      },
-      {
-        skillName: "CSS3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
-      },
-      {
-        skillName: "HTML5 3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 1",
-        experience: "HTML5",
-        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
-        description:
-          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
-      },
-      {
-        skillName: "CSS3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
-      },
-      {
-        skillName: "HTML5 3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 1",
-        experience: "HTML5",
-        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
-        description:
-          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML. ",
-      },
-      {
-        skillName: "CSS3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
-      },
-      {
-        skillName: "HTML5 3",
-        experience: "HTML5",
-        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
-      },
-      {
-        skillName: "HTML5 4",
-        experience: "HTML5",
-        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
-        description:
-          "HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5HTML5",
+          "Vuetify é uma biblioteca de interface do usuário Vue com componentes de material lindamente artesanais.",
       },
     ],
   }),

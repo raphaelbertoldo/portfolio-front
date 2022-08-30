@@ -75,39 +75,30 @@
             <v-btn
               v-for="(btn, b) in routesBtns"
               :key="b"
-              outlined
+              :to="btn.to"
               color="primary"
-              class="mx-4 my-2 show-me-3 blue-neon"
+              outlined
+              class="mx-4 my-2 blue-neon"
+              :class="btn.class"
             >
-              <!-- <roter-link :to="btn.to">{{ btn.title }}</roter-link> -->
+              {{ btn.title }}
             </v-btn>
-            <!-- <v-btn
-              outlined
-              color="primary"
-              class="mx-4 my-2 show-me-2 blue-neon"
-            >
-              PORTFÓLIO
-            </v-btn>
-            <v-btn
-              outlined
-              color="primary"
-              class="mx-4 my-2 show-me-1 blue-neon"
-            >
-              EXPERIÊNCIA
-            </v-btn> -->
           </div>
           <div
             class="flex-column d-flex mx-16 mb-16"
             v-if="$vuetify.breakpoint.mobile"
           >
             <v-btn
-              outlined
+              v-for="(btn, b) in routesBtns"
+              :key="b"
+              :to="btn.to"
               color="primary"
-              class="mx-10 my-2 show-me-3 blue-neon"
+              class="mx-10 my-2 blue-neon"
+              :class="btn.class"
             >
-              HABILIDADES
+              {{ btn.title }}
             </v-btn>
-            <v-btn
+            <!-- <v-btn
               outlined
               color="primary"
               class="mx-10 my-2 show-me-2 blue-neon"
@@ -120,7 +111,7 @@
               class="mx-10 my-2 show-me-1 blue-neon"
             >
               EXPERIÊNCIA
-            </v-btn>
+            </v-btn> -->
           </div>
         </v-col>
         <v-col
@@ -159,8 +150,9 @@ export default {
       lastname: "Ferreira Bertoldo",
     },
     routesBtns: [
-      { title: "Inicio", to: "/" },
-      { title: "Habilidades", to: "/habilidades" },
+      { title: "Habilidades", to: "/habilidades", class: "show-me-1" },
+      { title: "Projetos", to: "/projetos", class: "show-me-2" },
+      { title: "Contato", to: "/contato", class: "show-me-3" },
     ],
   }),
 };
