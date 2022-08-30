@@ -165,14 +165,13 @@ export default {
   margin-top: 80px;
   height: 702px;
   width: 702px;
-  background: url(https://i.ibb.co/yBSvLXX/Ready-Player-Me-Avatar.png) no-repeat;
+  background: url(https://i.ibb.co/bmvSS7D/avatar.png) no-repeat;
 }
 .avatar-mb {
   margin-top: 80px;
   height: 702px;
   width: 375px;
-  background: url(https://i.ibb.co/khbw2Qj/Ready-Player-Me-Avatar-mobile.png)
-    no-repeat;
+  background: url(https://i.ibb.co/0DtsJmM/avatar-mb.png) no-repeat;
 }
 .float-air {
   opacity: 0;
