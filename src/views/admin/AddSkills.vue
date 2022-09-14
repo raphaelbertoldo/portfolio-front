@@ -65,12 +65,12 @@
           class="blue-neon-1 mt-6"
         />
         <v-text-field
-          v-model="experienceField"
+          v-model="imgField"
           hide-details
           dark
           outlined
           color="blue"
-          placeholder="Experiência"
+          placeholder="Link da imagem"
           class="blue-neon-1 mt-4"
         />
         <v-textarea
@@ -126,8 +126,8 @@ export default {
     async addSkill() {
       api
         .post("skills", {
-          skillName: this.skillNameField,
-          experience: this.experienceField,
+          name: this.skillNameField,
+          img: this.imgField,
           description: this.descriptionField,
         })
         .then(() => {
@@ -156,18 +156,16 @@ export default {
   data() {
     return {
       skillNameField: "",
-      experienceField: "",
+      imgField: "",
       descriptionField: "",
       skillForm: false,
       searchField: "",
       skills: [],
-      skillse: [
-        { skillName: "teste", experience: "teste", description: "teste" },
-      ],
+      skillse: [{ name: "teste", img: "teste", description: "teste" }],
 
       headers: [
-        { text: "Habilidade", value: "skillName", class: "primary--text " },
-        { text: "Experiência", value: "experience", class: "primary--text " },
+        { text: "Habilidade", value: "name", class: "primary--text " },
+        { text: "Link da imagem", value: "imgField", class: "primary--text " },
         { text: "Descrição", value: "description", class: "primary--text" },
         { text: "Editar", value: "edit", class: "primary--text" },
         { text: "Deletar", value: "delete", class: "primary--text" },
