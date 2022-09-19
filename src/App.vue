@@ -12,7 +12,7 @@
         overflow: hidden;
         position: fixed;
         filter: blur(20px);
-        opacity: 0.5;
+        opacity: 0.7;
         left: 0;
         top: 0;
         width: 100%;

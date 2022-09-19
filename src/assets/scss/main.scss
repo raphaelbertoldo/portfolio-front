@@ -162,6 +162,9 @@
   background-color: rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(5px) !important;
 }
+.shadow-fx-1 {
+  filter: drop-shadow(0px 0px 40px #07aff2a6);
+}
 .shadow-2 {
   filter: drop-shadow(-8px 11px 7px -2px rgba(0, 0, 0, 0.89));
 }

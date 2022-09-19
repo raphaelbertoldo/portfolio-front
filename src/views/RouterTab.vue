@@ -72,6 +72,7 @@ export default {
         { title: "Inicio", to: "/" },
         { title: "Habilidades", to: "/habilidades" },
         { title: "Projetos", to: "/projetos" },
+        { title: "Contato", to: "/contato" },
       ],
       right: null,
     };

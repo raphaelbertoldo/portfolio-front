@@ -41,6 +41,7 @@
               </v-card-subtitle>
               <v-card-subtitle class="mt-1">
                 <a
+                  v-if="proj.link"
                   :href="proj.link"
                   target="blank"
                   style="text-decoration: none"
@@ -56,6 +57,8 @@
 </template>
 <script>
 export default {
+  name: "ProjectsView",
+
   data() {
     return {
       projects: [
@@ -63,14 +66,21 @@ export default {
           name: "Jogo da Velha",
           img: "https://i.ibb.co/0K9H72X/Screenshot-from-2022-09-19-12-06-58.png",
           description:
-            "Projeto 100% autoral e indepedente para evolução dos meus estudos.",
+            "Projeto 100% autoral e indepedente para evolução dos meus estudos no Front-end.",
           link: "https://the-hash-game.netlify.app/",
+          skills: ["HTML", "css", "JavaScript"],
         },
         {
           name: "Jogo da Velha",
           img: "https://i.ibb.co/0K9H72X/Screenshot-from-2022-09-19-12-06-58.png",
           description:
             "Projeto 100% autoral e indepedente para evolução dos meus estudos.",
+          link: "",
+        },
+        {
+          name: "Em breve !",
+          img: "",
+          description: "",
           link: "",
         },
       ],

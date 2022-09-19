@@ -155,13 +155,10 @@ export default {
 };
 </script>
 <style scoped>
-.shadow-fx-1 {
-  filter: drop-shadow(0px 0px 40px #07aff2a6);
-}
 .avatar {
   margin-top: 80px;
-  height: 702px;
-  width: 702px;
+  max-height: 702px;
+  max-width: 702px;
   background: url(https://i.ibb.co/bmvSS7D/avatar.png) no-repeat;
 }
 
