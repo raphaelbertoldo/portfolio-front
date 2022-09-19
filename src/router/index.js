@@ -5,6 +5,7 @@ import SkillsMe from '../views/SkillsMe.vue'
 import AdminHome from '../views/admin/AdminHome.vue'
 import AdminLogin from '../views/admin/AdminLogin.vue'
 import Skills from '../views/admin/AddSkills.vue'
+import Projects from '../views/ProjectsView.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/habilidades',
     name: 'SkillsMe',
     component: SkillsMe
+  },
+   {
+    path: '/projetos',
+    name: 'Projects',
+    component: Projects
   },
   {
     path: '/about',

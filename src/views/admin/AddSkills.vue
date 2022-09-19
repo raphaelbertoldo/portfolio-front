@@ -19,7 +19,7 @@
             />
             <v-btn @click="test()">here</v-btn>
           </div>
-          <v-btn color="secondary" fab @click="skillForm = true">
+          <v-btn color="secondary" fab @click="openDialogAdd()">
             <v-icon color="primary">mdi-plus</v-icon>
           </v-btn>
         </div>
@@ -32,7 +32,7 @@
           :loading="!skills"
         >
           <template v-slot:[`item.edit`]="{ item }">
-            <v-icon @click="openDialogEdit" color="primaryL">
+            <v-icon @click="openDialogEdit(item)" color="primaryL">
               mdi-pencil
             </v-icon>
             <v-dialog
@@ -82,17 +82,27 @@ export default {
     // },
   },
   methods: {
+    openDialogAdd() {
+      this.form.skillNameField = "";
+      this.form.imgField = "";
+      this.form.descriptionField = "";
+
+      this.skillForm = true;
+    },
+
     openDialogEdit(item) {
       this.skillFormEdit = true;
       this.form.skillNameField = item.name;
       this.form.imgField = item.img;
       this.form.descriptionField = item.description;
       console.log(item);
+      const id = item.id;
+      console.log("editando...", id);
     },
     async editSkill(item) {
       const id = item.id;
-      console.log("editando...");
-      api
+      console.log("editando...", id, this.form.skillNameField);
+      await api
         .patch(`skills/${id}`, {
           name: this.form.skillNameField,
           img: this.form.imgField,
@@ -111,7 +121,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-      this.skillForm = false;
+      // this.skillForm = false;
     },
 
     deleteSkill(item) {

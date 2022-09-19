@@ -1,8 +1,5 @@
 <template>
-  <div class="flex size-all background-back-1">
-    <img
-      src="https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg"
-    />
+  <div class="flex size-all">
     <div class="d-flex" style="min-height: 100%; margin: 0">
       <v-img
         src="../assets/ufo.png"

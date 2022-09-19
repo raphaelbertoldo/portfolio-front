@@ -48,8 +48,8 @@
             @click="selectSkill(i)"
             class="
               hexagon
-              gradiente-blue
               ma-2
+              glass-fx
               d-flex
               align-center
               justify-center
@@ -89,6 +89,7 @@
         </div>
       </div>
       <v-card
+        dark
         v-if="$vuetify.breakpoint.width > 1500"
         :style="
           selectSkillCard.skillName
@@ -102,7 +103,6 @@
           d-flex
           mx-auto
           glass-fx
-          gradiente-blue
           rounded-xl
         "
       >
