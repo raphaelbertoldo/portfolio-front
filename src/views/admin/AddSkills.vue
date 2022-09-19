@@ -17,6 +17,7 @@
               class="blue-neon-1 mx-8"
               style="min-width: 560px"
             />
+            <v-btn @click="test()">here</v-btn>
           </div>
           <v-btn color="secondary" fab @click="skillForm = true">
             <v-icon color="primary">mdi-plus</v-icon>
@@ -26,14 +27,25 @@
           :headers="headers"
           :items="skills"
           item-class="blue--text"
-          hide-default-footer
-          class="elevation-1"
+          hide-default-
+          class="elevation-1 custom-table"
           :loading="!skills"
         >
           <template v-slot:[`item.edit`]="{ item }">
-            <v-icon @click="editSkill(item)" color="primaryL">
+            <v-icon @click="openDialogEdit" color="primaryL">
               mdi-pencil
             </v-icon>
+            <v-dialog
+              v-model="skillFormEdit"
+              max-width="400px"
+              overlay-opacity="0.9"
+            >
+              <ModalForm
+                @submit="editSkill(item)"
+                @close="skillFormEdit = false"
+                v-model="form"
+              />
+            </v-dialog>
           </template>
           <template v-slot:[`item.delete`]="{ item }">
             <v-icon @click="deleteSkill(item)" color="primaryL"
@@ -44,62 +56,25 @@
       </v-col>
     </v-row>
     <!-- ADD SKILL -->
+
     <v-dialog v-model="skillForm" max-width="400px" overlay-opacity="0.9">
-      <div
-        class="rounded-lg px-6 py-4 container-glass white--text"
-        style="max-width: 400px"
-      >
-        <div class="d-flex align-center justify-space-between">
-          <span>Adicione uma habilidade</span>
-          <v-icon color="white" @click="skillForm = false">
-            mdi-close-box-outline
-          </v-icon>
-        </div>
-        <v-text-field
-          v-model="skillNameField"
-          hide-details
-          dark
-          outlined
-          color="blue"
-          placeholder="Nome da habilidade"
-          class="blue-neon-1 mt-6"
-        />
-        <v-text-field
-          v-model="imgField"
-          hide-details
-          dark
-          outlined
-          color="blue"
-          placeholder="Link da imagem"
-          class="blue-neon-1 mt-4"
-        />
-        <v-textarea
-          v-model="descriptionField"
-          hide-details
-          dark
-          outlined
-          color="blue"
-          placeholder="Descrição"
-          class="blue-neon-1 mt-4 mb-2"
-        />
-        <div class="mb-4 d-flex flex-row-reverse">
-          <v-btn
-            color="secondary"
-            class="elevation-0 primary--text font-weight-bold"
-            @click="addSkill()"
-          >
-            Salvar
-          </v-btn>
-        </div>
-      </div>
+      <ModalForm
+        @submit="addSkill()"
+        @close="skillForm = false"
+        v-model="form"
+      />
     </v-dialog>
   </div>
 </template>
 <script>
+import Swal from "sweetalert2";
 import { api } from "../../services/config";
 import skills from "../../services/skills";
+import ModalForm from "@/components/Admin/ModalForm.vue";
 
 export default {
+  components: { ModalForm },
+  name: "AddSkills",
   computed: {
     // itemList() {
     //   const skillComp = this.skills;
@@ -107,17 +82,52 @@ export default {
     // },
   },
   methods: {
-    // editSkill(item){
-    // const id = item._id;
-    // api.patch()
-    // },
+    openDialogEdit(item) {
+      this.skillFormEdit = true;
+      this.form.skillNameField = item.name;
+      this.form.imgField = item.img;
+      this.form.descriptionField = item.description;
+      console.log(item);
+    },
+    async editSkill(item) {
+      const id = item.id;
+      console.log("editando...");
+      api
+        .patch(`skills/${id}`, {
+          name: this.form.skillNameField,
+          img: this.form.imgField,
+          description: this.form.descriptionField,
+        })
+        .then(() => {
+          this.getSkills();
+          this.skillFormEdit = false;
+          Swal.fire({
+            title: "Atualizado com sucesso !",
+            text: "A skill foi atualizada com sucesso !",
+            icon: "success",
+            confirmButtonText: "Fechar",
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      this.skillForm = false;
+    },
 
     deleteSkill(item) {
-      const id = item._id;
+      console.log(item);
+
+      const id = item.id;
       api
         .delete(`/skills/${id}`)
         .then(() => {
           this.getSkills();
+          Swal.fire({
+            title: "Deletado com sucesso !",
+            text: "A skill foi deletada da lista com sucesso !",
+            icon: "success",
+            confirmButtonText: "Fechar",
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -126,12 +136,18 @@ export default {
     async addSkill() {
       api
         .post("skills", {
-          name: this.skillNameField,
-          img: this.imgField,
-          description: this.descriptionField,
+          name: this.form.skillNameField,
+          img: this.form.imgField,
+          description: this.form.descriptionField,
         })
         .then(() => {
           this.getSkills();
+          Swal.fire({
+            title: "Criada com sucesso !",
+            text: "A skill foi criada com sucesso !",
+            icon: "success",
+            confirmButtonText: "Fechar",
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -143,7 +159,7 @@ export default {
         .list()
         .then((res) => {
           this.skills = res.data;
-          console.log(res.data);
+          // console.log(res.data);
         })
         .catch((error) => {
           console.log(error);
@@ -155,18 +171,21 @@ export default {
   },
   data() {
     return {
-      skillNameField: "",
-      imgField: "",
-      descriptionField: "",
       skillForm: false,
+      skillFormEdit: false,
       searchField: "",
       skills: [],
-      skillse: [{ name: "teste", img: "teste", description: "teste" }],
+      form: [],
 
       headers: [
         { text: "Habilidade", value: "name", class: "primary--text " },
-        { text: "Link da imagem", value: "imgField", class: "primary--text " },
-        { text: "Descrição", value: "description", class: "primary--text" },
+        { text: "Link da imagem", value: "img", class: "primary--text " },
+        {
+          text: "Descrição",
+          value: "description",
+          class: "primary--text",
+          width: "20%",
+        },
         { text: "Editar", value: "edit", class: "primary--text" },
         { text: "Deletar", value: "delete", class: "primary--text" },
       ],
@@ -174,12 +193,24 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style scoped lang='scss'>
 .v-data-table {
   background-color: rgba(255, 255, 255, 0.05) !important;
+
   backdrop-filter: blur(5px) !important;
   color: white !important;
 }
+/* .v-data-table:hover {
+  background-color: rgba(255, 0, 0, 1) !important;
+
+  backdrop-filter: blur(5px) !important;
+  color: white !important;
+} */
+
+.v-data-table__wrapper table tbody tr td:hover {
+  background: red !important;
+}
+
 .style-1 {
   background-color: rgb(215, 215, 44);
 }

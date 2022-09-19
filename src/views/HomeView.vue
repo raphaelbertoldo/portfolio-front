@@ -167,12 +167,7 @@ export default {
   width: 702px;
   background: url(https://i.ibb.co/bmvSS7D/avatar.png) no-repeat;
 }
-.avatar-mb {
-  margin-top: 80px;
-  height: 702px;
-  width: 375px;
-  background: url(https://i.ibb.co/0DtsJmM/avatar-mb.png) no-repeat;
-}
+
 .float-air {
   opacity: 0;
   margin-left: 300px;

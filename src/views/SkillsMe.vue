@@ -142,14 +142,27 @@
 }
 </style>
 <script>
+import skills from "@/services/skills";
 export default {
   methods: {
     selectSkill(i) {
       this.selectSkillCard = this.skills[i];
     },
+    getSkills() {
+      return skills
+        .list()
+        .then((res) => (this.skills = res.data))
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
+  // mounted() {
+  //   return this.getSkills();
+  // },
   data: () => ({
     selectSkillCard: "",
+    // skills: [],
     skills: [
       {
         skillName: "HTML5",
