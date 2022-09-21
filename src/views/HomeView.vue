@@ -5,21 +5,25 @@
         src="../assets/ufo.png"
         style="position: absolute; padding-left: -100px"
         class="float-air"
+        :style="$vuetify.breakpoint.mobile ? 'transform: scale(0.4)' : ''"
       />
       <v-img
         src="../assets/ufo.png"
         style="position: absolute"
         class="float-air-2"
+        :style="$vuetify.breakpoint.mobile ? 'transform: scale(0.1)' : ''"
       />
       <v-img
         src="../assets/ufo.png"
         style="position: absolute"
         class="float-air-3"
+        :style="!$vuetify.breakpoint.mobile ? 'transform: scale(0.1)' : ''"
       />
       <v-img
         src="../assets/ufo.png"
         style="position: absolute"
         class="float-air-4"
+        :style="!$vuetify.breakpoint.mobile ? 'transform: scale(0.1)' : ''"
       />
       <v-row class="align-center d-flex justify-center pa-n16 mx-md-16">
         <v-col cols="12" md="6">
@@ -86,6 +90,7 @@
             v-if="$vuetify.breakpoint.mobile"
           >
             <v-btn
+              outlined
               v-for="(btn, b) in routesBtns"
               :key="b"
               :to="btn.to"
@@ -114,11 +119,19 @@
         <v-col
           cols="12"
           md="6"
-          class="flex d-flex align-center justify-center mt-md-n10 mt-6 mb-n16"
+          class="
+            flex
+            d-flex
+            align-center
+            justify-center
+            mt-md-n10 mt-md-6 mt-n16
+            mb-0 mb-md-n16
+          "
         >
           <div
             style="position: absolute"
             class="shadow-fx-1 avatar mx-auto pl-6"
+            :style="$vuetify.breakpoint.mobile ? 'transform: scale(0.7)' : ''"
           ></div>
           <!-- <v-img
             src="../assets/me-photo.png"
@@ -201,6 +214,8 @@ export default {
   }
   100% {
     transform: rotate(30deg);
+    transform: scale(0.4);
+
     margin-top: 0px;
     margin-left: -100%;
   }
