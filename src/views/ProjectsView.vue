@@ -8,44 +8,47 @@
         Projetos
       </h1>
     </div>
-    <v-row class="px-10">
-      <v-col cols="4" v-for="(proj, i) in projects" :key="i">
+    <v-row class="px-4 px-md-10">
+      <v-col cols="12" md="4" v-for="(proj, i) in projects" :key="i">
         <!-- <v-card dark class="glass-fx ma-4 mx-10 mt-10 pa-6 glass=fx"
           >proj.name</v-card
         > -->
         <v-card
-          max-height="250px"
+          :max-height="$vuetify.breakpoint.mobile ? '' : '250px'"
           min-height="250px"
           dark
-          v-if="$vuetify.breakpoint.width > 1500"
           class="align-center justify-center d-flex glass-fx rounded-xl"
         >
           <div
             class="mx-4 d-flex align-center justify-center"
             style="height: auto"
+            :class="$vuetify.breakpoint.mobile ? 'd-flex flex-column' : ''"
           >
-            <div class="ma-4 my-8">
+            <div class="ma-md-4 my-md-8 my-0 mt-6 ma-0">
               <v-img
                 class="shadow-2 rounded-xl"
                 :src="proj.img"
-                width="150px"
-                height="150px"
+                :style="$vuetify.breakpoint.mobile ? 'max-width: 100px' : ''"
               />
             </div>
-            <div style="width: 350px" key="" class="my-10">
-              <v-card-title class="font-weight-bold">
+            <div key="" class="my-4">
+              <v-card-title class="font-weight-bold text-center">
                 {{ proj.name }}
               </v-card-title>
               <v-card-subtitle class="mt-1">
                 {{ proj.description }}
               </v-card-subtitle>
-              <v-card-subtitle class="mt-1">
+
+              <v-card-subtitle class="mt-1 text-center">
                 <a
+                  class=""
                   v-if="proj.link"
                   :href="proj.link"
                   target="blank"
                   style="text-decoration: none"
-                  ><v-btn class="secondary black--text">Ir</v-btn></a
+                  ><v-btn block class="secondary black--text block d-flex flex"
+                    >Ir</v-btn
+                  ></a
                 >
               </v-card-subtitle>
             </div>
@@ -64,7 +67,7 @@ export default {
       projects: [
         {
           name: "Jogo da Velha",
-          img: "https://i.ibb.co/0K9H72X/Screenshot-from-2022-09-19-12-06-58.png",
+          img: "https://i.ibb.co/qmWBVQv/Novo-Projeto.png",
           description:
             "Projeto 100% autoral e indepedente para evolução dos meus estudos no Front-end.",
           link: "https://the-hash-game.netlify.app/",
@@ -72,7 +75,7 @@ export default {
         },
         {
           name: "Jogo da Velha",
-          img: "https://i.ibb.co/0K9H72X/Screenshot-from-2022-09-19-12-06-58.png",
+          // img: "https://i.ibb.co/0K9H72X/Screenshot-from-2022-09-19-12-06-58.png",
           description:
             "Projeto 100% autoral e indepedente para evolução dos meus estudos.",
           link: "",
@@ -88,3 +91,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.v-card__title {
+  word-break: break-word;
+}
+</style>
