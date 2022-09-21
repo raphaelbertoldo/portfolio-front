@@ -1,12 +1,44 @@
 <template>
   <div class="size-all">
-    <v-row class="ma-16 size-all">
+    <v-row class="size-all d-flex justify-md-center">
       <v-col
-        cols="6"
-        class="mt-n16 flex h-full d-flex justify-end align-center"
+        cols="12"
+        md="3"
+        class="flex ml-n16 h-full d-flex align-center mt-n16"
       >
-        <v-card dark class="glass-fx mt-n16 rounded-xl pa-10" width="70%">
-          <v-card-title>Raphael Ferreira Bertoldo, 24 anos</v-card-title>
+        <div
+          class="
+            shadow-fx-1
+            mt-n10 mt-md-2
+            avatar
+            mx-auto
+            ml-md-0 ml-n16
+            mb-md-0 mb-n16
+          "
+          :style="$vuetify.breakpoint.mobile ? 'transform: scale(0.9)' : ''"
+        ></div>
+      </v-col>
+      <v-col
+        cols="12"
+        md="7"
+        class="
+          mt-n16 mt-md-0
+          ml-md-n4
+          pl-md-16
+          flex
+          h-full
+          d-flex
+          justify-md-end justify-end
+          align-center
+        "
+      >
+        <v-card
+          dark
+          class="no-break glass-fx mt-n6 rounded-xl pa-md-10 pa-4 ma-4"
+        >
+          <v-card-title class="no-break"
+            >Raphael Ferreira Bertoldo, 24 anos</v-card-title
+          >
           <v-card-text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae non
             aperiam quibusdam quidem voluptate aliquam ipsa fugit quasi totam
@@ -17,7 +49,11 @@
             mollitia! A, laboriosam illo! Lorem ipsum dolor sit amet consectetur
             adipisicing elit. Quae non aperiam quibusdam quidem voluptate
             aliquam ipsa fugit quasi totam enim modi ratione, rerum molestias
-            cumque eaque mollitia! A, laboriosam illo!
+            cumque eaque mollitia! A, laboriosam illo! Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Nobis, temporibus! Asperiores at
+            quidem deserunt distinctio vitae unde vero provident placeat
+            laboriosam molestiae, sint, obcaecati, officiis esse laudantium
+            dolore tempora doloremque.
           </v-card-text>
           <v-row class="mx-auto mt-4">
             <v-col
@@ -54,13 +90,6 @@
           </v-row>
         </v-card>
       </v-col>
-      <v-col cols="4">
-        <!-- <v-img src="../assets/ReadyPlayerMe-Avatar-FullBody.png"></v-img> -->
-        <div
-          style="position: absolute"
-          class="shadow-fx-1 avatar mx-auto pl-6"
-        ></div>
-      </v-col>
     </v-row>
   </div>
 </template>
@@ -92,7 +121,7 @@ export default {
 
 <style>
 .hover-icon {
-  opacity: 0.1;
+  opacity: 0.5;
 }
 .hover-icon:hover {
   opacity: 1;
@@ -102,5 +131,8 @@ export default {
   min-height: 702px;
   min-width: 702px;
   background: url(../assets/ReadyPlayerMe-Avata-2.png) no-repeat;
+}
+.v-card__title {
+  word-break: break-word;
 }
 </style>

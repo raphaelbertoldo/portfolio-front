@@ -168,3 +168,7 @@
 .shadow-2 {
   filter: drop-shadow(-8px 11px 7px -2px rgba(0, 0, 0, 0.89));
 }
+
+.no-break {
+  word-wrap: break-word !important;
+}
