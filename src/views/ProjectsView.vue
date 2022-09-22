@@ -28,7 +28,11 @@
               <v-img
                 class="shadow-2 rounded-xl"
                 :src="proj.img"
-                :style="$vuetify.breakpoint.mobile ? 'max-width: 100px' : ''"
+                :style="
+                  $vuetify.breakpoint.mobile
+                    ? 'max-width: 100px'
+                    : 'max-width: 120px'
+                "
               />
             </div>
             <div key="" class="my-4">
@@ -73,11 +77,17 @@ export default {
           link: "https://the-hash-game.netlify.app/",
           skills: ["HTML", "css", "JavaScript"],
         },
+
         {
-          name: "Jogo da Velha",
-          // img: "https://i.ibb.co/0K9H72X/Screenshot-from-2022-09-19-12-06-58.png",
-          description:
-            "Projeto 100% autoral e indepedente para evolução dos meus estudos.",
+          name: "Em breve !",
+          img: "",
+          description: "",
+          link: "",
+        },
+        {
+          name: "Em breve !",
+          img: "",
+          description: "",
           link: "",
         },
         {
