@@ -6,12 +6,14 @@
         Skills
       </h1>
     </div>
-    <div class="d-flex" style="overflow: auto">
-      <div
+    <v-row class="d-flex" style="overflow: auto">
+      <v-col
+        cols="12"
+        md="4"
         :style="
           $vuetify.breakpoint.width > 650
             ? 'min-width: 1125px; max-width: 1125px'
-            : 'width: 375px'
+            : 'min-width: 375px; max-width: 375px;'
         "
         class="d-flex flex-wrap px-4"
         :class="$vuetify.breakpoint.width > 650 ? 'mx-16' : 'mx-auto'"
@@ -46,15 +48,7 @@
         >
           <div
             @click="selectSkill(i)"
-            class="
-              hexagon
-              ma-2
-              glass-fx
-              d-flex
-              align-center
-              justify-center
-              text-center
-            "
+            class="hexagon ma-2 glass-fx d-flex align-center justify-center"
             :class="
               $vuetify.breakpoint.width > 650
                 ? i === 6 || i === 18 || i === 30 || i === 42
@@ -87,52 +81,39 @@
             </div>
           </div>
         </div>
-      </div>
-      <v-card
-        dark
-        v-if="$vuetify.breakpoint.width > 1500"
-        :style="
-          selectSkillCard.skillName
-            ? 'min-height: auto'
-            : 'max-height: 100px; min-height: auto'
-        "
-        class="
-          align-center
-          justify-center
-          ml-n8 ml-md-n16
-          d-flex
-          mx-auto
-          glass-fx
-          rounded-xl
-        "
-      >
-        <div
-          class="mx-4 d-flex align-center justify-center"
-          style="height: auto"
+      </v-col>
+      <v-col cols="12" md="3" class="align-center d-flex justify-center ml-n8">
+        <ModalSelectSkill
+          style="position: absolute"
+          v-if="$vuetify.breakpoint.width > 1800"
+          :selectSkillCard="selectSkillCard"
+          @selectNextSkill="selectNextSkill"
+          @selectPrevSkill="selectPrevSkill"
+        />
+        <v-dialog
+          v-else
+          v-model="dialog"
+          class="size-all"
+          :max-width="$vuetify.breakpoint.mobile ? '100%' : '50%'"
         >
-          <div class="ma-4">
-            <v-img
-              class="shadow-2"
-              :src="selectSkillCard.url"
-              max-width="100px"
-              max-height="100px"
-            />
-          </div>
-          <div
-            style="width: 350px"
-            key=""
-            :class="!selectSkillCard.skillName ? 'd-flex align-center' : ''"
-          >
-            <v-card-title class="font-weight-bold">
-              {{ selectSkillCard.skillName || "Selecione uma HardSkill" }}
-            </v-card-title>
-            <v-card-subtitle class="mt-1">
-              {{ selectSkillCard.description }}
-            </v-card-subtitle>
-          </div>
-        </div>
-      </v-card>
-    </div>
+          <div class="pa-10 glass-fx-dark d-flex align-center justify-center">
+            <!-- <div class="d-flex align-center">
+              <v-icon
+                class=""
+                color="white"
+                size="50"
+                @click="$emit('selectPrevSkill')"
+                >mdi-arrow-left</v-icon
+              >
+            </div> -->
+            <ModalSelectSkill
+              :selectSkillCard="selectSkillCard"
+              @selectNextSkill="selectNextSkill"
+              @selectPrevSkill="selectPrevSkill"
+            /></div
+        ></v-dialog>
+      </v-col>
+    </v-row>
   </div>
 </template>
 <style scoped>
@@ -143,10 +124,28 @@
 </style>
 <script>
 import skills from "@/services/skills";
+import ModalSelectSkill from "@/components/modalSelectSkill.vue";
 export default {
+  components: { ModalSelectSkill },
   methods: {
     selectSkill(i) {
+      this.dialog = true;
       this.selectSkillCard = this.skills[i];
+    },
+    async selectNextSkill() {
+      let index = this.skills.indexOf(this.selectSkillCard);
+      if (index + 1 < this.skills.length) {
+        this.selectSkillCard = await this.skills[index + 1];
+      }
+      return console.log(this.skills[index]);
+    },
+    async selectPrevSkill() {
+      let index = this.indexSkill;
+      index = this.skills.indexOf(this.selectSkillCard);
+      if (index > 0) {
+        this.selectSkillCard = await this.skills[index - 1];
+      }
+      return console.log(this.skills[index]);
     },
     getSkills() {
       return skills
@@ -162,7 +161,8 @@ export default {
   // },
   data: () => ({
     selectSkillCard: "",
-    // skills: [],
+    dialog: false,
+    indexSkill: null,
     skills: [
       {
         skillName: "HTML5",
