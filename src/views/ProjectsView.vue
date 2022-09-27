@@ -43,9 +43,7 @@
                 {{ proj.description }}
               </v-card-subtitle>
 
-              <v-card-subtitle
-                class="d-flex align-center justify-center mt-1 text-center"
-              >
+              <v-card-subtitle class="d-flex mt-1 text-center">
                 <a
                   class="mx-2"
                   v-if="proj.link"
@@ -53,8 +51,12 @@
                   target="blank"
                   style="text-decoration: none"
                 >
-                  <v-btn block class="secondary black--text block d-flex flex"
-                    >Ir
+                  <v-btn
+                    block
+                    outlined
+                    color="secondary"
+                    class="black--text block d-flex flex"
+                    >Acessar
                   </v-btn>
                 </a>
                 <a
@@ -64,7 +66,11 @@
                   target="blank"
                   style="text-decoration: none"
                 >
-                  <v-btn block class="secondary black--text block d-flex flex"
+                  <v-btn
+                    block
+                    outlined
+                    color="primary"
+                    class="black--text block d-flex flex"
                     >Repositório
                   </v-btn>
                 </a>
