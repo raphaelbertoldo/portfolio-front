@@ -43,17 +43,31 @@
                 {{ proj.description }}
               </v-card-subtitle>
 
-              <v-card-subtitle class="mt-1 text-center">
+              <v-card-subtitle
+                class="d-flex align-center justify-center mt-1 text-center"
+              >
                 <a
-                  class=""
+                  class="mx-2"
                   v-if="proj.link"
                   :href="proj.link"
                   target="blank"
                   style="text-decoration: none"
-                  ><v-btn block class="secondary black--text block d-flex flex"
-                    >Ir</v-btn
-                  ></a
                 >
+                  <v-btn block class="secondary black--text block d-flex flex"
+                    >Ir
+                  </v-btn>
+                </a>
+                <a
+                  class="mx-2"
+                  v-if="proj.repository"
+                  :href="proj.repository"
+                  target="blank"
+                  style="text-decoration: none"
+                >
+                  <v-btn block class="secondary black--text block d-flex flex"
+                    >Repositório
+                  </v-btn>
+                </a>
               </v-card-subtitle>
             </div>
           </div>
@@ -76,6 +90,7 @@ export default {
             "Projeto 100% autoral e indepedente para evolução dos meus estudos no Front-end.",
           link: "https://the-hash-game.netlify.app/",
           skills: ["HTML", "css", "JavaScript"],
+          repository: "https://github.com/raphaelbertoldo/the-hashgame",
         },
 
         {
