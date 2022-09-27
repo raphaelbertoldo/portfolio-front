@@ -162,14 +162,64 @@ export default {
         });
     },
   },
-  mounted() {
-    return this.getSkills();
-  },
+  // mounted() {
+  //   return this.getSkills();
+  // },
   data: () => ({
     selectSkillCard: "",
     dialog: false,
     indexSkill: null,
-    skills: [],
+    // skills: [],
+    skills: [
+      {
+        skillName: "HTML5",
+        url: "https://i.ibb.co/Rhfbxqz/Novo-Projeto.png",
+        description:
+          "HTML5 é uma linguagem de marcação para a World Wide Web e é uma tecnologia chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML.",
+      },
+      {
+        skillName: "CSS3",
+        url: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
+        description:
+          "Cascading Style Sheets é um mecanismo para adicionar estilo a um documento web. O código CSS pode ser aplicado diretamente nas tags ou ficar contido dentro das tags <style>. Também é possível, em vez de colocar a formatação dentro do documento, criar um link para um arquivo CSS que contém os estilos.",
+      },
+      {
+        skillName: "JavaScript",
+        url: "https://i.ibb.co/yVPC9B8/640px-Devicon-css3-plain-svg.png",
+        description:
+          "JavaScript é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma. Juntamente com HTML e CSS, o JavaScript é uma das três principais tecnologias da World Wide Web.",
+      },
+      {
+        skillName: "NodeJs",
+        url: "https://i.ibb.co/2ydnRRm/640px-Devicon-css3-plain-svg-2.png",
+        description:
+          "Node.js é um software de código aberto, multiplataforma, baseado no interpretador V8 do Google e que permite a execução de códigos JavaScript fora de um navegador web. ",
+      },
+      {
+        skillName: "TypeScript",
+        url: "https://i.ibb.co/hWzqGzs/640px-Devicon-css3-plain-svg-3.png",
+        description:
+          "TypeScript é uma linguagem de programação de código aberto desenvolvida pela Microsoft. É um superconjunto sintático estrito de JavaScript e adiciona tipagem estática opcional à linguagem.",
+      },
+      {
+        skillName: "NestJs",
+        url: "https://i.ibb.co/jV1DTsX/640px-Devicon-css3-plain-svg-4.png",
+        description:
+          "NestJS é um framework Node.js de código aberto destinado ao desenvolvimento de aplicativos do lado do servidor. Foi criado por Kamil Mysliwiec e lançado em 2017. Sob o capô, por padrão, o NestJS faz uso do framework Express.js, sendo também compatível com o Fastify. Sua arquitetura é fortemente inspirada no Angular.",
+      },
+      {
+        skillName: "Vue",
+        url: "https://i.ibb.co/swCHVYh/vue.png",
+        description:
+          "Vue.js é um framework JavaScript de código-aberto, focado no desenvolvimento de interfaces de usuário e aplicativos de página única.",
+      },
+      {
+        skillName: "Vuetify",
+        url: "https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-light.svg",
+        description:
+          "Vuetify é uma biblioteca de interface do usuário Vue com componentes de material lindamente artesanais.",
+      },
+    ],
   }),
 };
 </script>
