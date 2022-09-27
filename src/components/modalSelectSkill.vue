@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-center">
+  <div class="mt-0 mt-md-16 d-flex justify-center">
     <div class="d-flex align-center">
       <v-icon class="" color="white" size="30" @click="$emit('selectPrevSkill')"
         >mdi-arrow-left</v-icon
@@ -27,7 +27,7 @@
         <div class="ma-0 ma-md-4">
           <v-img
             class="shadow-2"
-            :src="selectSkillCard.url"
+            :src="selectSkillCard.img"
             :max-width="$vuetify.breakpoint.mobile ? '50px' : '100px'"
             :max-height="$vuetify.breakpoint.mobile ? '50px' : '100px'"
           />
@@ -36,7 +36,7 @@
           :style="$vuetify.breakpoint.mobile ? 'width: 200px' : 'width:350px'"
           key=""
           :class="
-            !selectSkillCard.skillName
+            !selectSkillCard.name
               ? ' d-flex align-center justify-center flex-column'
               : 'd-flex align-center flex-column justify-center'
           "
@@ -47,7 +47,7 @@
               $vuetify.breakpoint.mobile ? 'font-size: 10pt' : 'font-size: 14pt'
             "
           >
-            {{ selectSkillCard.skillName || "Selecione uma habilidade" }}
+            {{ selectSkillCard.name || "Selecione uma habilidade" }}
           </v-card-title>
           <v-card-subtitle
             class="mt-1"
