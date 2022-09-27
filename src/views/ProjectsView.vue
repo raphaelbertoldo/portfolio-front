@@ -95,10 +95,31 @@ export default {
           description:
             "Projeto 100% autoral e indepedente para evolução dos meus estudos no Front-end.",
           link: "https://the-hash-game.netlify.app/",
-          skills: ["HTML", "css", "JavaScript"],
+          skills: ["HTML", "css", "JavaScript", "VueJs"],
           repository: "https://github.com/raphaelbertoldo/the-hashgame",
         },
 
+        {
+          name: "Midi Online",
+          img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
+          description:
+            "Projeto 100% autoral e indepedente para evolução dos meus estudos no Front-end.",
+          link: "https://midi-online.netlify.app/",
+          repository: "https://github.com/raphaelbertoldo/midi-online",
+        },
+        {
+          name: "Lista de tarefas",
+          img: "https://i.ibb.co/42CpgHV/Novo-Projeto-5.png",
+          description: "Meu primeiro projeto usando vuetify.",
+          link: "https://curso-vuetify.netlify.app/",
+          repository: "https://github.com/raphaelbertoldo/Curso-Vuetify",
+        },
+        {
+          name: "Em breve !",
+          img: "",
+          description: "",
+          link: "",
+        },
         {
           name: "Em breve !",
           img: "",
