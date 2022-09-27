@@ -19,9 +19,7 @@
         :class="$vuetify.breakpoint.width > 650 ? 'mx-16' : 'mx-auto'"
       >
         <div
-          v-for="(skill, i) in this.skills.sort((a, b) =>
-            a.name > b.name ? 1 : b.name > a.name ? -1 : 0
-          )"
+          v-for="(skill, i) in skills"
           :key="i"
           :class="
             $vuetify.breakpoint.width > 650
@@ -129,6 +127,7 @@ import skills from "@/services/skills";
 import ModalSelectSkill from "@/components/modalSelectSkill.vue";
 export default {
   components: { ModalSelectSkill },
+  computed: {},
   methods: {
     selectSkill(i) {
       this.dialog = true;
