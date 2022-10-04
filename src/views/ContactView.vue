@@ -40,20 +40,22 @@
             >Raphael Ferreira Bertoldo, 24 anos</v-card-title
           >
           <v-card-text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae non
-            aperiam quibusdam quidem voluptate aliquam ipsa fugit quasi totam
-            enim modi ratione, rerum molestias cumque eaque mollitia! A,
-            laboriosam illo! Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Quae non aperiam quibusdam quidem voluptate aliquam ipsa fugit
-            quasi totam enim modi ratione, rerum molestias cumque eaque
-            mollitia! A, laboriosam illo! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Quae non aperiam quibusdam quidem voluptate
-            aliquam ipsa fugit quasi totam enim modi ratione, rerum molestias
-            cumque eaque mollitia! A, laboriosam illo! Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Nobis, temporibus! Asperiores at
-            quidem deserunt distinctio vitae unde vero provident placeat
-            laboriosam molestiae, sint, obcaecati, officiis esse laudantium
-            dolore tempora doloremque.
+            Desde muito novo fui interessado em tecnólogia, tive contato com
+            comptador e internet muito cedo, desde então comecei os meus
+            primeiros projetos apenas usando HTML e CSS na época dos blogs, logo
+            ápos eu e meu irmão tentamos recriar um jogo online que a gente
+            jogava, assim eu tive a noção da estrutura e arquitetura de um
+            projeto, meu irmão continuou na programação, e eu segui o caminho da
+            música, aprendi tocar vários instrumentos, aprendi produzir próprias
+            músicas, realizei o sonho de várias pessoas em ter sua música
+            registrada e profissional, hoje a música e apenas um hobbie, faço
+            porque amo, pois fui atraído pela área de tecnólogia e me dei super
+            bem, consegui aprender com muita facilidade por já ter uma boa noção
+            de computadores, lógica, e arquitetura de software, eu tive a
+            oportunidade de trabalhar em vários projetos, com várias pessoas
+            diferentes e com várias tecnólogias diferentes támbem, estou sempre
+            em busca de novos desafios para agregar na minha carreira e para
+            provar pra eu mesmo o quanto sou capaz !
           </v-card-text>
           <v-row class="mx-auto mt-4">
             <v-col
