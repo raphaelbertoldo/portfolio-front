@@ -219,6 +219,36 @@ export default {
         description:
           "Vuetify é uma biblioteca de interface do usuário Vue com componentes de material lindamente artesanais.",
       },
+      {
+        name: "Express",
+        img: "https://i.ibb.co/HNpJpkw/Novo-Projeto-7.png",
+        description:
+          "Express.js é um framework para Node.js que fornece recursos mínimos para construção de servidores web. Foi lançado como software livre e de código aberto sob a Licença MIT. É um dos mais populares frameworks para servidores em Node.js",
+      },
+      {
+        name: "Docker",
+        img: "https://i.ibb.co/c8qvkD8/Novo-Projeto-8.png",
+        description:
+          "Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.",
+      },
+      {
+        name: "Git",
+        img: "https://i.ibb.co/L5wV7wZ/Novo-Projeto-6.png",
+        description:
+          "Git é um sistema de controle de versões distribuído, usado principalmente no desenvolvimento de software, mas pode ser usado para registrar o histórico de edições de qualquer tipo de arquivo.",
+      },
+      {
+        name: "MongoDB",
+        img: "https://i.ibb.co/f2VsqW3/Novo-Projeto-9.png",
+        description:
+          "MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.",
+      },
+      {
+        name: "MariaDB",
+        img: "https://i.ibb.co/37PFjMQ/Novo-Projeto-10.png",
+        description:
+          "MariaDB é um sistema de gerenciamento de banco de dados que surgiu como fork do MySQL, criado pelo próprio fundador do projeto após sua aquisição pela Oracle.",
+      },
     ],
   }),
 };
