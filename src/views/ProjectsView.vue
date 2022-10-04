@@ -4,7 +4,7 @@
       <v-icon size="80" class="gradiente-yellow-1 mx-md-6"
         >mdi-hammer-wrench
       </v-icon>
-      <h1 class="block gradiente-yellow-1 mt-4" style="font-size: 42pt">
+      <h1 class="block gradiente-yellow-1 mt-4" style="font-size: 36pt">
         Projetos
       </h1>
     </div>
@@ -15,7 +15,7 @@
         > -->
         <v-card
           :max-height="$vuetify.breakpoint.mobile ? '' : '250px'"
-          min-height="250px"
+          min-height="450px"
           dark
           class="align-center justify-center d-flex glass-fx rounded-xl"
         >
@@ -24,9 +24,10 @@
             style="height: auto"
             :class="$vuetify.breakpoint.mobile ? 'd-flex flex-column' : ''"
           >
-            <div class="ma-md-4 my-md-8 my-0 mt-6 ma-0">
+            <div class="ma-md-4 my-md-8 my-0 mt-6 ma-0"></div>
+            <div key="" class="my-4">
               <v-img
-                class="shadow-2 rounded-xl"
+                class="shadow-2 rounded-xl mx-auto"
                 :src="proj.img"
                 :style="
                   $vuetify.breakpoint.mobile
@@ -34,14 +35,12 @@
                     : 'max-width: 120px'
                 "
               />
-            </div>
-            <div key="" class="my-4">
               <v-card-title class="font-weight-bold text-center">
-                {{ proj.name }}
+                <h4 class="mx-auto">{{ proj.name }}</h4>
+                <v-card-subtitle class="mt-1">
+                  {{ proj.description }}
+                </v-card-subtitle>
               </v-card-title>
-              <v-card-subtitle class="mt-1">
-                {{ proj.description }}
-              </v-card-subtitle>
 
               <v-card-subtitle class="d-flex mt-1 text-center">
                 <a

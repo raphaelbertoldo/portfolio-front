@@ -2,7 +2,7 @@
   <div class="">
     <div class="align-center my-md-10 my-4 flex d-flex block ml-md-16 pl-md-16">
       <v-icon size="80" class="gradiente-yellow-1 mx-md-6">mdi-bee </v-icon>
-      <h1 class="block gradiente-yellow-1 mt-4" style="font-size: 42pt">
+      <h1 class="block gradiente-yellow-1 mt-4" style="font-size: 36pt">
         Skills
       </h1>
     </div>
