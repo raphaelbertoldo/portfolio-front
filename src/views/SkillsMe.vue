@@ -110,8 +110,9 @@
               :selectSkillCard="selectSkillCard"
               @selectNextSkill="selectNextSkill"
               @selectPrevSkill="selectPrevSkill"
-            /></div
-        ></v-dialog>
+            />
+          </div>
+        </v-dialog>
       </v-col>
     </v-row>
   </div>
@@ -132,11 +133,6 @@ export default {
     selectSkill(i) {
       this.dialog = true;
       this.selectSkillCard = this.skills[i];
-      console.log(
-        this.skills.sort((a, b) =>
-          a.name > b.name ? 1 : b.name > a.name ? -1 : 0
-        )
-      );
     },
     async selectNextSkill() {
       let index = this.skills.indexOf(this.selectSkillCard);
