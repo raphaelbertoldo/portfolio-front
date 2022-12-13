@@ -111,7 +111,7 @@ export default {
           repository: "https://github.com/raphaelbertoldo/midi-online",
         },
         {
-          name: "Site para venda e marketing de músicas intrumentais",
+          name: "Oráculo Beats",
           img: "https://i.ibb.co/BC84Dsn/image.png",
           description: "Projeto ainda está sendo conluído...",
           link: "https://oraculobeats.netlify.app/",
