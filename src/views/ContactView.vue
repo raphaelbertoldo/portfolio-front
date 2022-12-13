@@ -37,10 +37,10 @@
           class="no-break glass-fx mt-n6 rounded-xl pa-md-10 pa-4 ma-4"
         >
           <v-card-title class="no-break"
-            >Raphael Ferreira Bertoldo, 24 anos</v-card-title
+            >Raphael Ferreira Bertoldo, 24 anos, Uberlândia-MG</v-card-title
           >
           <v-card-text>
-            Desde muito novo fui interessado em tecnólogia, tive contato com
+            <!-- Desde muito novo fui interessado em tecnólogia, tive contato com
             comptador e internet muito cedo, desde então comecei os meus
             primeiros projetos apenas usando HTML e CSS na época dos blogs, logo
             ápos eu e meu irmão tentamos recriar um jogo online que a gente
@@ -55,7 +55,19 @@
             oportunidade de trabalhar em vários projetos, com várias pessoas
             diferentes e com várias tecnólogias diferentes támbem, estou sempre
             em busca de novos desafios para agregar na minha carreira e para
-            provar pra eu mesmo o quanto sou capaz !
+            provar pra eu mesmo o quanto sou capaz ! -->
+            Trabalho com desenvlvimento de software há 3 anos, comecei como
+            desenvolvedor front-end, hoje sou Full-Stack em uma empresa de
+            marketing, onde desenvolvemos e mantemos um e-commerce, um produto
+            WhiteLabel, com arquitetura para B2B2C. Sou muito interessado no
+            trabalho e sempre busco dar o meu máximo em tudo que faço, sou
+            apaixonado por música e já fui produtor músical, hoje sou um
+            entusiasta da área de tecnólogia, amo trabalhar com o que faço, sou
+            criativo e tenho muitas idéias, já fiz diversos projetos diferentes
+            e já participei de alguns projetos voluntários. Estou cursando a
+            faculdade de engenharia de software, pretendo me profissionalizar
+            ainda mais dentro da minha área. Curtiu o meu perfil, que tal um
+            café e um bate-papo para nos conhecermos melhor ?
           </v-card-text>
           <v-row class="mx-auto mt-4">
             <v-col
