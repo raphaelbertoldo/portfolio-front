@@ -59,8 +59,6 @@ import swal from "sweetalert";
 import { rules } from "../../services/rules";
 import { api } from "@/services/config";
 export default {
-  // INTREGAÇÃO
-
   methods: {
     submit() {
       if (this.$refs.form.validate())

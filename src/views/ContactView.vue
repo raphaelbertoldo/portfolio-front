@@ -111,6 +111,18 @@
 <script>
 export default {
   name: "ContactView",
+  mounted() {
+    this.handleLoad();
+  },
+
+  methods: {
+    handleLoad() {
+      this.$vloading.show();
+      setTimeout(() => {
+        this.$vloading.hide();
+      }, 1000);
+    },
+  },
   data: () => {
     return {
       contacts: [

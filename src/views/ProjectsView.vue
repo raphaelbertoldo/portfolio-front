@@ -88,6 +88,18 @@
 <script>
 export default {
   name: "ProjectsView",
+  mounted() {
+    this.handleLoad();
+  },
+
+  methods: {
+    handleLoad() {
+      this.$vloading.show();
+      setTimeout(() => {
+        this.$vloading.hide();
+      }, 1000);
+    },
+  },
 
   data() {
     return {

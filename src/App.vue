@@ -24,16 +24,6 @@
     />
     <RouterTab />
     <v-main class="black">
-      <v-dialog
-        fullscreen
-        hide-overlay
-        v-model="dialog"
-        persistent
-        class="close"
-      >
-        {{ closeComp }}
-        <LoadingPage :dialog="dialog" :closeComp="closeComp" class="close" />
-      </v-dialog>
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -41,35 +31,14 @@
 
 <script>
 import RouterTab from "../src/views/RouterTab.vue";
-import LoadingPage from "./components/LoadingPage.vue";
+// import LoadingPage from "./components/LoadingPage.vue";
 export default {
   name: "App",
-  methods: {
-    closeDialog() {
-      console.log("okok");
 
-      setTimeout(function () {
-        this.dialog = false;
-        console.log(this.dialog);
-        return this.dialog;
-      }, 1000);
-    },
+  components: {
+    RouterTab,
+    //  LoadingPage
   },
-  computed: {
-    closeComp() {
-      return this.dialog;
-    },
-  },
-  // methods: {
-  //   closeDialog() {
-  //     console.log("okok");
-  //     setTimeout(function () {
-  //       this.dialog = false;
-  //       console.log(this.dialog);
-  //     }, 1000);
-  //   },
-  // },
-  components: { RouterTab, LoadingPage },
   data: () => ({
     topbar: true,
     drawerbar: false,

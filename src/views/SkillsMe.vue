@@ -128,8 +128,16 @@ import skills from "@/services/skills";
 import ModalSelectSkill from "@/components/modalSelectSkill.vue";
 export default {
   components: { ModalSelectSkill },
-  computed: {},
+  mounted() {
+    this.handleLoad();
+  },
   methods: {
+    handleLoad() {
+      this.$vloading.show();
+      setTimeout(() => {
+        this.$vloading.hide();
+      }, 1000);
+    },
     selectSkill(i) {
       this.dialog = true;
       this.selectSkillCard = this.skills[i];

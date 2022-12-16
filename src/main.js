@@ -1,16 +1,18 @@
-import Vue from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import vuetify from './plugins/vuetify'
-import '@/assets/scss/main.scss'
+import Vue from "vue";
+import App from "./App.vue";
+import "./registerServiceWorker";
+import router from "./router";
+import store from "./store";
+import vuetify from "./plugins/vuetify";
+import "@/assets/scss/main.scss";
+import { LoadingPlugin } from "vuetify-loading-overlay";
 
-Vue.config.productionTip = false
+Vue.use(LoadingPlugin);
+Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
   vuetify,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");
