@@ -200,7 +200,7 @@ export default {
         },
         {
           name: "Atomic App",
-          img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
+          img: "https://ibb.co/MfLctM8https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
           description:
             "Projeto para estudos criado com vue 3.",
           link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
