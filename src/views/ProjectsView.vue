@@ -36,20 +36,26 @@
           dark
         >
           <v-card-text class="mx-auto">
-            <!-- <v-card-title class="text-center"> {{ proj.name }}</v-card-title> -->
             <h2 class="mb-6 text-center">{{ proj.name }}</h2>
             <div class="d-flex">
-              <v-img
-                :aspect-ratio="1 / 1"
-                class="mr-4 shadow-2 rounded-xl mx-auto"
-                :src="proj.img"
-                :style="
+              <v-row>
+                <v-col cols="4">
+
+                  <v-img
+                  :aspect-ratio="1 / 1"
+                  class="mr-4 shadow-2 rounded-xl mx-auto"
+                  :src="proj.img"
+                  :style="
                   $vuetify.breakpoint.mobile
-                    ? 'max-width: 100px; max-height: 100px; min-width: 100px; min-height: 100px'
-                    : 'max-width: 120px; max-height: 120px; min-width: 120px; min-height: 120px'
-                "
-              />
-              {{ proj.description }}
+                  ? 'max-width: 100px; max-height: 100px; min-width: 100px; min-height: 100px'
+                  : 'max-width: 120px; max-height: 120px; min-width: 120px; min-height: 120px'
+                  "
+                  />
+                </v-col>
+                <v-col cols="8">
+                  {{ proj.description }}
+                </v-col>
+              </v-row>
             </div>
           </v-card-text>
           <v-card-actions class="d-flex flex">
@@ -87,77 +93,6 @@
             </div>
           </v-card-actions>
         </v-card>
-        <!-- <v-card dark class="glass-fx ma-4 mx-10 mt-10 pa-6 glass=fx"
-          >proj.name</v-card
-        > -->
-        <!-- <v-card
-          :max-height="$vuetify.breakpoint.mobile ? '' : '250px'"
-          min-height="450px"
-          dark
-          class="align-center justify-center d-flex glass-fx rounded-xl"
-        >
-          <div
-            class="red flex mx-4 d-flex align-center justify-center"
-            style="height: auto"
-            :class="$vuetify.b  reakpoint.mobile ? 'd-flex flex-column' : ''"
-          >
-            <div class="ma-md-4 my-md-8 my-0 mt-6 ma-0"></div>
-            <div key="" class="my-4">
-              <v-img
-                class="shadow-2 rounded-xl mx-auto"
-                :src="proj.img"
-                :style="
-                  $vuetify.breakpoint.mobile
-                    ? 'max-width: 100px'
-                    : 'max-width: 120px'
-                "
-              />
-              <v-card-title
-                class="d-flex flex-column font-weight-bold text-center"
-              >
-                <h4 class="mx-auto">{{ proj.name }}</h4>
-                <v-card-subtitle class="mt-1">
-                  {{ proj.description }}
-                </v-card-subtitle>
-              </v-card-title>
-
-              <v-card-subtitle class="px-auto d-flex mt-1 text-center">
-                <div class="mx-auto flex d-flex">
-                  <a
-                    class="mx-2"
-                    v-if="proj.link"
-                    :href="proj.link"
-                    target="blank"
-                    style="text-decoration: none"
-                  >
-                    <v-btn
-                      block
-                      outlined
-                      color="secondary"
-                      class="black--text block d-flex flex"
-                      >Acessar
-                    </v-btn>
-                  </a>
-                  <a
-                    class="mx-2"
-                    v-if="proj.repository"
-                    :href="proj.repository"
-                    target="blank"
-                    style="text-decoration: none"
-                  >
-                    <v-btn
-                      block
-                      outlined
-                      color="primary"
-                      class="black--text block d-flex flex"
-                      >Repositório
-                    </v-btn>
-                  </a>
-                </div>
-              </v-card-subtitle>
-            </div>
-          </div>
-        </v-card> -->
       </v-col>
     </v-row>
   </div>
