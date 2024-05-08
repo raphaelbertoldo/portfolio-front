@@ -52,9 +52,8 @@
                   "
                   />
                 </v-col>
-                <v-col cols="8">
-                  {{ proj.description }}
-                </v-col>
+                
+                {{ proj.description }}
               </v-row>
             </div>
           </v-card-text>
@@ -135,7 +134,7 @@ export default {
         },
         {
           name: "Atomic App",
-          img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
+          img: "https://i.ibb.co/ZSCBFWH/Captura-de-Tela-2024-05-07-a-s-23-17-16.png",
           description:
             "Projeto para estudos criado com vue 3.",
           link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
