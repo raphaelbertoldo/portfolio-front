@@ -190,7 +190,6 @@ export default {
           skills: ["HTML", "css", "JavaScript", "VueJs"],
           repository: "https://github.com/raphaelbertoldo/the-hashgame",
         },
-
         {
           name: "Midi Online",
           img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
@@ -198,6 +197,14 @@ export default {
             "O projeto foi criado usando apenas HTML, CSS e JavaScript.",
           link: "https://midi-online.netlify.app/",
           repository: "https://github.com/raphaelbertoldo/midi-online",
+        },
+        {
+          name: "Atomic App",
+          img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
+          description:
+            "Projeto para estudos criado com vue 3.",
+          link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
+          repository: "https://github.com/raphaelbertoldo/atomic",
         },
         {
           name: "Oráculo Beats",
