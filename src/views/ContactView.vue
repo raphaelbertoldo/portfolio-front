@@ -23,18 +23,7 @@
             >Raphael Ferreira Bertoldo, 26y, Minas Gerais, Brazil</v-card-title
           >
           <v-card-text>
-            Trabalho com desenvlvimento de software há 3 anos, comecei como
-            desenvolvedor front-end, hoje sou Full-Stack em uma empresa de
-            marketing, onde desenvolvemos e mantemos um e-commerce, um produto
-            WhiteLabel, com arquitetura para B2B2C. Sou muito interessado no
-            trabalho e sempre busco dar o meu máximo em tudo que faço, sou
-            apaixonado por música e já fui produtor músical, hoje sou um
-            entusiasta da área de tecnólogia, amo trabalhar com o que faço, sou
-            criativo e tenho muitas idéias, já fiz diversos projetos diferentes
-            e já participei de alguns projetos voluntários. Estou cursando a
-            faculdade de engenharia de software, pretendo me profissionalizar
-            ainda mais dentro da minha área. Curtiu o meu perfil, que tal um
-            café e um bate-papo para nos conhecermos melhor ?
+            A curiosidade sobre o potencial da tecnologia me levou ao desenvolvimento de aplicações há 4 anos. Movido por pura curiosidade e um forte desejo de criar soluções que impactam positivamente a vida das pessoas, atendendo às suas necessidades e desafios. Hoje, à medida que continuo a mergulhar nesta área, sinto grande satisfação em saber que o meu trabalho já tocou a vida de milhares de pessoas e é isso que me leva a melhorar continuamente as minhas capacidades de resolução de problemas. Minha principal habilidade é ser dedicado e comprometido com o que faço.
           </v-card-text>
           <v-row class="mx-auto mt-4">
             <v-col

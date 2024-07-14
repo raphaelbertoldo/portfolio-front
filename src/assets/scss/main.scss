@@ -116,8 +116,9 @@
   border-bottom: solid 90px #99f;
   border-top: none;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 * {
-  font-family: monospace;
+  font-family: "Roboto Mono", monospace;
 }
 .gradiente-1 {
   background: linear-gradient(
