@@ -11,8 +11,6 @@
     "
   >
     <div class="mt-n16 d-flex flex-column align-center justify-center">
-      <!-- <v-btn @click="$emit('closeDialog')"></v-btn> -->
-      closecomp: {{ closeComp }}
       <div class="tremble">
         <div class="satelite"></div>
       </div>
