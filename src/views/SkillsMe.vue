@@ -116,7 +116,7 @@
 </style>
 <script>
 import skills from "@/services/skills";
-import ModalSelectSkill from "@/components/ModalSelectSkill.vue";
+import ModalSelectSkill from "../components/ModalSelectSkill.vue";
 import nestSvg from '../assets/icons/nest.svg';
 import graphqlLogo from '../assets/icons/GraphQL_Logo.svg.png'
 import cssSvg from '../assets/icons/css_logo.svg'
