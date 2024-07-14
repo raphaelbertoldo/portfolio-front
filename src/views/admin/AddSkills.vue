@@ -57,7 +57,7 @@
     </v-row>
     <!-- ADD SKILL -->
 
-    <v-dialog v-model="skillForm" max-width="400px" overlay-opacity="0.9">
+    <v-dialog v-model="skillForm" max-width="400px"   >
       <ModalForm
         @submit="addSkill()"
         @close="skillForm = false"

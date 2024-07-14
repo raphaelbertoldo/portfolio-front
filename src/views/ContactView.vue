@@ -20,7 +20,7 @@
           class="no-break glass-fx mt-n6 rounded-xl pa-md-10 pa-4 ma-4"
         >
           <v-card-title class="no-break"
-            >Raphael Ferreira Bertoldo, 24 anos, Uberlândia-MG</v-card-title
+            >Raphael Ferreira Bertoldo, 26y, Minas Gerais, Brazil</v-card-title
           >
           <v-card-text>
             Trabalho com desenvlvimento de software há 3 anos, comecei como

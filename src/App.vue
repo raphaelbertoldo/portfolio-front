@@ -1,4 +1,4 @@
-<template class="red">
+<template>
   <v-app
     class="black no-scroll"
     style="overflow: hidden; left: 0; top: 0; width: 100%; height: 100%"
@@ -11,8 +11,8 @@
       style="
         overflow: hidden;
         position: fixed;
-        filter: blur(20px);
-        opacity: 0.7;
+        filter: blur(07px);
+        opacity: 0.4;
         left: 0;
         top: 0;
         width: 100%;
@@ -20,7 +20,7 @@
         background-image: black;
         background-color: black;
       "
-      src="https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg"
+      src="./assets/javascript-1.jpg"
     />
     <RouterTab />
     <v-main class="black">

@@ -163,8 +163,15 @@
   backdrop-filter: blur(5px) !important;
 }
 .glass-fx-dark {
-  background-color: rgba(0, 0, 0, 0.8) !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: blur(5px) !important;
+}
+.outlined-card {
+  border: 1px solid rgba(60, 60, 60, 0.8);
+  background-color: rgba(0, 0, 0, 0.153) !important;
+  backdrop-filter: blur(5px) !important;
+  border-radius: 25px;
+  padding: 32px
 }
 .shadow-fx-1 {
   filter: drop-shadow(0px 0px 40px #07aff2a6);
@@ -175,4 +182,8 @@
 
 .no-break {
   word-wrap: break-word !important;
+}
+
+body {
+  background-color: #000;
 }

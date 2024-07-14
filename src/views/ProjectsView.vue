@@ -4,7 +4,7 @@
       <v-icon size="80" class="gradiente-yellow-1 mx-md-6"
         >mdi-hammer-wrench
       </v-icon>
-      <h1 class="block gradiente-yellow-1 mt-4" style="font-size: 36pt">
+      <h1 class="block gradiente-yellow-1" style="font-size: 36pt">
         Projetos
       </h1>
     </div>
@@ -24,9 +24,9 @@
         class=""
       >
         <v-card
-          :height="$vuetify.breakpoint.mobile ? '' : '320px'"
+          :height="$vuetify.breakpoint.mobile ? '' : '100%'"
           class="
-            pa-2 pa-md-8
+            pa-2 pa-md-4
             d-flex
             align-content-space-between
             flex-wrap
@@ -36,61 +36,60 @@
           dark
         >
           <v-card-text class="mx-auto">
-            <h2 class="mb-6 text-center">{{ proj.name }}</h2>
             <div class="d-flex">
-              <v-row>
-                <v-col cols="4">
-
+              <v-row class="d-flex">
+                <v-col cols="4" class="d-flex my-auto">
                   <v-img
                   :aspect-ratio="1 / 1"
-                  class="mr-4 shadow-2 rounded-xl mx-auto"
+                  class="my-auto shadow-2 rounded-xl mx-auto"
                   :src="proj.img"
                   :style="
                   $vuetify.breakpoint.mobile
-                  ? 'max-width: 100px; max-height: 100px; min-width: 100px; min-height: 100px'
-                  : 'max-width: 120px; max-height: 120px; min-width: 120px; min-height: 120px'
+                  ? 'max-width: 100px; max-height: 100px; min-width: 100px; min-height: 100px; border: solid 1px rgba(60, 60, 60, 0.8'
+                  : 'max-width: 120px; max-height: 120px; min-width: 120px; min-height: 120px; border: solid 1px rgba(60, 60, 60, 0.8'
                   "
                   />
                 </v-col>
-                
-                {{ proj.description }}
+                <v-col cols="8" >
+                  <h2 class="mb-4">{{ proj.name }}</h2>
+                  {{ proj.description }}
+                  <div class="mx-auto flex d-flex mt-4">
+                    <a
+                      class="mx-2"
+                      v-if="proj.link"
+                      :href="proj.link"
+                      target="blank"
+                      style="text-decoration: none"
+                    >
+                      <v-btn
+                        block
+                        outlined
+                        color="secondary"
+                        class="black--text block d-flex flex"
+                        >Acessar
+                      </v-btn>
+                    </a>
+                    <a
+                      class="mx-2"
+                      v-if="proj.repository"
+                      :href="proj.repository"
+                      target="blank"
+                      style="text-decoration: none"
+                    >
+                      <v-btn
+                        block
+                        outlined
+                        color="primary"
+                        class="black--text block d-flex flex"
+                        >Repositório
+                      </v-btn>
+                    </a>
+                  </div>
+                </v-col>
               </v-row>
             </div>
           </v-card-text>
-          <v-card-actions class="d-flex flex">
-            <div class="mx-auto flex d-flex">
-              <a
-                class="mx-2"
-                v-if="proj.link"
-                :href="proj.link"
-                target="blank"
-                style="text-decoration: none"
-              >
-                <v-btn
-                  block
-                  outlined
-                  color="secondary"
-                  class="black--text block d-flex flex"
-                  >Acessar
-                </v-btn>
-              </a>
-              <a
-                class="mx-2"
-                v-if="proj.repository"
-                :href="proj.repository"
-                target="blank"
-                style="text-decoration: none"
-              >
-                <v-btn
-                  block
-                  outlined
-                  color="primary"
-                  class="black--text block d-flex flex"
-                  >Repositório
-                </v-btn>
-              </a>
-            </div>
-          </v-card-actions>
+         
         </v-card>
       </v-col>
     </v-row>
@@ -128,7 +127,7 @@ export default {
           name: "Midi Online",
           img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
           description:
-            "O projeto foi criado usando apenas HTML, CSS e JavaScript.",
+            "O projeto de um piano digital que foi criado usando apenas HTML, CSS e JavaScript.",
           link: "https://midi-online.netlify.app/",
           repository: "https://github.com/raphaelbertoldo/midi-online",
         },
@@ -136,14 +135,14 @@ export default {
           name: "Atomic App",
           img: "https://i.ibb.co/ZSCBFWH/Captura-de-Tela-2024-05-07-a-s-23-17-16.png",
           description:
-            "Projeto para estudos criado com vue 3.",
+            "Projeto para aprimoramento das habilidades e para estudos criado com vue 3.",
           link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
           repository: "https://github.com/raphaelbertoldo/atomic",
         },
         {
           name: "Oráculo Beats",
           img: "https://i.ibb.co/BC84Dsn/image.png",
-          description: "Projeto ainda está sendo conluído...",
+          description: "Projeto iniciado mas ainda está sendo conluído...",
           link: "https://oraculobeats.netlify.app/",
           repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
         },
@@ -162,24 +161,7 @@ export default {
           link: "https://curso-vuetify.netlify.app/",
           repository: "https://github.com/raphaelbertoldo/Curso-Vuetify",
         },
-        {
-          name: "Em breve !",
-          img: "",
-          description: "",
-          link: "",
-        },
-        {
-          name: "Em breve !",
-          img: "",
-          description: "",
-          link: "",
-        },
-        {
-          name: "Em breve !",
-          img: "",
-          description: "",
-          link: "",
-        },
+        
       ],
     };
   },

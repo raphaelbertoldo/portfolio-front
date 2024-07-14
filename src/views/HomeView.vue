@@ -42,10 +42,10 @@
                 pl-8
               "
             >
-              Olá, meu nome e Raphael,
+              Raphael F. Bertoldo,
             </p>
             <p class="gradiente-yellow-1 line typing-animation2 pl-10">
-              sou desenvolvedor web.
+              Software Engineer. 
             </p>
           </div>
           <div
@@ -62,10 +62,10 @@
                   content
                 "
               >
-                Olá, meu nome e Raphael,
+                Raphael F. Bertoldo,
               </p>
               <p class="gradiente-yellow-1 line-b typing-animation2-b">
-                sou desenvolvedor web.
+              Software Engineer. 
               </p>
             </div>
           </div>
@@ -184,7 +184,7 @@ export default {
   margin-top: 80px;
   max-height: 702px;
   max-width: 702px;
-  background: url(https://i.ibb.co/bmvSS7D/avatar.png) no-repeat;
+  background: url(../assets/ReadyPlayerMe-Avatar.png) no-repeat;
 }
 
 .float-air {
@@ -317,13 +317,13 @@ export default {
 }
 .line {
   border-right: 2px solid rgba(254, 106, 55, 0);
-  font-size: 3em;
+  font-size: 3.7em;
   white-space: nowrap;
   overflow: hidden;
 }
 .line-b {
   border-right: 2px solid rgba(254, 106, 55, 0);
-  font-size: 22px;
+  font-size: 27px;
   white-space: nowrap;
   overflow: hidden;
 }
