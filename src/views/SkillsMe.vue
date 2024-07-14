@@ -85,6 +85,8 @@
       <v-col cols="12" md="3" class="align-center d-flex justify-center ml-n8">
         <ModalSelectSkill
           v-if="$vuetify.breakpoint.width > 1800"
+          @close="dialog = false"
+
           :selectSkillCard="selectSkillCard"
           @selectNextSkill="selectNextSkill"
           @selectPrevSkill="selectPrevSkill"
@@ -97,6 +99,7 @@
           overlay-opacity="0"
         >
             <ModalSelectSkill
+            @close="dialog = false"
               :selectSkillCard="selectSkillCard"
               @selectNextSkill="selectNextSkill"
               @selectPrevSkill="selectPrevSkill"
@@ -114,6 +117,15 @@
 <script>
 import skills from "@/services/skills";
 import ModalSelectSkill from "@/components/ModalSelectSkill.vue";
+import nestSvg from '../assets/icons/nest.svg';
+import graphqlLogo from '../assets/icons/GraphQL_Logo.svg.png'
+import cssSvg from '../assets/icons/css_logo.svg'
+import expressLogo from '../assets/icons/express-2.webp'
+import mariadbLogo from '../assets/icons/mariadb-1.png'
+import neo4jLogo from '../assets/icons/neo4j-white.webp'
+import redisLogo from '../assets/icons/redis-1.webp'
+import nuxtLogo from '../assets/icons/nuxt.svg'
+
 export default {
   components: { ModalSelectSkill },
   mounted() {
@@ -172,7 +184,7 @@ export default {
       },
       {
         name: "CSS3",
-        img: "https://i.ibb.co/58NrLLW/640px-Devicon-css3-plain-svg-1.png",
+        img: cssSvg,
         description:
           "Cascading Style Sheets é um mecanismo para adicionar estilo a um documento web. O código CSS pode ser aplicado diretamente nas tags ou ficar contido dentro das tags <style>. Também é possível, em vez de colocar a formatação dentro do documento, criar um link para um arquivo CSS que contém os estilos.",
       },
@@ -196,9 +208,15 @@ export default {
       },
       {
         name: "NestJs",
-        img: "https://i.ibb.co/jV1DTsX/640px-Devicon-css3-plain-svg-4.png",
+        img: nestSvg,
         description:
           "NestJS é um framework Node.js de código aberto destinado ao desenvolvimento de aplicativos do lado do servidor. Foi criado por Kamil Mysliwiec e lançado em 2017. Sob o capô, por padrão, o NestJS faz uso do framework Express.js, sendo também compatível com o Fastify. Sua arquitetura é fortemente inspirada no Angular.",
+      },
+      {
+        name: "GraphQL",
+        img: graphqlLogo,
+        description:
+          "GraphQL é uma linguagem de consulta criada pelo Facebook em 2012 e lançada publicamente em 2015. É considerada uma alternativa para arquiteturas REST, além de oferecer um serviço runtime para rodar comandos e consumir uma API.",
       },
       {
         name: "Vue",
@@ -213,8 +231,14 @@ export default {
           "Vuetify é uma biblioteca de interface do usuário Vue com componentes de material lindamente artesanais.",
       },
       {
+        name: "Nuxt",
+        img: nuxtLogo,
+        description:
+          "Nuxt.js é um framework para aplicações web de código aberto baseado em Vue.js, Node.js, Webpack and Babel.js. O framework foi inspirado pelo Next.js, um framework com propósito similar porém baseado em React.",
+      },
+      {
         name: "Express",
-        img: "https://i.ibb.co/HNpJpkw/Novo-Projeto-7.png",
+        img: expressLogo,
         description:
           "Express.js é um framework para Node.js que fornece recursos mínimos para construção de servidores web. Foi lançado como software livre e de código aberto sob a Licença MIT. É um dos mais populares frameworks para servidores em Node.js",
       },
@@ -231,6 +255,12 @@ export default {
           "Git é um sistema de controle de versões distribuído, usado principalmente no desenvolvimento de software, mas pode ser usado para registrar o histórico de edições de qualquer tipo de arquivo.",
       },
       {
+        name: "Neo4j",
+        img: neo4jLogo,
+        description:
+          "Neo4j é um sistema de gerenciamento de banco de dados gráfico desenvolvido pela Neo4j Inc. Os elementos de dados que o Neo4j armazena são nós, arestas que os conectam e atributos de nós e arestas.",
+      },
+      {
         name: "MongoDB",
         img: "https://i.ibb.co/f2VsqW3/Novo-Projeto-9.png",
         description:
@@ -238,10 +268,17 @@ export default {
       },
       {
         name: "MariaDB",
-        img: "https://i.ibb.co/37PFjMQ/Novo-Projeto-10.png",
+        img: mariadbLogo,
         description:
           "MariaDB é um sistema de gerenciamento de banco de dados que surgiu como fork do MySQL, criado pelo próprio fundador do projeto após sua aquisição pela Oracle.",
       },
+      {
+        name: "Redis",
+        img: redisLogo,
+        description:
+          "Redis é um armazenamento de estrutura de dados em memória, usado como um banco de dados em memória distribuído de chave-valor, cache e agente de mensagens, com durabilidade opcional.",
+      },
+      
     ],
   }),
 };

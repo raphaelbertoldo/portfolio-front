@@ -96,6 +96,7 @@
   </div>
 </template>
 <script>
+import nestSvg from '../assets/icons/nest.svg';
 export default {
   name: "ProjectsView",
   mounted() {
@@ -113,6 +114,7 @@ export default {
 
   data() {
     return {
+      // nestSvg,
       projects: [
         {
           name: "Jogo da Velha",
@@ -148,7 +150,7 @@ export default {
         },
         {
           name: "Api para rede social",
-          img: "https://i.ibb.co/jV1DTsX/640px-Devicon-css3-plain-svg-4.png",
+          img: nestSvg,
           description:
             "Projeto backend com autenticação de usuários, sistema de upload de fotos e posts dos usuários.",
           link: "",

@@ -171,7 +171,8 @@
   background-color: rgba(0, 0, 0, 0.153) !important;
   backdrop-filter: blur(5px) !important;
   border-radius: 25px;
-  padding: 32px
+  padding: 32px;
+  display: flex
 }
 .shadow-fx-1 {
   filter: drop-shadow(0px 0px 40px #07aff2a6);

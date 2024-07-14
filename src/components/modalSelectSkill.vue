@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-0 mt-md-16 d-flex justify-center outlined-card">
-    <div class="d-flex align-center">
+  <div class="mt-0 mt-md-16 d-flex justify-center" :class="$vuetify.breakpoint.mobile ? `` : `outlined-card`">
+    <div class="d-flex align-center" v-if="!$vuetify.breakpoint.mobile">
       <v-icon color="white" size="30" @click="$emit('selectPrevSkill')"
         >mdi-arrow-left</v-icon
       >
@@ -52,10 +52,16 @@
       </div>
     </div>
   </v-card>
-  <div class="d-flex align-center">
+  <div class="d-flex align-center" v-if="!$vuetify.breakpoint.mobile">
       <v-icon color="white" size="30" @click="$emit('selectNextSkill')"
         >mdi-arrow-right</v-icon
       >
+    </div>
+    <div
+    v-if="!$vuetify.breakpoint.mobile"
+    class="d-flex align-start justify-end">
+
+      <v-icon @click="$emit(`close`)">mdi-close</v-icon>
     </div>
   </div>
 </template>
