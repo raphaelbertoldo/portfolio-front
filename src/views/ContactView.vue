@@ -4,16 +4,7 @@
       <v-col
         cols="12"
         md="7"
-        class="
-          mt-8 mt-md-0
-          ml-md-n4
-          pl-md-16
-          flex
-          h-full
-          d-flex
-          justify-md-end justify-end
-          align-center
-        "
+        class="shadow-fx-1 mt-8 mt-md-0 ml-md-n4 pl-md-16 flex h-full d-flex justify-md-end justify-end align-center"
       >
         <v-card
           dark
@@ -23,7 +14,15 @@
             >Raphael Ferreira Bertoldo, 26y, Minas Gerais, Brazil</v-card-title
           >
           <v-card-text>
-            A curiosidade sobre o potencial da tecnologia me levou ao desenvolvimento de aplicações há 4 anos. Movido por pura curiosidade e um forte desejo de criar soluções que impactam positivamente a vida das pessoas, atendendo às suas necessidades e desafios. Hoje, à medida que continuo a mergulhar nesta área, sinto grande satisfação em saber que o meu trabalho já tocou a vida de milhares de pessoas e é isso que me leva a melhorar continuamente as minhas capacidades de resolução de problemas. Minha principal habilidade é ser dedicado e comprometido com o que faço.
+            A curiosidade sobre o potencial da tecnologia me levou ao
+            desenvolvimento de aplicações há 4 anos. Movido por pura curiosidade
+            e um forte desejo de criar soluções que impactam positivamente a
+            vida das pessoas, atendendo às suas necessidades e desafios. Hoje, à
+            medida que continuo a mergulhar nesta área, sinto grande satisfação
+            em saber que o meu trabalho já tocou a vida de milhares de pessoas e
+            é isso que me leva a melhorar continuamente as minhas capacidades de
+            resolução de problemas. Minha principal habilidade é ser dedicado e
+            comprometido com o que faço.
           </v-card-text>
           <v-row class="mx-auto mt-4">
             <v-col
@@ -54,7 +53,7 @@
                     mdi-gmail
                   </v-icon>
                 </template>
-                <span>rxphxel7k@gmail.com</span>
+                <span>raphaelferreirabertoldo@gmail.com</span>
               </v-tooltip>
             </v-col>
           </v-row>
@@ -65,18 +64,11 @@
         md="3"
         class="mb-0 mb-md-14 flex ml-n16 h-full d-flex align-center mt-n16"
       >
-        <v-img src="../assets/ReadyPlayerMe-Avata-2.png"></v-img>
-        <!-- <div
-          class="
-            shadow-fx-1
-            mt-n10 mt-md-2
-            avatar
-            mx-auto
-            ml-md-0 ml-n16
-            mb-md-0 mb-n16
-          "
-          :style="$vuetify.breakpoint.mobile ? 'transform: scale(0.9)' : ''"
-        ></div> -->
+        <!-- <v-img src="../assets/ReadyPlayerMe-Avata-2.png"></v-img> -->
+        <v-img
+          class="image-profile shadow-fx-1"
+          src="../assets/eu.jpeg"
+        ></v-img>
       </v-col>
     </v-row>
   </div>
@@ -118,7 +110,6 @@ export default {
 };
 </script>
 
-
 <style>
 .hover-icon {
   opacity: 0.5;
@@ -134,5 +125,9 @@ export default {
 }
 .v-card__title {
   word-break: break-word;
+}
+.image-profile {
+  border-radius: 20px;
+  filter: brightness(1);
 }
 </style>

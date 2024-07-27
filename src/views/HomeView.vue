@@ -33,19 +33,12 @@
             class="d-flex flex-column justify-center"
           >
             <p
-              class="
-                gradiente-yellow-1
-                no-flex
-                line
-                typing-animation
-                content
-                pl-8
-              "
+              class="gradiente-yellow-1 no-flex line typing-animation content pl-8"
             >
               Raphael F. Bertoldo,
             </p>
             <p class="gradiente-yellow-1 line typing-animation2 pl-10">
-              Software Engineer. 
+              Software Engineer.
             </p>
           </div>
           <div
@@ -54,18 +47,12 @@
           >
             <div class="mx-auto" style="width: 330px">
               <p
-                class="
-                  gradiente-yellow-1
-                  no-flex
-                  line-b
-                  typing-animation-b
-                  content
-                "
+                class="gradiente-yellow-1 no-flex line-b typing-animation-b content"
               >
                 Raphael F. Bertoldo,
               </p>
               <p class="gradiente-yellow-1 line-b typing-animation2-b">
-              Software Engineer. 
+                Software Engineer.
               </p>
             </div>
           </div>
@@ -100,51 +87,18 @@
             >
               {{ btn.title }}
             </v-btn>
-            <!-- <v-btn
-              outlined
-              color="primary"
-              class="mx-10 my-2 show-me-2 blue-neon"
-            >
-              PORTFÓLIO
-            </v-btn>
-            <v-btn
-              outlined
-              color="primary"
-              class="mx-10 my-2 show-me-1 blue-neon"
-            >
-              EXPERIÊNCIA
-            </v-btn> -->
           </div>
         </v-col>
         <v-col
           cols="12"
           md="6"
-          class="
-            flex
-            d-flex
-            align-center
-            justify-center
-            mt-md-n10 mt-md-6 mt-n16
-            mb-0 mb-md-n16
-          "
+          class="flex d-flex align-center justify-center mt-md-n10 mt-md-6 mt-n16 mb-0 mb-md-n16"
         >
           <div
             style="position: absolute"
             class="shadow-fx-1 avatar mx-auto pl-6"
             :style="$vuetify.breakpoint.mobile ? 'transform: scale(0.7)' : ''"
           ></div>
-          <!-- <v-img
-            src="../assets/me-photo.png"
-            class="
-              blue-neon
-              rounded-circle
-              gradiente-1
-              d-flex
-              align-center
-              justify-center
-            "
-            style="max-width: 420px"
-          /> -->
         </v-col>
       </v-row>
     </div>
@@ -394,4 +348,3 @@ export default {
   }
 }
 </style>
-
