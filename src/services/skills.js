@@ -1,9 +1,8 @@
-import { api } from './config'
+// import { api } from './config'
 
-export default { 
-    list:() => {
-        return api.get('skills')
-    },
-    
-   
-}
+// export default {
+//     list:() => {
+//         return api.get('skills')
+//     },
+
+// }

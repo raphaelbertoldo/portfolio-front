@@ -114,7 +114,6 @@
 }
 </style>
 <script>
-import skills from "@/services/skills";
 import htmlIcon from "../assets/images/skills/html_icon.png";
 import cssIcon from "../assets/images/skills/css_icon.png";
 import jsIcon from "../assets/images/skills/js_icon.png";
@@ -135,16 +134,8 @@ import ModalSelectSkill from "../components/ModalSelectSkill.vue";
 
 export default {
   components: { ModalSelectSkill },
-  mounted() {
-    this.handleLoad();
-  },
+  mounted() {},
   methods: {
-    handleLoad() {
-      this.$vloading.show();
-      setTimeout(() => {
-        this.$vloading.hide();
-      }, 1000);
-    },
     selectSkill(i) {
       this.dialog = true;
       this.selectSkillCard = this.skills[i];
@@ -168,20 +159,11 @@ export default {
         this.selectSkillCard = await this.skills[this.skills.length - 1];
       }
     },
-    getSkills() {
-      return skills
-        .list()
-        .then((res) => (this.skills = res.data))
-        .catch((error) => {
-          console.log(error);
-        });
-    },
   },
   data: () => ({
     selectSkillCard: "",
     dialog: false,
     indexSkill: null,
-
     skills: [
       {
         name: "JavaScript",

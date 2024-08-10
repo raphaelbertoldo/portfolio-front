@@ -7,7 +7,6 @@
       <h1 class="block gradiente-yellow-1" style="font-size: 36pt">Projetos</h1>
     </div>
     <v-row class="px-4 px-md-10">
-      <!-- cols="12" -->
       <v-col
         cols="12"
         :md="
@@ -86,8 +85,9 @@
   </div>
 </template>
 <script>
-import nestIcon from "../assets/images/skills/nestjs_icon.png";
+import nestIcon from "../assets/images/projects/nestjs.png";
 import ecommerceImage from "../assets/images/projects/ecom.webp";
+import atomicImage from "../assets/images/projects/atomic.png";
 export default {
   name: "ProjectsView",
   mounted() {
@@ -105,7 +105,6 @@ export default {
 
   data() {
     return {
-      // nestIcon,
       projects: [
         {
           name: "E-commerce Microservices API",
@@ -125,20 +124,20 @@ export default {
           repository: "https://github.com/raphaelbertoldo/the-hashgame",
         },
         {
-          name: "Midi Online",
-          img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
-          description:
-            "The project of a digital piano that was created using only HTML, CSS, and JavaScript.",
-          link: "https://midi-online.netlify.app/",
-          repository: "https://github.com/raphaelbertoldo/midi-online",
-        },
-        {
           name: "Atomic App",
-          img: "https://i.ibb.co/ZSCBFWH/Captura-de-Tela-2024-05-07-a-s-23-17-16.png",
+          img: atomicImage,
           description:
             "Project for skill improvement and study created with Vue 3.",
           link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
           repository: "https://github.com/raphaelbertoldo/atomic",
+        },
+        {
+          name: "API for a social network",
+          img: nestIcon,
+          description:
+            "Backend project with user authentication, photo upload system, and user posts.",
+          link: "",
+          repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
         },
         {
           name: "Oráculo Beats",
@@ -148,12 +147,12 @@ export default {
           repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
         },
         {
-          name: "API for a social network",
-          img: nestIcon,
+          name: "Midi Online",
+          img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
           description:
-            "Backend project with user authentication, photo upload system, and user posts.",
-          link: "",
-          repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
+            "The project of a digital piano that was created using only HTML, CSS, and JavaScript.",
+          link: "https://midi-online.netlify.app/",
+          repository: "https://github.com/raphaelbertoldo/midi-online",
         },
         {
           name: "To-do list",

@@ -25,68 +25,56 @@
         class="float-air-4"
         :style="!$vuetify.breakpoint.mobile ? 'transform: scale(0.1)' : ''"
       />
-      <v-row class="align-center d-flex justify-center pa-n16 mx-md-16">
-        <v-col cols="12" md="6">
-          <div
-            v-if="!$vuetify.breakpoint.mobile"
-            style="width: auto; max-width: 8em"
-            class="d-flex flex-column justify-center"
-          >
-            <p
-              class="gradiente-yellow-1 no-flex line typing-animation content pl-8"
-            >
-              Raphael F. Bertoldo,
-            </p>
-            <p class="gradiente-yellow-1 line typing-animation2 pl-10">
-              Software Engineer.
-            </p>
-          </div>
-          <div
-            v-if="$vuetify.breakpoint.mobile"
-            class="d-flex justify-center mx-auto mt-n14"
-          >
-            <div class="mx-auto" style="width: 330px">
-              <p
-                class="gradiente-yellow-1 no-flex line-b typing-animation-b content"
+      <v-row>
+        <v-col
+          cols="12"
+          md="6"
+          class="d-flex aling-md-center justify-md-center"
+        >
+          <div class="window-os">
+            <div class="window-os_header gradiente-1 d-flex">
+              <div
+                v-for="(icon, i) in icons"
+                :key="i"
+                :class="icon.color"
+                class="window-os-option ml-2"
               >
-                Raphael F. Bertoldo,
-              </p>
-              <p class="gradiente-yellow-1 line-b typing-animation2-b">
-                Software Engineer.
-              </p>
+                <v-icon size="10">
+                  {{ icon.mdi }}
+                </v-icon>
+              </div>
             </div>
-          </div>
-          <div
-            class="mt-16 d-flex mx-1 flex-row-reverse mb-16"
-            v-if="!$vuetify.breakpoint.mobile"
-          >
-            <v-btn
-              v-for="(btn, b) in routesBtns"
-              :key="b"
-              :to="btn.to"
-              color="primary"
-              outlined
-              class="mx-4 my-2 blue-neon"
-              :class="btn.class"
+            <p
+              class="gradiente-yellow-1 lineA line px-4"
+              :style="`font-size: ${
+                $vuetify.breakpoint.mobile ? `24px` : `48px`
+              }`"
             >
-              {{ btn.title }}
-            </v-btn>
-          </div>
-          <div
-            class="flex-column d-flex mx-16 mb-16"
-            v-if="$vuetify.breakpoint.mobile"
-          >
-            <v-btn
-              outlined
-              v-for="(btn, b) in routesBtns"
-              :key="b"
-              :to="btn.to"
-              color="primary"
-              class="mx-10 my-2 blue-neon"
-              :class="btn.class"
+              {{ lineA }}
+            </p>
+            <p
+              class="gradiente-yellow-1 lineB line px-4"
+              :style="`font-size: ${
+                $vuetify.breakpoint.mobile ? `24px` : `48px`
+              }`"
             >
-              {{ btn.title }}
-            </v-btn>
+              {{ lineB }}
+            </p>
+            <div
+              class="mt-md-16 justify-center mb-16 d-flex"
+              :class="$vuetify.breakpoint.mobile ? `flex-column` : ``"
+            >
+              <v-btn
+                v-for="(btn, b) in routesBtns"
+                :key="b"
+                :to="btn.to"
+                color="gradiente-1"
+                class="mx-4 my-2 blue-neon"
+                :class="btn.class"
+              >
+                {{ btn.title }}
+              </v-btn>
+            </div>
           </div>
         </v-col>
         <v-col
@@ -108,8 +96,24 @@
 <script>
 export default {
   name: "HomeView",
+  data: () => ({
+    lineA: "",
+    lineB: "",
+    routesBtns: [
+      { title: "Skills", to: "/skills", class: "show-me-1" },
+      { title: "Projects", to: "/projects", class: "show-me-2" },
+      { title: "Contact", to: "/contact", class: "show-me-3" },
+    ],
+    icons: [
+      { mdi: "mdi-close", color: "red" },
+      { mdi: "mdi-minus", color: "yellow" },
+      { mdi: "mdi-arrow-expand", color: "green" },
+    ],
+  }),
+
   mounted() {
     this.handleLoad();
+    this.typingLines(`Raphael F. Bertoldo`, "lineA");
   },
 
   methods: {
@@ -119,26 +123,126 @@ export default {
         this.$vloading.hide();
       }, 1000);
     },
-  },
-  data: () => ({
-    me: {
-      name: "Raphael",
-      lastname: "Ferreira Bertoldo",
+    async typingLines(name, key) {
+      window.document
+        .querySelector(`.${key}`)
+        .classList.add("typing-animation");
+      let res = [];
+
+      const initialDelay = 2000;
+      const typingInterval = 100;
+
+      let delay = initialDelay;
+
+      this[key] = "";
+
+      const typeCharacterByCharacter = () => {
+        return new Promise((resolve) => {
+          let currentDelay = delay;
+
+          for (let l of name.split("")) {
+            setTimeout(() => {
+              res.push(l);
+              this[key] = res.join("");
+
+              if (res.length === name.length) {
+                resolve();
+              }
+            }, currentDelay);
+
+            currentDelay += typingInterval;
+          }
+        });
+      };
+
+      await typeCharacterByCharacter();
+
+      if (key === "lineA") {
+        await this.typingLines("Software Engineer", "lineB");
+      }
     },
-    routesBtns: [
-      { title: "Habilidades", to: "/habilidades", class: "show-me-1" },
-      { title: "Projetos", to: "/projetos", class: "show-me-2" },
-      { title: "Contato", to: "/contato", class: "show-me-3" },
-    ],
-  }),
+  },
 };
 </script>
 <style scoped>
+.window-os_header {
+  height: 30px;
+  margin-bottom: 12px;
+  border-radius: 15px 15px 0px 0px;
+  display: flex;
+  align-items: center;
+}
+.window-os-option {
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.window-os {
+  border: 1px solid rgba(255, 255, 255, 0.514);
+  min-height: 400px;
+  max-height: 400px;
+  max-width: 100%;
+  min-width: 100%;
+  margin-block: auto;
+  margin-inline: auto;
+  border-radius: 15px;
+  border-radius: 15px;
+}
+@media (max-width: 960px) {
+  .window-os {
+    min-height: 310px;
+    max-height: 310px;
+    min-width: 90%;
+    max-width: 90%;
+    margin-block: 20%;
+  }
+}
+
+@media (min-width: 960px) {
+  .window-os {
+    margin-left: 200px;
+  }
+}
+/* TYPING ANIMATION */
+.typing-animation {
+  animation: blinkCursor 0.5s infinite normal,
+    hideCursor 0.5s 5s forwards normal, typing 1.5s steps(40) 1s normal both;
+}
+@keyframes blinkCursor {
+  from {
+    border-right-color: transparent;
+  }
+  to {
+    border-right-color: rgba(255, 203, 41, 1);
+  }
+}
+@keyframes hideCursor {
+  to {
+    border-right: none;
+  }
+}
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: fit-content;
+  }
+}
+.line {
+  border-right: 2px solid rgba(254, 106, 55, 0);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .avatar {
-  bottom: 0px;
   height: 702px;
   width: 702px;
-  background: url(../assets/images/ReadyPlayerMe-Avatar2.png) no-repeat;
+  background: url(../assets/images/avatar-me.png) no-repeat;
 }
 
 .float-air {
@@ -215,7 +319,6 @@ export default {
 
   100% {
     opacity: 0;
-
     margin-left: 100%;
     margin-right: -300px;
     margin-top: -50px;
@@ -264,84 +367,6 @@ export default {
   }
   100% {
     box-shadow: 0px 0px 150px 50px rgb(7, 176, 242, 0.2);
-  }
-}
-.line {
-  border-right: 2px solid rgba(254, 106, 55, 0);
-  font-size: 3.7em;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.line-b {
-  border-right: 2px solid rgba(254, 106, 55, 0);
-  font-size: 24px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.typing-animation {
-  animation: blinkCursor 0.5s infinite normal,
-    hideCursor 0.5s 5s forwards normal, typing 1.5s steps(40) 1s normal both;
-}
-.typing-animation2 {
-  animation: blinkCursor 0.5s 5s infinite normal,
-    typing2 1.5s steps(40) 6s normal both;
-}
-.typing-animation-b {
-  animation: blinkCursor 0.5s infinite normal,
-    hideCursor 0.5s 5s forwards normal, typing-b 1.5s steps(40) 1s normal both;
-}
-.typing-animation2-b {
-  animation: blinkCursor 0.5s 5s infinite normal,
-    typing2-b 1.5s steps(40) 6s normal both;
-}
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 740px;
-    padding-right: -120px;
-  }
-}
-@keyframes typing-b {
-  from {
-    width: 0;
-  }
-  to {
-    width: 330px;
-    padding-right: -120px;
-  }
-}
-@keyframes typing2 {
-  from {
-    width: 0;
-  }
-  to {
-    width: 700px;
-  }
-}
-@keyframes typing2-b {
-  from {
-    width: 0;
-  }
-  to {
-    width: 300px;
-  }
-}
-@keyframes blinkCursor {
-  from {
-    border-right-color: transparent;
-  }
-  to {
-    border-right-color: rgba(255, 203, 41, 1);
-  }
-}
-@keyframes hideCursor {
-  from {
-    border-right-color: rgba(255, 203, 41);
-  }
-  to {
-    border-right: none;
   }
 }
 </style>

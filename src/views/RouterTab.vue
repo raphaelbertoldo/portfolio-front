@@ -27,14 +27,6 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <!-- <template v-slot:append>
-        <div class="pa-2">
-          <v-btn block to="/admin/login">
-            <v-icon small class="mr-2">mdi-lock-open-outline</v-icon>
-            Painel Admin
-          </v-btn>
-        </div>
-      </template> -->
     </v-navigation-drawer>
     <v-app-bar
       app
@@ -69,12 +61,11 @@ export default {
       drawerbar: false,
       topbar: true,
       items: [
-        { title: "Inicio", to: "/" },
-        { title: "Habilidades", to: "/habilidades" },
-        { title: "Projetos", to: "/projetos" },
-        { title: "Contato", to: "/contato" },
+        { title: "Home", to: "/" },
+        { title: "Skills", to: "/skills" },
+        { title: "Projects", to: "/projects" },
+        { title: "Contact", to: "/contact" },
       ],
-      right: null,
     };
   },
 };

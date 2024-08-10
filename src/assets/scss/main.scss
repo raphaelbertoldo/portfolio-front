@@ -1,119 +1,31 @@
-.background-back-1 {
-  position: relative;
-  overflow: hidden;
-  background: rgb(2, 41, 56);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 41, 56, 1) 0%,
-    rgba(0, 0, 0, 1) 100%
-  );
-}
-.background-back-1 div {
-  position: relative;
-  z-index: 2;
-}
-.background-back-1 img {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-  opacity: 0.2;
-  filter: blur(4px);
-}
-
 .size-all {
   width: 100% !important;
   height: 100% !important;
   margin: 0 !important;
 }
-.codepen-promo:active,
-.codepen-promo:hover,
-.codepen-promo:link,
-.codepen-promo:visited {
-  bottom: 30px;
-  display: block;
-  position: absolute;
-  right: 30px;
-  width: 400px;
-  z-index: 99;
-}
-.codepen-promo-image {
-  width: 100%;
-}
-.unsplash-promo:active,
-.unsplash-promo:hover,
-.unsplash-promo:link,
-.unsplash-promo:visited {
-  bottom: 30px;
-  display: block;
-  position: absolute;
-  left: 30px;
-  width: 400px;
-  z-index: 99;
-  color: #666;
-  text-decoration: none;
-}
 .hexagon {
   clip-path: polygon(50% 0, 100% 25%, 100% 72%, 50% 100%, 0 75%, 0 25%);
   width: 150px;
   height: 170px;
-  // background: rgb(7, 176, 242);
-  //   background: linear-gradient(
-  //     14deg,
-  //     rgba(7, 176, 242, 0.1) 0%,
-  //     rgb(25, 182, 255, 0.1) 100%
-  //   );
-}
-.hexagon-mb {
-  clip-path: polygon(50% 0, 100% 25%, 100% 72%, 50% 100%, 0 75%, 0 25%);
-  width: 150px;
-  height: 170px;
-  // background: rgb(7, 176, 242);
-  //   background: linear-gradient(
-  //     14deg,
-  //     rgba(7, 176, 242, 0.1) 0%,
-  //     rgb(25, 182, 255, 0.1) 100%
-  //   );
 }
 .hexagon:hover {
   clip-path: polygon(50% 0, 100% 25%, 100% 72%, 50% 100%, 0 75%, 0 25%);
   width: 150px;
   cursor: pointer;
   height: 170px;
-  // background: (#68e2ff)
   background: linear-gradient(
-    14deg,
-    rgba(7, 176, 242, 0.2) 0%,
-    rgb(25, 182, 255, 0.3) 100%
+    90deg,
+    rgba(7, 175, 242, 1) 0%,
+    rgba(7, 242, 191, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
   );
 }
-.margin-left {
-  margin-left: 20px;
-}
+
 .container-glass {
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(5px);
-}
-.glass {
-  backdrop-filter: blur(5px);
-  opacity: 0.1;
-  position: fixed;
-  opacity: 0.2;
-  filter: blur(2px);
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-}
-.triangulo {
-  width: 1px;
-  height: 1px;
-  border: solid 90px transparent;
-  border-bottom: solid 90px #99f;
-  border-top: none;
 }
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 * {
@@ -153,11 +65,7 @@
 .blue-neon-1 {
   box-shadow: 50px 70px 150px 10px rgb(7, 176, 242, 0.2);
 }
-.glass-1 {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  width: 400px;
-}
+
 .glass-fx {
   background-color: rgba(255, 255, 255, 0.05) !important;
   backdrop-filter: blur(5px) !important;
@@ -180,11 +88,9 @@
 .shadow-2 {
   filter: drop-shadow(-8px 11px 7px -2px rgba(0, 0, 0, 0.89));
 }
-
 .no-break {
   word-wrap: break-word !important;
 }
-
 body {
   background-color: #000;
 }

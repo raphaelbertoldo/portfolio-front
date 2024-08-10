@@ -32,25 +32,19 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/habilidades",
+    path: "/skills",
     name: "SkillsMe",
     component: SkillsMe,
   },
   {
-    path: "/projetos",
+    path: "/projects",
     name: "Projects",
     component: Projects,
   },
   {
-    path: "/contato",
+    path: "/contact",
     name: "Contact",
     component: Contact,
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
 ];
 
