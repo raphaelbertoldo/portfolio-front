@@ -3,9 +3,6 @@
     class="black no-scroll"
     style="overflow: hidden; left: 0; top: 0; width: 100%; height: 100%"
   >
-    <!-- <img
-      src="https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg"
-    /> -->
     <v-img
       class="d-flex"
       style="
@@ -20,7 +17,7 @@
         background-image: black;
         background-color: black;
       "
-      src="./assets/javascript-1.jpg"
+      src="./assets/images/javascript-1.jpg"
     />
     <RouterTab />
     <v-main class="black">

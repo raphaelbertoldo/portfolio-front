@@ -67,7 +67,7 @@
         <!-- <v-img src="../assets/ReadyPlayerMe-Avata-2.png"></v-img> -->
         <v-img
           class="image-profile shadow-fx-1"
-          src="../assets/eu.jpeg"
+          src="../assets/images/eu.jpeg"
         ></v-img>
       </v-col>
     </v-row>
@@ -116,12 +116,6 @@ export default {
 }
 .hover-icon:hover {
   opacity: 1;
-}
-.avatar {
-  margin-top: 20px;
-  min-height: 702px;
-  min-width: 702px;
-  background: url(../assets/ReadyPlayerMe-Avata-2.png) no-repeat;
 }
 .v-card__title {
   word-break: break-word;

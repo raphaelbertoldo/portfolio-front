@@ -17,7 +17,6 @@
               class="blue-neon-1 mx-8"
               style="min-width: 560px"
             />
-            <v-btn @click="test()">here</v-btn>
           </div>
           <v-btn color="secondary" fab @click="openDialogAdd()">
             <v-icon color="primary">mdi-plus</v-icon>
@@ -57,7 +56,7 @@
     </v-row>
     <!-- ADD SKILL -->
 
-    <v-dialog v-model="skillForm" max-width="400px"   >
+    <v-dialog v-model="skillForm" max-width="400px">
       <ModalForm
         @submit="addSkill()"
         @close="skillForm = false"
@@ -203,7 +202,7 @@ export default {
   },
 };
 </script>
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .v-data-table {
   background-color: rgba(255, 255, 255, 0.05) !important;
 

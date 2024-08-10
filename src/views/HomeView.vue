@@ -2,25 +2,25 @@
   <div class="flex size-all">
     <div class="d-flex" style="min-height: 100%; margin: 0">
       <v-img
-        src="../assets/ufo.png"
+        src="../assets/animations/ufo.gif"
         style="position: absolute; padding-left: -100px"
         class="float-air"
         :style="$vuetify.breakpoint.mobile ? 'transform: scale(0.4)' : ''"
       />
       <v-img
-        src="../assets/ufo.png"
+        src="../assets/animations/ufo.gif"
         style="position: absolute"
         class="float-air-2"
         :style="$vuetify.breakpoint.mobile ? 'transform: scale(0.1)' : ''"
       />
       <v-img
-        src="../assets/ufo.png"
+        src="../assets/animations/ufo.gif"
         style="position: absolute"
         class="float-air-3"
         :style="!$vuetify.breakpoint.mobile ? 'transform: scale(0.1)' : ''"
       />
       <v-img
-        src="../assets/ufo.png"
+        src="../assets/animations/ufo.gif"
         style="position: absolute"
         class="float-air-4"
         :style="!$vuetify.breakpoint.mobile ? 'transform: scale(0.1)' : ''"
@@ -135,38 +135,37 @@ export default {
 </script>
 <style scoped>
 .avatar {
-  margin-top: 80px;
-  max-height: 702px;
-  max-width: 702px;
-  background: url(../assets/ReadyPlayerMe-Avatar.png) no-repeat;
+  bottom: 0px;
+  height: 702px;
+  width: 702px;
+  background: url(../assets/images/ReadyPlayerMe-Avatar2.png) no-repeat;
 }
 
 .float-air {
   opacity: 0;
-  margin-left: 300px;
-  margin-top: 300px;
-  animation: float-airplane 3s 4s;
+  width: 200px;
+  background-size: contain;
+  transform: scaleX(-1);
+  animation: float-airplane 5s 1s;
   animation-fill-mode: unset;
 }
+
 .float-air-2 {
-  /* opacity: 0; */
+  margin-top: 180px;
   margin-left: 100%;
-  margin-top: 300px;
-  animation: float-airplane-2 2s 10s;
+  animation: float-airplane-2 4s 10s;
   animation-fill-mode: unset;
 }
 .float-air-3 {
-  max-width: 200px;
+  max-width: 1810px;
   margin-left: 100%;
-  margin-top: 300px;
-  animation: float-airplane-2 3s 11s;
+  animation: float-airplane-2 5s 11s;
   animation-fill-mode: unset;
 }
 .float-air-4 {
   max-width: 150px;
   margin-left: 100%;
-  margin-top: 300px;
-  animation: float-airplane-2 3s 11.2s;
+  animation: float-airplane-2 7s 11.2s;
   animation-fill-mode: unset;
 }
 .pulse-op {
@@ -225,11 +224,9 @@ export default {
 
 @keyframes pulseop {
   from {
-    /* opacity: 1; */
     filter: brightness(1);
   }
   to {
-    /* opacity: 0.8; */
     filter: brightness(0.9);
   }
 }
@@ -277,7 +274,7 @@ export default {
 }
 .line-b {
   border-right: 2px solid rgba(254, 106, 55, 0);
-  font-size: 27px;
+  font-size: 24px;
   white-space: nowrap;
   overflow: hidden;
 }

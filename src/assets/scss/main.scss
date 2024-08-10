@@ -13,7 +13,6 @@
   z-index: 2;
 }
 .background-back-1 img {
-  /* background-image: url(https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg); */
   position: absolute;
   left: 0;
   top: 0;
@@ -116,7 +115,7 @@
   border-bottom: solid 90px #99f;
   border-top: none;
 }
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 * {
   font-family: "Roboto Mono", monospace;
 }
@@ -173,7 +172,7 @@
   backdrop-filter: blur(5px) !important;
   border-radius: 25px;
   padding: 32px;
-  display: flex
+  display: flex;
 }
 .shadow-fx-1 {
   filter: drop-shadow(0px 0px 40px #07aff2a6);
