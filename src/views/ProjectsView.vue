@@ -56,7 +56,10 @@
                         outlined
                         color="secondary"
                         class="black--text block d-flex flex"
-                        >Acessar
+                        ><v-icon class="mr-1" small>
+                          mdi-desktop-classic
+                        </v-icon>
+                        UI
                       </v-btn>
                     </a>
                     <a
@@ -71,7 +74,9 @@
                         outlined
                         color="primary"
                         class="black--text block d-flex flex"
-                        >Repositório
+                      >
+                        <v-icon class="mr-1" small> mdi-xml </v-icon>
+                        Code
                       </v-btn>
                     </a>
                   </div>
@@ -89,6 +94,7 @@ import nestIcon from "../assets/images/projects/nestjs.png";
 import ecommerceImage from "../assets/images/projects/ecom.webp";
 import atomicImage from "../assets/images/projects/atomic.png";
 import oraculoImg from "../assets/images/projects/oraculo.png";
+import oraculoApiImg from "../assets/images/projects/oraculo-api.png";
 export default {
   name: "ProjectsView",
   mounted() {
@@ -125,6 +131,21 @@ export default {
           repository: "https://github.com/raphaelbertoldo/the-hashgame",
         },
         {
+          name: "Oráculo Beats",
+          img: oraculoImg,
+          description:
+            "Website for a beatmaker sell beats, instrumentals and other services, this site has a list and music player.",
+          link: "https://oraculobeats.netlify.app/",
+          repository: "https://github.com/raphaelbertoldo/oraculo-front",
+        },
+        {
+          name: "Oráculo Beats - API",
+          img: oraculoApiImg,
+          description:
+            "Api in nest.js and mongodb, this api provide a CRUD to management tracks.",
+          repository: "https://github.com/raphaelbertoldo/oraculo-back",
+        },
+        {
           name: "Atomic App",
           img: atomicImage,
           description:
@@ -140,13 +161,7 @@ export default {
           link: "",
           repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
         },
-        {
-          name: "Oráculo Beats",
-          img: oraculoImg,
-          description: "Project started but still being completed...",
-          link: "https://oraculobeats.netlify.app/",
-          repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
-        },
+
         {
           name: "Midi Online",
           img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
