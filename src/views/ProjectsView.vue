@@ -88,6 +88,7 @@
 import nestIcon from "../assets/images/projects/nestjs.png";
 import ecommerceImage from "../assets/images/projects/ecom.webp";
 import atomicImage from "../assets/images/projects/atomic.png";
+import oraculoImg from "../assets/images/projects/oraculo.png";
 export default {
   name: "ProjectsView",
   mounted() {
@@ -141,7 +142,7 @@ export default {
         },
         {
           name: "Oráculo Beats",
-          img: "https://i.ibb.co/BC84Dsn/image.png",
+          img: oraculoImg,
           description: "Project started but still being completed...",
           link: "https://oraculobeats.netlify.app/",
           repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
