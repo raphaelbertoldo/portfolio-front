@@ -14,15 +14,14 @@
             >Raphael Ferreira Bertoldo, 26y, Minas Gerais, Brazil</v-card-title
           >
           <v-card-text>
-            A curiosidade sobre o potencial da tecnologia me levou ao
-            desenvolvimento de aplicações há 4 anos. Movido por pura curiosidade
-            e um forte desejo de criar soluções que impactam positivamente a
-            vida das pessoas, atendendo às suas necessidades e desafios. Hoje, à
-            medida que continuo a mergulhar nesta área, sinto grande satisfação
-            em saber que o meu trabalho já tocou a vida de milhares de pessoas e
-            é isso que me leva a melhorar continuamente as minhas capacidades de
-            resolução de problemas. Minha principal habilidade é ser dedicado e
-            comprometido com o que faço.
+            In the application development field, I embarked on this journey 4
+            years ago driven by pure curiosity and a strong desire to create
+            solutions that would positively impact people's lives by addressing
+            their needs and challenges. Today, as I continue to immerse myself
+            in this field, I find great satisfaction in knowing that my work has
+            already touched the lives of thousands, and this is what drives me
+            to continually enhance my problem-solving skills. My main skill is
+            being dedicated and committed to what I do.
           </v-card-text>
           <v-row class="mx-auto mt-4">
             <v-col
