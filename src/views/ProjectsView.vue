@@ -92,6 +92,8 @@
 <script>
 import nestIcon from "../assets/images/projects/nestjs.png";
 import ecommerceImage from "../assets/images/projects/ecom.webp";
+import movieStorm from "../assets/images/projects/movieStorm.png";
+import movieStormApi from "../assets/images/projects/movieStormApii.png";
 import atomicImage from "../assets/images/projects/atomic.png";
 import oraculoImg from "../assets/images/projects/oraculo.png";
 import oraculoApiImg from "../assets/images/projects/oraculo-api.png";
@@ -114,18 +116,35 @@ export default {
     return {
       projects: [
         {
+          name: "Movie Storm",
+          img: movieStorm,
+          description:
+            "A user interface where users can explore various hit movies from the past year, rate these movies, and get more recommendations.",
+          link: "https://movie-storm.netlify.app/",
+          skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
+          repository: "https://github.com/raphaelbertoldo/moviestorm-frontend",
+        },
+        {
+          name: "API - Movie Storm",
+          img: movieStormApi,
+          description:
+            "This project is a GraphQL API for managing movies, genres, and users. It also includes search and recommendation algorithms.",
+          skills: ["GraphQL", "Node.js", "MongoDB", "JavaScript"],
+          repository: "https://github.com/raphaelbertoldo/moviestorm-backend",
+        },
+        {
           name: "E-commerce Microservices API",
           img: ecommerceImage,
           description:
-            "This project has development to improve my architeture skills, has used Node.js, Express, MongoDB, and RabbitMQ.",
-          skills: ["Nodes.js", "Express", "RabbitMQ", "MongoDB"],
+            "This project was developed to improve my architecture skills, using Node.js, Express, MongoDB, and RabbitMQ.",
+          skills: ["Node.js", "Express", "RabbitMQ", "MongoDB"],
           repository: "https://github.com/raphaelbertoldo/ecommerce-ms",
         },
         {
           name: "The Hash Game",
           img: "https://i.ibb.co/qmWBVQv/Novo-Projeto.png",
           description:
-            "Classic tic-tac-toe project, designed 100% by me with the intention of enhancing skills for idea resolution.",
+            "A classic tic-tac-toe project, fully designed by me with the goal of enhancing problem-solving skills.",
           link: "https://the-hash-game.netlify.app/",
           skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
           repository: "https://github.com/raphaelbertoldo/the-hashgame",
@@ -134,46 +153,45 @@ export default {
           name: "Oráculo Beats",
           img: oraculoImg,
           description:
-            "Website for a beatmaker sell beats, instrumentals and other services, this site has a list and music player.",
+            "A website for a beatmaker to sell beats, instrumentals, and other services. The site features a track listing and music player.",
           link: "https://oraculobeats.netlify.app/",
           repository: "https://github.com/raphaelbertoldo/oraculo-front",
         },
         {
-          name: "Oráculo Beats - API",
+          name: "API - Oráculo Beats",
           img: oraculoApiImg,
           description:
-            "Api in nest.js and mongodb, this api provide a CRUD to management tracks.",
+            "A Nest.js and MongoDB API providing CRUD functionality for track management.",
           repository: "https://github.com/raphaelbertoldo/oraculo-back",
         },
         {
           name: "Atomic App",
           img: atomicImage,
           description:
-            "Project for skill improvement and study created with Vue 3.",
+            "A project for skill improvement and study, developed with Vue 3.",
           link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
           repository: "https://github.com/raphaelbertoldo/atomic",
         },
         {
-          name: "API for a social network",
+          name: "API for a Social Network",
           img: nestIcon,
           description:
-            "Backend project with user authentication, photo upload system, and user posts.",
+            "A backend project featuring user authentication, a photo upload system, and user posts management.",
           link: "",
           repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
         },
-
         {
           name: "Midi Online",
           img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
           description:
-            "The project of a digital piano that was created using only HTML, CSS, and JavaScript.",
+            "A digital piano project developed using only HTML, CSS, and JavaScript.",
           link: "https://midi-online.netlify.app/",
           repository: "https://github.com/raphaelbertoldo/midi-online",
         },
         {
-          name: "To-do list",
+          name: "To-do List",
           img: "https://i.ibb.co/42CpgHV/Novo-Projeto-5.png",
-          description: "To-do list created using vue.js and vuetify.",
+          description: "A to-do list created using Vue.js and Vuetify.",
           link: "https://curso-vuetify.netlify.app/",
           repository: "https://github.com/raphaelbertoldo/to-do-list",
         },
