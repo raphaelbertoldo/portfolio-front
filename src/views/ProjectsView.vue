@@ -116,6 +116,15 @@ export default {
     return {
       projects: [
         {
+          name: "Brazilians in USA - Community Portal",
+          img: `https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/screencapture-ass-br-eua-demo-netlify-app-2024-12-26-20_23_55.png`,
+          description:
+            "Institutional portal developed to connect and assist Brazilians in the United States. The site provides essential resources such as informative guides on immigration, employment, housing, and education, along with a directory of Brazilian services and professionals. ",
+          link: "https://ass-br-eua-demo.netlify.app/",
+          skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
+          repository: "https://github.com/raphaelbertoldo/abeua-demo",
+        },
+        {
           name: "Movie Storm",
           img: movieStorm,
           description:
@@ -124,6 +133,7 @@ export default {
           skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
           repository: "https://github.com/raphaelbertoldo/moviestorm-frontend",
         },
+
         {
           name: "API - Movie Storm",
           img: movieStormApi,
@@ -149,6 +159,7 @@ export default {
           skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
           repository: "https://github.com/raphaelbertoldo/the-hashgame",
         },
+
         {
           name: "Oráculo Beats",
           img: oraculoImg,
