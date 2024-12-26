@@ -125,6 +125,15 @@ export default {
           repository: "https://github.com/raphaelbertoldo/abeua-demo",
         },
         {
+          name: "European Citizenship Services - Institutional Portal",
+          img: "https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/site-inst-cid-ue.png",
+          description:
+            "An institutional portal designed to provide information and assistance for European citizenship services. The site features essential resources including guides on citizenship applications, legal requirements, and a directory of professionals offering related services.",
+          link: "https://cidadania-ue-demo.netlify.app/",
+          skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
+          repository: "https://github.com/raphaelbertoldo/ue-cid-demo",
+        },
+        {
           name: "Movie Storm",
           img: movieStorm,
           description:
