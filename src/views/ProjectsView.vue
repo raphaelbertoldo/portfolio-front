@@ -84,7 +84,7 @@
               </v-row>
             </div>
           </v-card-text>
-        </v-card>
+        </v-card> 
       </v-col>
     </v-row>
   </div>

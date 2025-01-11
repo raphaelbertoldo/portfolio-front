@@ -21,7 +21,7 @@
           <v-list-item-content>
             <v-list-item-title to="/habilidades" class="my-6 gradiente-yellow-1"
               ><h2>
-                {{ itemDrawerBar.title }}
+                {{ $t(itemDrawerBar.title) }}
               </h2></v-list-item-title
             >
           </v-list-item-content>
@@ -48,9 +48,35 @@
       >
         <v-tabs-slider color="primary"></v-tabs-slider>
         <v-tab v-for="(item, ii) in items" :key="ii" :to="item.to">
-          {{ item.title }}
+          {{ $t(item.title) }}
         </v-tab>
       </v-tabs>
+
+      <v-spacer></v-spacer>
+      
+      <v-menu offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            text
+            v-bind="attrs"
+            v-on="on"
+            class="text-none"
+            color="white"
+          >
+            <v-icon left>mdi-translate</v-icon>
+            {{ $t(`language.${currentLanguage}`) }}
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item
+            v-for="(lang, i) in languages"
+            :key="i"
+            @click="changeLanguage(lang.code)"
+          >
+            <v-list-item-title>{{ $t(`language.${lang.code}`) }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
   </div>
 </template>
@@ -60,13 +86,32 @@ export default {
     return {
       drawerbar: false,
       topbar: true,
+      currentLanguage: this.$i18n.locale,
+      languages: [
+        { code: 'en', name: 'English' },
+        { code: 'pt', name: 'Português' }
+      ],
       items: [
-        { title: "Home", to: "/" },
-        { title: "Skills", to: "/skills" },
-        { title: "Projects", to: "/projects" },
-        { title: "Contact", to: "/contact" },
+        { title: "nav.home", to: "/" },
+        { title: "nav.skills", to: "/skills" },
+        { title: "nav.projects", to: "/projects" },
+        { title: "nav.contact", to: "/contact" },
       ],
     };
   },
+  methods: {
+    changeLanguage(lang) {
+      this.$i18n.locale = lang;
+      this.currentLanguage = lang;
+      localStorage.setItem('language', lang);
+    }
+  },
+  created() {
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage) {
+      this.currentLanguage = savedLanguage;
+      this.$i18n.locale = savedLanguage;
+    }
+  }
 };
 </script>
