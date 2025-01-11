@@ -37,7 +37,36 @@
         backdrop-filter: blur(5px);
       "
     >
-      <v-icon color="white" @click="drawerbar = !drawerbar">mdi-menu</v-icon>
+    <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          text
+          v-bind="attrs"
+          v-on="on"
+          class="text-none px-2"
+          color="white"
+          rounded
+          dark
+        >
+          <span class="text-h5 mr-2">{{ languages.find(l => l.code === currentLanguage).flag }}</span>
+          {{ $t(`language.${currentLanguage}`) }}
+        </v-btn>
+      </template>
+      <v-list dark>
+        <v-list-item
+          v-for="(lang, i) in languages"
+          :key="i"
+          @click="changeLanguage(lang.code)"
+          class="px-4"
+        >
+          <v-list-item-title class="d-flex align-center">
+            <span class="text-h5 mr-2">{{ lang.flag }}</span>
+            {{ $t(`language.${lang.code}`) }}
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+    <v-spacer></v-spacer>
 
       <v-tabs
         v-if="!$vuetify.breakpoint.md && $vuetify.breakpoint.width > 600"
@@ -53,36 +82,8 @@
       </v-tabs>
 
       <v-spacer></v-spacer>
-      
-      <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            text
-            v-bind="attrs"
-            v-on="on"
-            class="text-none px-2"
-            color="white"
-            rounded
-            dark
-          >
-            <span class="text-h5 mr-2">{{ languages.find(l => l.code === currentLanguage).flag }}</span>
-            {{ $t(`language.${currentLanguage}`) }}
-          </v-btn>
-        </template>
-        <v-list dark>
-          <v-list-item
-            v-for="(lang, i) in languages"
-            :key="i"
-            @click="changeLanguage(lang.code)"
-            class="px-4"
-          >
-            <v-list-item-title class="d-flex align-center">
-              <span class="text-h5 mr-2">{{ lang.flag }}</span>
-              {{ $t(`language.${lang.code}`) }}
-            </v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <v-icon color="white" @click="drawerbar = !drawerbar">mdi-menu</v-icon>
+
     </v-app-bar>
   </div>
 </template>
