@@ -18,6 +18,7 @@ export default {
   },
   projects: {
     title: 'Projetos',
+    viewCode: 'Ver Código',
     viewProject: 'Ver Projeto',
     technologies: 'Tecnologias utilizadas'
   },
