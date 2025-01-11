@@ -28,9 +28,19 @@
                 target="blank"
                 style="text-decoration: none"
               >
-                <v-icon class="mx-auto hover-icon" size="60">
-                  {{ contact.icon }}
-                </v-icon>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-icon
+                      v-bind="attrs"
+                      v-on="on"
+                      class="mx-auto hover-icon"
+                      size="60"
+                    >
+                      {{ contact.icon }}
+                    </v-icon>
+                  </template>
+                  <span>{{ $t(contact.tooltip) }}</span>
+                </v-tooltip>
               </a>
             </v-col>
             <v-col class="d-flex flex-column align-center" cols="3">
@@ -45,7 +55,7 @@
                     mdi-gmail
                   </v-icon>
                 </template>
-                <span>raphaelferreirabertoldo@gmail.com</span>
+                <span>{{ $t('contact.socialLinks.email') }}: raphaelferreirabertoldo@gmail.com</span>
               </v-tooltip>
             </v-col>
           </v-row>
@@ -86,14 +96,17 @@ export default {
         {
           icon: "mdi-github",
           link: "https://github.com/raphaelbertoldo",
+          tooltip: "contact.socialLinks.github"
         },
         {
           icon: "mdi-linkedin",
           link: "https://www.linkedin.com/in/raphaelbertoldo/",
+          tooltip: "contact.socialLinks.linkedin"
         },
         {
           icon: "mdi-whatsapp",
           link: "https://api.whatsapp.com/send?phone=5534993139666",
+          tooltip: "contact.socialLinks.whatsapp"
         },
       ],
     };

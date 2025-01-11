@@ -72,7 +72,7 @@
                 class="mx-4 my-2 blue-neon"
                 :class="btn.class"
               >
-                {{ btn.title }}
+                {{ $t(btn.title) }}
               </v-btn>
             </div>
           </div>
@@ -100,9 +100,9 @@ export default {
     lineA: "",
     lineB: "",
     routesBtns: [
-      { title: "Skills", to: "/skills", class: "show-me-1" },
-      { title: "Projects", to: "/projects", class: "show-me-2" },
-      { title: "Contact", to: "/contact", class: "show-me-3" },
+      { title: "nav.skills", to: "/skills", class: "show-me-1" },
+      { title: "nav.projects", to: "/projects", class: "show-me-2" },
+      { title: "nav.contact", to: "/contact", class: "show-me-3" },
     ],
     icons: [
       { mdi: "mdi-close", color: "red" },
