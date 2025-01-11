@@ -60,20 +60,26 @@
             text
             v-bind="attrs"
             v-on="on"
-            class="text-none"
+            class="text-none px-2"
             color="white"
+            rounded
+            dark
           >
-            <v-icon left>mdi-translate</v-icon>
+            <span class="text-h5 mr-2">{{ languages.find(l => l.code === currentLanguage).flag }}</span>
             {{ $t(`language.${currentLanguage}`) }}
           </v-btn>
         </template>
-        <v-list>
+        <v-list dark>
           <v-list-item
             v-for="(lang, i) in languages"
             :key="i"
             @click="changeLanguage(lang.code)"
+            class="px-4"
           >
-            <v-list-item-title>{{ $t(`language.${lang.code}`) }}</v-list-item-title>
+            <v-list-item-title class="d-flex align-center">
+              <span class="text-h5 mr-2">{{ lang.flag }}</span>
+              {{ $t(`language.${lang.code}`) }}
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -88,8 +94,8 @@ export default {
       topbar: true,
       currentLanguage: this.$i18n.locale,
       languages: [
-        { code: 'en', name: 'English' },
-        { code: 'pt', name: 'Português' }
+        { code: 'en', name: 'English', flag: '🇺🇸' },
+        { code: 'pt', name: 'Português', flag: '🇧🇷' }
       ],
       items: [
         { title: "nav.home", to: "/" },
