@@ -134,6 +134,15 @@ export default {
           repository: "https://github.com/raphaelbertoldo/ue-cid-demo",
         },
         {
+          name: "Prowess - Institutional Technology Portal",
+          img: "https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/prowerss.png",
+          description:
+            "An institutional demo portal for a technology company, Prowess showcases innovative solutions and services. The site provides essential information about technology trends, project showcases, and a directory of services offered by the company.",
+          link: "https://expertise-ti-demo.netlify.app/",
+          skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
+          repository: "https://github.com/raphaelbertoldo/expertise-demo",
+        },
+        {
           name: "Movie Storm",
           img: movieStorm,
           description:

@@ -11,7 +11,8 @@
           class="no-break glass-fx mt-n6 rounded-xl pa-md-10 pa-4 ma-4"
         >
           <v-card-title class="no-break"
-            >Raphael Ferreira Bertoldo, 26y, Minas Gerais, Brazil</v-card-title
+            >
+            Raphael Ferreira Bertoldo, 26y, Minas Gerais, Brazil</v-card-title
           >
           <v-card-text>
             In the application development field, I embarked on this journey 4
@@ -61,12 +62,11 @@
       <v-col
         cols="12"
         md="3"
-        class="mb-0 mb-md-14 flex ml-n16 h-full d-flex align-center mt-n16"
+        class="image-container mb-0 mb-md-14 flex h-full d-flex align-center"
       >
-        <!-- <v-img src="../assets/ReadyPlayerMe-Avata-2.png"></v-img> -->
         <v-img
           class="image-profile shadow-fx-1"
-          src="../assets/images/eu.jpeg"
+          src="https://pub-e73d5ce4f732457680be7f9fe09b96d7.r2.dev/raphael.jpeg"
         ></v-img>
       </v-col>
     </v-row>
@@ -122,5 +122,30 @@ export default {
 .image-profile {
   border-radius: 20px;
   filter: brightness(1);
+  max-width: 100%;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+.image-container {
+  padding: 1rem;
+}
+
+@media (max-width: 960px) {
+  .image-container {
+    order: -1;
+    margin-top: 2rem !important;
+  }
+  
+  .image-profile {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 960px) {
+  .image-container {
+    margin-left: -4rem;
+  }
 }
 </style>
