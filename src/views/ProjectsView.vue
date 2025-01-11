@@ -35,13 +35,17 @@
             <div class="project-header pa-4">
               <v-img
                 :src="proj.img"
+                :lazy-src="generateBlurHash(proj.name)"
                 class="project-image rounded-lg"
                 height="200"
+                position="top center"
                 :aspect-ratio="16/9"
                 gradient="to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%"
+                loading="lazy"
+                cover
               >
                 <template v-slot:placeholder>
-                  <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-row class="fill-height ma-0 image-skeleton" align="center" justify="center">
                     <v-progress-circular indeterminate color="primary"></v-progress-circular>
                   </v-row>
                 </template>
@@ -114,10 +118,11 @@ export default {
   data() {
     return {
       hover: null,
+      imageLoading: {},
       projects: [
         {
           name: "Brazilians in USA - Community Portal",
-          img: `https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/screencapture-ass-br-eua-demo-netlify-app-2024-12-26-20_23_55.png`,
+          img: this.optimizeImageUrl("https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/screencapture-ass-br-eua-demo-netlify-app-2024-12-26-20_23_55.png", 800),
           description:
             "Institutional portal developed to connect and assist Brazilians in the United States. The site provides essential resources such as informative guides on immigration, employment, housing, and education, along with a directory of Brazilian services and professionals. ",
           link: "https://ass-br-eua-demo.netlify.app/",
@@ -126,7 +131,7 @@ export default {
         },
         {
           name: "European Citizenship Services - Institutional Portal",
-          img: "https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/site-inst-cid-ue.png",
+          img: this.optimizeImageUrl("https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/site-inst-cid-ue.png", 800),
           description:
             "An institutional portal designed to provide information and assistance for European citizenship services. The site features essential resources including guides on citizenship applications, legal requirements, and a directory of professionals offering related services.",
           link: "https://cidadania-ue-demo.netlify.app/",
@@ -135,7 +140,7 @@ export default {
         },
         {
           name: "Prowess - Institutional Technology Portal",
-          img: "https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/prowerss.png",
+          img: this.optimizeImageUrl("https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/prowerss.png", 800),
           description:
             "An institutional demo portal for a technology company, Prowess showcases innovative solutions and services. The site provides essential information about technology trends, project showcases, and a directory of services offered by the company.",
           link: "https://expertise-ti-demo.netlify.app/",
@@ -169,7 +174,7 @@ export default {
         },
         {
           name: "The Hash Game",
-          img: "https://i.ibb.co/qmWBVQv/Novo-Projeto.png",
+          img: this.optimizeImageUrl("https://i.ibb.co/qmWBVQv/Novo-Projeto.png", 800),
           description:
             "A classic tic-tac-toe project, fully designed by me with the goal of enhancing problem-solving skills.",
           link: "https://the-hash-game.netlify.app/",
@@ -240,6 +245,38 @@ export default {
         this.$vloading.hide();
       }, 1000);
     },
+    optimizeImageUrl(url, width) {
+      // Se a URL for uma importação local, retorna direto
+      if (typeof url === 'object' || !url.startsWith('http')) {
+        return url;
+      }
+      
+      // Para URLs do R2/Cloudflare, adiciona parâmetros de otimização
+      if (url.includes('r2.dev')) {
+        return `${url}?width=${width}&format=webp&quality=80`;
+      }
+      
+      // Para URLs do ibb.co, usa o formato otimizado deles
+      if (url.includes('ibb.co')) {
+        return url.replace('/Novo-Projeto', '/Novo-Projeto_optimize');
+      }
+      
+      return url;
+    },
+    generateBlurHash(projectName) {
+      // Gera um placeholder colorido único baseado no nome do projeto
+      const hash = projectName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      const hue = hash % 360;
+      return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='1'/%3E%3C/filter%3E%3Crect width='8' height='5' fill='hsl(${hue}, 20%, 20%)'/%3E%3C/svg%3E`;
+    },
+    handleImageLoad(projectName) {
+      this.$set(this.imageLoading, projectName, false);
+    },
+    handleImageError(projectName) {
+      console.error(`Failed to load image for project: ${projectName}`);
+      // Usa uma imagem de fallback em caso de erro
+      this.$set(this.projects.find(p => p.name === projectName), 'img', '/fallback-image.jpg');
+    }
   },
 };
 </script>
@@ -274,7 +311,12 @@ export default {
 }
 
 .project-image {
-  transition: transform 0.3s ease;
+  transition: opacity 0.3s ease;
+  background-position: top center !important;
+}
+
+.project-image.loading {
+  opacity: 0;
 }
 
 .project-card:hover .project-image {
@@ -387,6 +429,33 @@ export default {
   animation: reveal 0.8s ease-out forwards;
   animation-delay: calc(0.1s * v-bind(index));
   opacity: 0;
+}
+
+.image-skeleton {
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.1) 25%, 
+    rgba(255,255,255,0.2) 37%, 
+    rgba(255,255,255,0.1) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.v-image__image {
+  background-position: top center !important;
+}
+
+.v-image__image--cover {
+  background-position: top center !important;
 }
 
 /* Responsividade para telas menores */
