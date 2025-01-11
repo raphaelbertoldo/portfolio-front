@@ -65,15 +65,22 @@
                 </div>
                 
                 <div class="skills-container mt-auto pt-4" v-if="proj.skills">
-                  <v-chip
-                    v-for="(skill, index) in proj.skills"
-                    :key="index"
-                    class="mr-2 mb-2 skill-chip"
-                    small
-                    outlined
-                  >
-                    {{ skill }}
-                  </v-chip>
+                  <div class="skill-icons-container mb-2">
+                    <v-tooltip bottom v-for="(skill, index) in proj.skills" :key="index">
+                      <template v-slot:activator="{ on, attrs }">
+                        <div class="skill-icon-wrapper" v-bind="attrs" v-on="on">
+                          <v-img
+                            :src="skillIcons[skill]"
+                            width="24"
+                            height="24"
+                            contain
+                            class="skill-icon ma-1"
+                          />
+                        </div>
+                      </template>
+                      <span>{{ skill }}</span>
+                    </v-tooltip>
+                  </div>
                 </div>
               </v-card-text>
 
@@ -163,10 +170,26 @@
                   <h3 class="text-h6 font-weight-medium mb-4">
                     {{ $t('projects.technologies') }}
                   </h3>
+                  <div class="skill-icons-grid mb-4">
+                    <v-tooltip bottom v-for="(skill, index) in selectedProject.skills" :key="index">
+                      <template v-slot:activator="{ on, attrs }">
+                        <div class="skill-icon-wrapper-modal" v-bind="attrs" v-on="on">
+                          <v-img
+                            :src="skillIcons[skill]"
+                            width="40"
+                            height="40"
+                            contain
+                            class="skill-icon-modal"
+                          />
+                        </div>
+                      </template>
+                      <span>{{ skill }}</span>
+                    </v-tooltip>
+                  </div>
                   <div class="skills-grid">
                     <v-chip
                       v-for="(skill, index) in selectedProject.skills"
-                      :key="index"
+                      :key="'chip-'+index"
                       class="mr-2 mb-2 skill-chip-modal"
                       outlined
                     >
@@ -211,10 +234,26 @@
 </template>
 
 <script>
-import nestIcon from "../assets/images/projects/nestjs.png";
-import ecommerceImage from "../assets/images/projects/ecom.webp";
+import htmlIcon from "../assets/images/skills/html_icon.png";
+import cssIcon from "../assets/images/skills/css_icon.png";
+import jsIcon from "../assets/images/skills/js_icon.png";
+import tsIcon from "../assets/images/skills/ts_icon.png";
+import nodeIcon from "../assets/images/skills/node_icon.png";
+import nestjsIcon from "../assets/images/skills/nestjs_icon.png";
+import vueIcon from "../assets/images/skills/vue_icon.png";
+import dockerIcon from "../assets/images/skills/docker_icon.png";
+import gitIcon from "../assets/images/skills/git_icon.png";
+import mongoIcon from "../assets/images/skills/mongodb_icon.png";
+import graphqlIcon from "../assets/images/skills/graphql_icon.png";
+import expressIcon from "../assets/images/skills/express_icon.webp";
+import mariadbIcon from "../assets/images/skills/mariadb_icon.png";
+import neo4jIcon from "../assets/images/skills/neo4j_icon.webp";
+import redisIcon from "../assets/images/skills/redis_icon.webp";
+import nuxtIcon from "../assets/images/skills/nuxt_icon.svg";
+import nestjsProjectIcon from "../assets/images/projects/nestjs.png";
 import movieStorm from "../assets/images/projects/movieStorm.png";
 import movieStormApi from "../assets/images/projects/movieStormApi.png";
+import ecommerceImage from "../assets/images/projects/ecom.webp";
 import atomicImage from "../assets/images/projects/atomic.png";
 import oraculoImg from "../assets/images/projects/oraculo.png";
 import oraculoApiImg from "../assets/images/projects/oraculo-api.png";
@@ -227,6 +266,25 @@ export default {
       imageLoading: {},
       showModal: false,
       selectedProject: null,
+      skillIcons: {
+        'HTML': htmlIcon,
+        'CSS': cssIcon,
+        'JavaScript': jsIcon,
+        'TypeScript': tsIcon,
+        'Node.js': nodeIcon,
+        'NestJS': nestjsIcon,
+        'Vue.js': vueIcon,
+        'Vuetify': 'https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-light.svg',
+        'Docker': dockerIcon,
+        'Git': gitIcon,
+        'MongoDB': mongoIcon,
+        'GraphQL': graphqlIcon,
+        'Express': expressIcon,
+        'MariaDB': mariadbIcon,
+        'Neo4j': neo4jIcon,
+        'Redis': redisIcon,
+        'Nuxt.js': nuxtIcon,
+      },
       projects: [
         {
           name: "Brazilians in USA - Community Portal",
@@ -234,25 +292,25 @@ export default {
           description:
             "Institutional portal developed to connect and assist Brazilians in the United States. The site provides essential resources such as informative guides on immigration, employment, housing, and education, along with a directory of Brazilian services and professionals. ",
           link: "https://ass-br-eua-demo.netlify.app/",
-          skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
+          skills: ["HTML", "CSS", "JavaScript", "Vue.js", "Vuetify", "Git", "Nuxt.js"],
           repository: "https://github.com/raphaelbertoldo/abeua-demo",
         },
         {
-          name: "European Citizenship Services - Institutional Portal",
+          name: "European Citizenship Portal",
           img: this.optimizeImageUrl("https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/site-inst-cid-ue.png", 800),
           description:
             "An institutional portal designed to provide information and assistance for European citizenship services. The site features essential resources including guides on citizenship applications, legal requirements, and a directory of professionals offering related services.",
           link: "https://cidadania-ue-demo.netlify.app/",
-          skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
+          skills: ["HTML", "CSS", "JavaScript", "Vue.js", "Vuetify", "Git", "Nuxt.js"],
           repository: "https://github.com/raphaelbertoldo/ue-cid-demo",
         },
         {
-          name: "Prowess - Institutional Technology Portal",
+          name: "Prowess Technology",
           img: this.optimizeImageUrl("https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/prowerss.png", 800),
           description:
             "An institutional demo portal for a technology company, Prowess showcases innovative solutions and services. The site provides essential information about technology trends, project showcases, and a directory of services offered by the company.",
           link: "https://expertise-ti-demo.netlify.app/",
-          skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
+          skills: ["HTML", "CSS", "JavaScript", "Vue.js", "Vuetify", "Git", "Nuxt.js"],
           repository: "https://github.com/raphaelbertoldo/expertise-demo",
         },
         {
@@ -261,7 +319,7 @@ export default {
           description:
             "A user interface where users can explore various hit movies from the past year, rate these movies, and get more recommendations.",
           link: "https://movie-storm.netlify.app/",
-          skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
+          skills: ["Vue.js", "Node.js", "GraphQL", "MongoDB"],
           repository: "https://github.com/raphaelbertoldo/moviestorm-frontend",
         },
         {
@@ -270,7 +328,7 @@ export default {
           description:
             "This project is a GraphQL API for managing movies, genres, and users. It also includes search and recommendation algorithms.",
           skills: ["GraphQL", "Node.js", "MongoDB", "JavaScript"],
-          repository: "https://github.com/raphaelbertoldo/moviestorm-backend",
+          repository: "https://github.com/raphaelbertoldo/moviee-storm-api",
         },
         {
           name: "E-commerce Microservices API",
@@ -278,7 +336,7 @@ export default {
           description:
             "This project was developed to improve my architecture skills, using Node.js, Express, MongoDB, and RabbitMQ.",
           skills: ["Node.js", "Express", "RabbitMQ", "MongoDB"],
-          repository: "https://github.com/raphaelbertoldo/ecommerce-ms",
+          repository: "https://github.com/raphaelbertoldo/microservices-ecommerce",
         },
         {
           name: "The Hash Game",
@@ -286,7 +344,7 @@ export default {
           description:
             "A classic tic-tac-toe project, fully designed by me with the goal of enhancing problem-solving skills.",
           link: "https://the-hash-game.netlify.app/",
-          skills: ["HTML", "CSS", "JavaScript", "Vue.js"],
+          skills: ["Vue.js", "JavaScript", "HTML", "CSS"],
           repository: "https://github.com/raphaelbertoldo/the-hashgame",
         },
         {
@@ -295,8 +353,8 @@ export default {
           description:
             "A website for a beatmaker to sell beats, instrumentals, and other services. The site features a track listing and music player.",
           link: "https://oraculobeats.netlify.app/",
+          skills: ["Vue.js", "Node.js", "MongoDB", "NestJS"],
           repository: "https://github.com/raphaelbertoldo/oraculo-front",
-          skills: ["Vue.js", "Vuetify", "JavaScript"],
         },
         {
           name: "API - Oráculo Beats",
@@ -304,7 +362,7 @@ export default {
           description:
             "A Nest.js and MongoDB API providing CRUD functionality for track management.",
           repository: "https://github.com/raphaelbertoldo/oraculo-back",
-          skills: ["NestJS", "MongoDB", "TypeScript"],
+          skills: ["NestJS", "MongoDB", "Node.js", "TypeScript"],
         },
         {
           name: "Atomic App",
@@ -312,34 +370,17 @@ export default {
           description:
             "A project for skill improvement and study, developed with Vue 3.",
           link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
+          skills: ["Vue.js", "JavaScript", "HTML", "CSS"],
           repository: "https://github.com/raphaelbertoldo/atomic",
-          skills: ["Vue 3", "Composition API", "TypeScript"],
         },
         {
           name: "API for a Social Network",
-          img: nestIcon,
+          img: nestjsProjectIcon,
           description:
             "A backend project featuring user authentication, a photo upload system, and user posts management.",
           repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
-          skills: ["NestJS", "MongoDB", "TypeScript", "AWS S3"],
+          skills: ["NestJS", "MongoDB", "Node.js", "TypeScript"],
         },
-        // {
-        //   name: "Midi Online",
-        //   img: "https://i.ibb.co/9hb8SPb/Novo-Projeto-4.png",
-        //   description:
-        //     "A digital piano project developed using only HTML, CSS, and JavaScript.",
-        //   link: "https://midi-online.netlify.app/",
-        //   repository: "https://github.com/raphaelbertoldo/midi-online",
-        //   skills: ["HTML", "CSS", "JavaScript"],
-        // },
-        // {
-        //   name: "To-do List",
-        //   img: "https://i.ibb.co/42CpgHV/Novo-Projeto-5.png",
-        //   description: "A to-do list created using Vue.js and Vuetify.",
-        //   link: "https://curso-vuetify.netlify.app/",
-        //   repository: "https://github.com/raphaelbertoldo/to-do-list",
-        //   skills: ["Vue.js", "Vuetify", "JavaScript"],
-        // },
       ],
     };
   },
@@ -490,15 +531,59 @@ export default {
   transform: scale(1.05);
 }
 
-.skill-chip {
+.skill-icons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+}
+
+.skill-icon-wrapper {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  padding: 4px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon-wrapper:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.skill-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   transition: all 0.3s ease;
 }
 
-.skill-chip:hover {
+.skill-icons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.skill-icon-wrapper-modal {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon-wrapper-modal:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+}
+
+.skill-icon-modal {
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
 }
 
 .action-button {
