@@ -1,106 +1,212 @@
 <template>
-  <div class="projects-container">
-    <div class="header-section my-md-10 my-4">
-      <div class="title-container ml-md-16 pl-md-16 d-flex align-center">
-        <v-icon size="80" class="title-icon gradiente-yellow-1 mx-md-6 animate-float">
-          mdi-hammer-wrench
-        </v-icon>
-        <h1 class="title-text gradiente-yellow-1" style="font-size: 36pt">
-          {{ $t('projects.title') }}
-        </h1>
+  <div class="projects-wrapper">
+    <div class="projects-container">
+      <div class="header-section my-md-10 my-4">
+        <div class="title-container ml-md-16 pl-md-16 d-flex align-center">
+          <v-icon size="80" class="title-icon gradiente-yellow-1 mx-md-6 animate-float">
+            mdi-hammer-wrench
+          </v-icon>
+          <h1 class="title-text gradiente-yellow-1" style="font-size: 36pt">
+            {{ $t('projects.title') }}
+          </h1>
+        </div>
       </div>
-    </div>
 
-    <v-row class="projects-grid px-4 px-md-10">
-      <transition-group
-        name="project-transition"
-        tag="div"
-        class="row w-100"
-        appear
-      >
-        <v-col
-          v-for="(proj, i) in projects"
-          :key="i"
-          cols="12"
-          :md="$vuetify.breakpoint.width < 1800 ? '6' : '4'"
-          class="project-col"
+      <v-row class="projects-grid px-4 px-md-10">
+        <transition-group
+          name="project-transition"
+          tag="div"
+          class="row w-100"
+          appear
         >
-          <v-card
-            class="project-card glass-morphism h-100 d-flex flex-column"
-            :class="{'scale-up': hover === i}"
-            @mouseover="hover = i"
-            @mouseleave="hover = null"
-            dark
+          <v-col
+            v-for="(proj, i) in projects"
+            :key="i"
+            cols="12"
+            :md="$vuetify.breakpoint.width < 1800 ? '6' : '4'"
+            class="project-col"
           >
-            <div class="project-header pa-4">
-              <v-img
-                :src="proj.img"
-                :lazy-src="generateBlurHash(proj.name)"
-                class="project-image rounded-lg"
-                height="200"
-                position="top center"
-                :aspect-ratio="16/9"
-                gradient="to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%"
-                loading="lazy"
-                cover
-              >
-                <template v-slot:placeholder>
-                  <v-row class="fill-height ma-0 image-skeleton" align="center" justify="center">
-                    <v-progress-circular indeterminate color="primary"></v-progress-circular>
-                  </v-row>
-                </template>
-              </v-img>
-            </div>
-
-            <v-card-title class="project-title text-h5 font-weight-bold">
-              {{ proj.name }}
-            </v-card-title>
-
-            <v-card-text class="project-description flex-grow-1">
-              {{ proj.description }}
-              
-              <div class="skills-container mt-4" v-if="proj.skills">
-                <v-chip
-                  v-for="(skill, index) in proj.skills"
-                  :key="index"
-                  class="mr-2 mb-2 skill-chip"
-                  small
-                  outlined
+            <v-card
+              class="project-card glass-morphism d-flex flex-column"
+              :class="{'scale-up': hover === i}"
+              @mouseover="hover = i"
+              @mouseleave="hover = null"
+              @click="openProjectModal(proj)"
+              dark
+              height="500"
+            >
+              <div class="project-header">
+                <v-img
+                  :src="proj.img"
+                  :lazy-src="generateBlurHash(proj.name)"
+                  class="project-image rounded-lg"
+                  height="200"
+                  position="top center"
+                  :aspect-ratio="16/9"
+                  gradient="to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%"
+                  loading="lazy"
+                  cover
                 >
-                  {{ skill }}
-                </v-chip>
+                  <template v-slot:placeholder>
+                    <v-row class="fill-height ma-0 image-skeleton" align="center" justify="center">
+                      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
               </div>
-            </v-card-text>
 
-            <v-card-actions class="project-actions pa-4">
-              <v-spacer></v-spacer>
-              <v-btn
-                v-if="proj.repository"
-                :href="proj.repository"
-                target="_blank"
-                class="action-button mr-2"
-                outlined
-                color="primary"
+              <v-card-title class="project-title text-h5 font-weight-bold pt-4 pb-2">
+                {{ proj.name }}
+              </v-card-title>
+
+              <v-card-text class="project-description flex-grow-1 d-flex flex-column">
+                <div class="description-text">
+                  {{ proj.description }}
+                </div>
+                
+                <div class="skills-container mt-auto pt-4" v-if="proj.skills">
+                  <v-chip
+                    v-for="(skill, index) in proj.skills"
+                    :key="index"
+                    class="mr-2 mb-2 skill-chip"
+                    small
+                    outlined
+                  >
+                    {{ skill }}
+                  </v-chip>
+                </div>
+              </v-card-text>
+
+              <v-card-actions class="project-actions pa-4">
+                <v-spacer></v-spacer>
+                <v-btn
+                  v-if="proj.repository"
+                  :href="proj.repository"
+                  target="_blank"
+                  class="action-button mr-2"
+                  outlined
+                  color="primary"
+                >
+                  <v-icon left>mdi-github</v-icon>
+                  {{ $t('projects.viewCode') }}
+                </v-btn>
+                <v-btn
+                  v-if="proj.link"
+                  :href="proj.link"
+                  target="_blank"
+                  class="action-button"
+                  outlined
+                  color="secondary"
+                >
+                  <v-icon left>mdi-web</v-icon>
+                  {{ $t('projects.viewProject') }}
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </transition-group>
+      </v-row>
+
+      <!-- Modal de Detalhes do Projeto -->
+      <v-dialog
+        v-model="showModal"
+        max-width="1200"
+        @click:outside="closeModal"
+        content-class="project-modal-dialog"
+      >
+        <v-card v-if="selectedProject" class="project-modal glass-morphism">
+          <v-card-title class="modal-close-button">
+            <v-btn
+              icon
+              @click="closeModal"
+              class="close-button"
+            >
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </v-card-title>
+
+          <v-container fluid class="pa-6">
+            <v-row>
+              <!-- Coluna da Imagem para Desktop -->
+              <v-col
+                cols="12"
+                md="6"
+                class="project-image-section"
               >
-                <v-icon left>mdi-github</v-icon>
-                {{ $t('projects.viewCode') }}
-              </v-btn>
-              <v-btn
-                v-if="proj.link"
-                :href="proj.link"
-                target="_blank"
-                class="action-button"
-                outlined
-                color="secondary"
-              >
-                <v-icon left>mdi-web</v-icon>
-                {{ $t('projects.viewProject') }}
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </transition-group>
-    </v-row>
+                <v-img
+                  :src="selectedProject.img"
+                  class="project-full-image rounded-lg"
+                  height="600"
+                  position="top center"
+                  gradient="to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%"
+                  cover
+                >
+                  <template v-slot:placeholder>
+                    <v-row class="fill-height ma-0 image-skeleton" align="center" justify="center">
+                      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
+              </v-col>
+
+              <!-- Coluna de Informações -->
+              <v-col cols="12" md="6" class="project-info-section">
+                <h2 class="modal-title text-h4 font-weight-bold mb-6">
+                  {{ selectedProject.name }}
+                </h2>
+
+                <div class="project-full-description mb-6">
+                  {{ selectedProject.description }}
+                </div>
+
+                <div class="technologies-section mb-6">
+                  <h3 class="text-h6 font-weight-medium mb-4">
+                    {{ $t('projects.technologies') }}
+                  </h3>
+                  <div class="skills-grid">
+                    <v-chip
+                      v-for="(skill, index) in selectedProject.skills"
+                      :key="index"
+                      class="mr-2 mb-2 skill-chip-modal"
+                      outlined
+                    >
+                      {{ skill }}
+                    </v-chip>
+                  </div>
+                </div>
+
+                <div class="project-links">
+                  <v-btn
+                    v-if="selectedProject.repository"
+                    :href="selectedProject.repository"
+                    target="_blank"
+                    class="modal-action-button mr-4 mb-4"
+                    outlined
+                    color="primary"
+                    large
+                  >
+                    <v-icon left>mdi-github</v-icon>
+                    {{ $t('projects.viewCode') }}
+                  </v-btn>
+                  <v-btn
+                    v-if="selectedProject.link"
+                    :href="selectedProject.link"
+                    target="_blank"
+                    class="modal-action-button mb-4"
+                    outlined
+                    color="secondary"
+                    large
+                  >
+                    <v-icon left>mdi-web</v-icon>
+                    {{ $t('projects.viewProject') }}
+                  </v-btn>
+                </div>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card>
+      </v-dialog>
+    </div>
   </div>
 </template>
 
@@ -119,6 +225,8 @@ export default {
     return {
       hover: null,
       imageLoading: {},
+      showModal: false,
+      selectedProject: null,
       projects: [
         {
           name: "Brazilians in USA - Community Portal",
@@ -276,14 +384,28 @@ export default {
       console.error(`Failed to load image for project: ${projectName}`);
       // Usa uma imagem de fallback em caso de erro
       this.$set(this.projects.find(p => p.name === projectName), 'img', '/fallback-image.jpg');
+    },
+    openProjectModal(project) {
+      this.selectedProject = project;
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
+      setTimeout(() => {
+        this.selectedProject = null;
+      }, 300);
     }
   },
 };
 </script>
 
 <style scoped>
-.projects-container {
+.projects-wrapper {
   min-height: 100vh;
+  position: relative;
+}
+
+.projects-container {
   position: relative;
 }
 
@@ -302,6 +424,51 @@ export default {
   backdrop-filter: blur(10px);
   border-radius: 16px;
   overflow: hidden;
+  height: 500px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-header {
+  height: 200px;
+}
+
+.project-title {
+  min-height: 64px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  background: linear-gradient(to right, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.description-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.skills-container {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.project-actions {
+  margin-top: auto;
+  padding: 16px !important;
 }
 
 .project-card:hover {
@@ -321,12 +488,6 @@ export default {
 
 .project-card:hover .project-image {
   transform: scale(1.05);
-}
-
-.project-title {
-  background: linear-gradient(to right, #FFD700, #FFA500);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .skill-chip {
@@ -364,18 +525,6 @@ export default {
 
 .action-button:hover::before {
   left: 100%;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
 }
 
 .glass-morphism {
@@ -471,6 +620,176 @@ export default {
   .action-button {
     width: 100%;
     margin-bottom: 8px;
+  }
+}
+
+/* Estilos do Modal */
+.project-modal-dialog {
+  overflow: hidden;
+}
+
+.project-modal {
+  background: rgba(30, 30, 30, 0.8) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+.close-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.project-image-section {
+  position: relative;
+}
+
+.project-full-image {
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  min-height: 600px;
+  max-height: 800px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.project-info-section {
+  padding: 24px;
+}
+
+.modal-title {
+  background: linear-gradient(to right, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+}
+
+.project-full-description {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+.technologies-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 24px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.technologies-section h3 {
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip-modal {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  padding: 0 16px;
+  color: white !important;
+  border-color: rgba(255, 215, 0, 0.5) !important;
+}
+
+.skill-chip-modal:hover {
+  background: rgba(255, 215, 0, 0.2) !important;
+  transform: translateY(-2px);
+  border-color: #FFD700 !important;
+}
+
+.modal-action-button {
+  min-width: 180px;
+  height: 48px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-action-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.modal-action-button:hover::before {
+  left: 100%;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Responsividade */
+@media (max-width: 960px) {
+  .project-modal {
+    margin: 16px;
+  }
+
+  .project-info-section {
+    padding: 16px;
+  }
+
+  .modal-title {
+    font-size: 1.8rem;
+  }
+
+  .project-full-description {
+    font-size: 1rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .modal-action-button {
+    width: 100%;
+    margin: 8px 0;
+  }
+  
+  .project-full-image {
+    min-height: 400px;
+    max-height: 500px;
+  }
+  
+  .technologies-section {
+    margin: 16px 0;
+    padding: 16px;
   }
 }
 </style>
