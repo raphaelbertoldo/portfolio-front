@@ -243,6 +243,8 @@ export default {
   height: 702px;
   width: 702px;
   background: url(../assets/images/avatar-me.png) no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
 .float-air {
