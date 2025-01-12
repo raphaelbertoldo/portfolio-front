@@ -87,8 +87,6 @@ export default {
   border-radius: 24px;
 }
 
-
-
 .modal-header {
   position: absolute;
   top: 1rem;

@@ -45,7 +45,16 @@ export default {
       mariadb: 'MariaDB is a database management system that emerged as a fork of MySQL, created by the project\'s own founder after its acquisition by Oracle.',
       redis: 'Redis is an in-memory data structure store, used as a distributed key-value database, cache, and message broker, with optional durability.',
       html5: 'HTML5 is a markup language for the World Wide Web and is a key Internet technology, originally proposed by Opera Software. It is the fifth version of the HTML language.',
-      css3: 'Cascading Style Sheets is a mechanism for adding style to a web document. CSS code can be applied directly to tags or be contained within <style> tags. It is also possible, instead of putting the formatting inside the document, to create a link to a CSS file that contains the styles.'
+      css3: 'Cascading Style Sheets is a mechanism for adding style to a web document. CSS code can be applied directly to tags or be contained within <style> tags. It is also possible, instead of putting the formatting inside the document, to create a link to a CSS file that contains the styles.',
+      python: 'Python is a high-level, interpreted programming language known for its simplicity and readability. It supports multiple programming paradigms and has a comprehensive standard library, making it ideal for web development, data science, AI, and automation.',
+      aws: 'Amazon Web Services (AWS) is a comprehensive cloud computing platform offering over 200 fully featured services from data centers globally. It provides a wide range of tools and solutions for building sophisticated applications with increased flexibility, scalability and reliability.',
+      sqs: 'Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables decoupling and scaling of microservices, distributed systems, and serverless applications. It provides reliable, highly-scalable, secure messaging.',
+      bedrock: 'Amazon Bedrock is a fully managed service that offers a choice of high-performing foundation models from leading AI companies through a single API. It enables building generative AI applications with enterprise-grade security and privacy.',
+      ecs: 'Amazon Elastic Container Service (ECS) is a fully managed container orchestration service that helps you easily deploy, manage, and scale containerized applications. It deeply integrates with the AWS ecosystem.',
+      ec2: 'Amazon Elastic Compute Cloud (EC2) provides secure, resizable compute capacity in the cloud. It offers a wide selection of instance types optimized to fit different use cases, from web servers to high-performance computing.',
+      lambda: 'AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. It automatically scales applications by running code in response to each trigger, scaling precisely with the size of the workload.',
+      s3: 'Amazon Simple Storage Service (S3) is an object storage service offering industry-leading scalability, data availability, security, and performance. It can be used for a wide range of scenarios from websites to mobile applications.',
+      cloudfront: 'Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds.'
     }
   }
 }
