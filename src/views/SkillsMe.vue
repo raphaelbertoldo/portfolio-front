@@ -266,14 +266,14 @@ export default {
           key: 'python'
         },
         {
-          name: "SQS",
-          img: sqsIcon,
-          key: 'sqs'
-        },
-        {
           name: "AWS",
           img: awsIcon,
           key: 'aws'
+        },
+        {
+          name: "SQS",
+          img: sqsIcon,
+          key: 'sqs'
         },
         {
           name: "Bedrock",
