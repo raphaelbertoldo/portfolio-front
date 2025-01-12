@@ -120,6 +120,14 @@ import jsIcon from "../assets/images/skills/js_icon.png";
 import tsIcon from "../assets/images/skills/ts_icon.png";
 import nodeIcon from "../assets/images/skills/node_icon.png";
 import nestIcon from "../assets/images/skills/nestjs_icon.png";
+import awsIcon from "../assets/images/skills/aws.png";
+import bedrockIcon from "../assets/images/skills/bedrock-1.png";
+import ecsIcon from "../assets/images/skills/ecs.png";
+import sqsIcon from "../assets/images/skills/sqs.svg";
+import ec2Icon from "../assets/images/skills/ec2.png";
+import lambdaIcon from "../assets/images/skills/lambda.png";
+import s3Icon from "../assets/images/skills/s3.svg";
+import cloudfrontIcon from "../assets/images/skills/cloudfront.svg";
 import vueIcon from "../assets/images/skills/vue_icon.png";
 import dockerIcon from "../assets/images/skills/docker_icon.png";
 import gitIcon from "../assets/images/skills/git_icon.png";
@@ -130,6 +138,7 @@ import mariadbIcon from "../assets/images/skills/mariadb_icon.png";
 import neo4jIcon from "../assets/images/skills/neo4j_icon.webp";
 import redisIcon from "../assets/images/skills/redis_icon.webp";
 import nuxtIcon from "../assets/images/skills/nuxt_icon.svg";
+import pyIcon from "../assets/images/skills/python.webp";
 import ModalSelectSkill from "../components/ModalSelectSkill.vue";
 
 export default {
@@ -250,6 +259,51 @@ export default {
           name: "CSS3",
           img: cssIcon,
           key: 'css3'
+        },
+        {
+          name: "Python",
+          img: pyIcon,
+          key: 'python'
+        },
+        {
+          name: "SQS",
+          img: sqsIcon,
+          key: 'sqs'
+        },
+        {
+          name: "AWS",
+          img: awsIcon,
+          key: 'aws'
+        },
+        {
+          name: "Bedrock",
+          img: bedrockIcon,
+          key: 'bedroc'
+        },
+        {
+          name: "ECS",
+          img: ecsIcon,
+          key: 'ecs'
+        },
+        {
+          name: "EC2",
+          img: ec2Icon,
+          key: 'ec2'
+        },
+        {
+          name: "Lambda",
+          img: lambdaIcon,
+          key: 'lambda'
+        },
+        {
+          name: "S3",
+          img: s3Icon,
+          key: 's3'
+        },
+        {
+          name: "Cloudfront",
+          img: cloudfrontIcon,
+          key: 'cloudfront'
         },
       ],
     };
