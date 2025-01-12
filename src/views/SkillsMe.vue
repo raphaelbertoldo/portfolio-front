@@ -93,10 +93,13 @@
         <v-dialog
           v-else
           v-model="dialog"
-          class="d-flex"
-          :min-width="$vuetify.breakpoint.mobile ? '300px' : '600px'"
-          overlay-opacity="0"
-        >
+          :max-width="`500`"
+          min-width="300"
+          >
+          <!-- <v-card>
+          :width="$vuetify.breakpoint.mobile ? 'mobile-card' : 'desktop-card'"
+          zxczxc
+        </v-card> -->
           <ModalSelectSkill
             @close="dialog = false"
             :selectSkillCard="selectSkillCard"

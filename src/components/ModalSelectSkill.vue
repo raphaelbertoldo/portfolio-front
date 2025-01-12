@@ -1,6 +1,5 @@
 <template>
-  <div class="skill-modal-container">
-    <v-card class="skill-card glass-morphism" :class="$vuetify.breakpoint.mobile ? 'mobile-card' : 'desktop-card'">
+    <v-card class="skill-card">
       <!-- Header com botão de fechar -->
       <div class="modal-header">
         <v-btn icon small class="close-btn" @click="$emit('close')">
@@ -9,7 +8,7 @@
       </div>
 
       <!-- Conteúdo principal com navegação -->
-      <div class="modal-content">
+      <div class="modal-content ">
         <!-- Botão anterior -->
         <v-btn
           v-if="!$vuetify.breakpoint.mobile"
@@ -38,7 +37,7 @@
             </h2>
             
             <p class="skill-description" :class="{ 'mobile': $vuetify.breakpoint.mobile }">
-              {{ selectSkillCard.description }}
+                {{ selectSkillCard.description }}
             </p>
           </div>
         </div>
@@ -64,7 +63,6 @@
         </v-btn>
       </div>
     </v-card>
-  </div>
 </template>
 
 <script>
@@ -87,19 +85,9 @@ export default {
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
-  overflow: hidden;
-  position: relative;
 }
 
-.desktop-card {
-  width: 500px;
-  padding: 1.5rem;
-}
 
-.mobile-card {
-  width: 300px;
-  padding: 1rem;
-}
 
 .modal-header {
   position: absolute;
@@ -158,7 +146,7 @@ export default {
 
 .skill-info {
   width: 100%;
-  max-width: 300px;
+  min-width: 300px;
 }
 
 .skill-info.mobile {
