@@ -117,31 +117,6 @@
 }
 </style>
 <script>
-import htmlIcon from "../assets/images/skills/html_icon.png";
-import cssIcon from "../assets/images/skills/css_icon.png";
-import jsIcon from "../assets/images/skills/js_icon.png";
-import tsIcon from "../assets/images/skills/ts_icon.png";
-import nodeIcon from "../assets/images/skills/node_icon.png";
-import nestIcon from "../assets/images/skills/nestjs_icon.png";
-import awsIcon from "../assets/images/skills/aws.png";
-import bedrockIcon from "../assets/images/skills/bedrock-1.png";
-import ecsIcon from "../assets/images/skills/ecs.png";
-import sqsIcon from "../assets/images/skills/sqs.svg";
-import ec2Icon from "../assets/images/skills/ec2.png";
-import lambdaIcon from "../assets/images/skills/lambda.png";
-import s3Icon from "../assets/images/skills/s3.svg";
-import cloudfrontIcon from "../assets/images/skills/cloudfront.svg";
-import vueIcon from "../assets/images/skills/vue_icon.png";
-import dockerIcon from "../assets/images/skills/docker_icon.png";
-import gitIcon from "../assets/images/skills/git_icon.png";
-import mongoIcon from "../assets/images/skills/mongodb_icon.png";
-import graphqlIcon from "../assets/images/skills/graphql_icon.png";
-import expressIcon from "../assets/images/skills/express_icon.webp";
-import mariadbIcon from "../assets/images/skills/mariadb_icon.png";
-import neo4jIcon from "../assets/images/skills/neo4j_icon.webp";
-import redisIcon from "../assets/images/skills/redis_icon.webp";
-import nuxtIcon from "../assets/images/skills/nuxt_icon.svg";
-import pyIcon from "../assets/images/skills/python.webp";
 import ModalSelectSkill from "../components/ModalSelectSkill.vue";
 
 export default {
@@ -174,38 +149,43 @@ export default {
   },
   data() {
     return {
+      bucketURL: "https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev",
       selectSkillCard: "",
       dialog: false,
       indexSkill: null,
-      skills: [
+    };
+  },
+  computed: {
+    skills() {
+      return[
         {
           name: "JavaScript",
-          img: jsIcon,
+          img: `${this.bucketURL}/skills-badges/js_icon.png`,
           key: 'javascript'
         },
         {
           name: "NodeJs",
-          img: nodeIcon,
+          img: `${this.bucketURL}/skills-badges/node_icon.png`,
           key: 'nodejs'
         },
         {
           name: "TypeScript",
-          img: tsIcon,
+          img: `${this.bucketURL}/skills-badges/ts_icon.png`,
           key: 'typescript'
         },
         {
           name: "NestJs",
-          img: nestIcon,
+          img: `${this.bucketURL}/skills-badges/nestjs_icon.png`,
           key: 'nestjs'
         },
         {
           name: "GraphQL",
-          img: graphqlIcon,
+          img: `${this.bucketURL}/skills-badges/graphql_icon.png`,
           key: 'graphql'
         },
         {
           name: "Vue",
-          img: vueIcon,
+          img: `${this.bucketURL}/skills-badges/vue_icon.png`,
           key: 'vue'
         },
         {
@@ -215,103 +195,106 @@ export default {
         },
         {
           name: "Nuxt",
-          img: nuxtIcon,
+          img: `${this.bucketURL}/skills-badges/nuxt_icon.svg`,
           key: 'nuxt'
         },
         {
           name: "Express",
-          img: expressIcon,
+          img: `${this.bucketURL}/skills-badges/express_icon.webp`,
           key: 'express'
         },
         {
           name: "Docker",
-          img: dockerIcon,
+          img: `${this.bucketURL}/skills-badges/docker_icon.png`,
           key: 'docker'
         },
         {
           name: "Git",
-          img: gitIcon,
+          img: `${this.bucketURL}/skills-badges/git_icon.png`,
           key: 'git'
         },
         {
           name: "Neo4j",
-          img: neo4jIcon,
+          img: `${this.bucketURL}/skills-badges/neo4j_icon.webp`,
           key: 'neo4j'
         },
         {
           name: "MongoDB",
-          img: mongoIcon,
+          img: `${this.bucketURL}/skills-badges/mongodb_icon.png`,
           key: 'mongodb'
         },
         {
           name: "MariaDB",
-          img: mariadbIcon,
+          img: `${this.bucketURL}/skills-badges/mariadb_icon.png`,
           key: 'mariadb'
         },
         {
           name: "Redis",
-          img: redisIcon,
+          img: `${this.bucketURL}/skills-badges/redis_icon.webp`,
           key: 'redis'
         },
         {
           name: "HTML5",
-          img: htmlIcon,
+          img: `${this.bucketURL}/skills-badges/html_icon.png`,
           key: 'html5'
         },
         {
           name: "CSS3",
-          img: cssIcon,
+          img: `${this.bucketURL}/skills-badges/css_icon.png`,
           key: 'css3'
         },
         {
           name: "Python",
-          img: pyIcon,
+          img: `${this.bucketURL}/skills-badges/python.webp`,
           key: 'python'
         },
         {
+          name: "RabbitMQ",
+          img: `${this.bucketURL}/skills-badges/rabbitmq.png`,
+          key: 'rabbitmq'
+        },
+        {
           name: "AWS",
-          img: awsIcon,
+          img: `${this.bucketURL}/skills-badges/aws.png`,
           key: 'aws'
         },
         {
           name: "SQS",
-          img: sqsIcon,
+          img: `${this.bucketURL}/skills-badges/sqs.svg`,
           key: 'sqs'
         },
         {
           name: "Bedrock",
-          img: bedrockIcon,
+          img: `${this.bucketURL}/skills-badges/bedrock-1.png`,
           key: 'bedroc'
         },
         {
           name: "ECS",
-          img: ecsIcon,
+          img: `${this.bucketURL}/skills-badges/ecs.png`,
           key: 'ecs'
         },
         {
           name: "EC2",
-          img: ec2Icon,
+          img: `${this.bucketURL}/skills-badges/ec2.png`,
           key: 'ec2'
         },
         {
           name: "Lambda",
-          img: lambdaIcon,
+          img: `${this.bucketURL}/skills-badges/lambda.png`,
           key: 'lambda'
         },
         {
           name: "S3",
-          img: s3Icon,
+          img: `${this.bucketURL}/skills-badges/s3.svg`,
           key: 's3'
         },
         {
           name: "Cloudfront",
-          img: cloudfrontIcon,
+          img: `${this.bucketURL}/skills-badges/cloudfront.svg`,
           key: 'cloudfront'
         },
-      ],
-    };
-  },
-  computed: {
+      ]
+    },
     skillsWithDescriptions() {
       return this.skills.map(skill => ({
         ...skill,
