@@ -234,61 +234,20 @@
 </template>
 
 <script>
-import htmlIcon from "../assets/images/skills/html_icon.png";
-import cssIcon from "../assets/images/skills/css_icon.png";
-import jsIcon from "../assets/images/skills/js_icon.png";
-import tsIcon from "../assets/images/skills/ts_icon.png";
-import nodeIcon from "../assets/images/skills/node_icon.png";
-import nestjsIcon from "../assets/images/skills/nestjs_icon.png";
-import vueIcon from "../assets/images/skills/vue_icon.png";
-import dockerIcon from "../assets/images/skills/docker_icon.png";
-import gitIcon from "../assets/images/skills/git_icon.png";
-import mongoIcon from "../assets/images/skills/mongodb_icon.png";
-import graphqlIcon from "../assets/images/skills/graphql_icon.png";
-import expressIcon from "../assets/images/skills/express_icon.webp";
-import mariadbIcon from "../assets/images/skills/mariadb_icon.png";
-import neo4jIcon from "../assets/images/skills/neo4j_icon.webp";
-import redisIcon from "../assets/images/skills/redis_icon.webp";
-import nuxtIcon from "../assets/images/skills/nuxt_icon.svg";
-import nestjsProjectIcon from "../assets/images/projects/nestjs.png";
-import movieStorm from "../assets/images/projects/movieStorm.png";
-import movieStormApi from "../assets/images/projects/movieStormApi.png";
-import ecommerceImage from "../assets/images/projects/ecom.webp";
-import atomicImage from "../assets/images/projects/atomic.png";
-import oraculoImg from "../assets/images/projects/oraculo.png";
-import oraculoApiImg from "../assets/images/projects/oraculo-api.png";
 
 export default {
-  name: "ProjectsView",
+  components: {  },
   data() {
     return {
+      bucketURL: "https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev",
       hover: null,
       imageLoading: {},
       showModal: false,
       selectedProject: null,
-      skillIcons: {
-        'HTML': htmlIcon,
-        'CSS': cssIcon,
-        'JavaScript': jsIcon,
-        'TypeScript': tsIcon,
-        'Node.js': nodeIcon,
-        'NestJS': nestjsIcon,
-        'Vue.js': vueIcon,
-        'Vuetify': 'https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-light.svg',
-        'Docker': dockerIcon,
-        'Git': gitIcon,
-        'MongoDB': mongoIcon,
-        'GraphQL': graphqlIcon,
-        'Express': expressIcon,
-        'MariaDB': mariadbIcon,
-        'Neo4j': neo4jIcon,
-        'Redis': redisIcon,
-        'Nuxt.js': nuxtIcon,
-      },
       projects: [
         {
           name: "Brazilians in USA - Community Portal",
-          img: this.optimizeImageUrl("https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/screencapture-ass-br-eua-demo-netlify-app-2024-12-26-20_23_55.png", 800),
+          img: this.optimizeImageUrl(`${this.bucketURL}/screencapture-ass-br-eua-demo-netlify-app-2024-12-26-20_23_55.png`, 800),
           description:
             "Institutional portal developed to connect and assist Brazilians in the United States. The site provides essential resources such as informative guides on immigration, employment, housing, and education, along with a directory of Brazilian services and professionals. ",
           link: "https://ass-br-eua-demo.netlify.app/",
@@ -297,7 +256,7 @@ export default {
         },
         {
           name: "European Citizenship Portal",
-          img: this.optimizeImageUrl("https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/site-inst-cid-ue.png", 800),
+          img: this.optimizeImageUrl(`${this.bucketURL}/site-inst-cid-ue.png`, 800),
           description:
             "An institutional portal designed to provide information and assistance for European citizenship services. The site features essential resources including guides on citizenship applications, legal requirements, and a directory of professionals offering related services.",
           link: "https://cidadania-ue-demo.netlify.app/",
@@ -306,7 +265,7 @@ export default {
         },
         {
           name: "Prowess Technology",
-          img: this.optimizeImageUrl("https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev/prowerss.png", 800),
+          img: this.optimizeImageUrl(`${this.bucketURL}/prowerss.png`, 800),
           description:
             "An institutional demo portal for a technology company, Prowess showcases innovative solutions and services. The site provides essential information about technology trends, project showcases, and a directory of services offered by the company.",
           link: "https://expertise-ti-demo.netlify.app/",
@@ -315,7 +274,7 @@ export default {
         },
         {
           name: "Movie Storm",
-          img: movieStorm,
+          img: `${this.bucketURL}/movie-storm.png`,
           description:
             "A user interface where users can explore various hit movies from the past year, rate these movies, and get more recommendations.",
           link: "https://movie-storm.netlify.app/",
@@ -324,7 +283,7 @@ export default {
         },
         {
           name: "API - Movie Storm",
-          img: movieStormApi,
+          img: `${this.bucketURL}/movie-storm-api.png`,
           description:
             "This project is a GraphQL API for managing movies, genres, and users. It also includes search and recommendation algorithms.",
           skills: ["GraphQL", "Node.js", "MongoDB", "JavaScript"],
@@ -332,7 +291,7 @@ export default {
         },
         {
           name: "E-commerce Microservices API",
-          img: ecommerceImage,
+          img: `${this.bucketURL}/ecommerce.png`,
           description:
             "This project was developed to improve my architecture skills, using Node.js, Express, MongoDB, and RabbitMQ.",
           skills: ["Node.js", "Express", "RabbitMQ", "MongoDB"],
@@ -340,7 +299,7 @@ export default {
         },
         {
           name: "The Hash Game",
-          img: this.optimizeImageUrl("https://i.ibb.co/qmWBVQv/Novo-Projeto.png", 800),
+          img: this.optimizeImageUrl(`${this.bucketURL}/hash-game.png`, 800),
           description:
             "A classic tic-tac-toe project, fully designed by me with the goal of enhancing problem-solving skills.",
           link: "https://the-hash-game.netlify.app/",
@@ -349,7 +308,7 @@ export default {
         },
         {
           name: "Oráculo Beats",
-          img: oraculoImg,
+          img: `${this.bucketURL}/oraculo.png`,
           description:
             "A website for a beatmaker to sell beats, instrumentals, and other services. The site features a track listing and music player.",
           link: "https://oraculobeats.netlify.app/",
@@ -358,7 +317,7 @@ export default {
         },
         {
           name: "API - Oráculo Beats",
-          img: oraculoApiImg,
+          img: `${this.bucketURL}/oraculo-api.png`,
           description:
             "A Nest.js and MongoDB API providing CRUD functionality for track management.",
           repository: "https://github.com/raphaelbertoldo/oraculo-back",
@@ -366,7 +325,7 @@ export default {
         },
         {
           name: "Atomic App",
-          img: atomicImage,
+          img: `${this.bucketURL}/atomic.png`,
           description:
             "A project for skill improvement and study, developed with Vue 3.",
           link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
@@ -375,7 +334,7 @@ export default {
         },
         {
           name: "API for a Social Network",
-          img: nestjsProjectIcon,
+          img: `${this.bucketURL}/nestjs-project.png`,
           description:
             "A backend project featuring user authentication, a photo upload system, and user posts management.",
           repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
@@ -437,6 +396,28 @@ export default {
       }, 300);
     }
   },
+  computed: {
+    skillIcons() {
+       return { 'HTML': `${this.bucketURL}/skills-badges/html_icon.png`,
+        'CSS': `${this.bucketURL}/skills-badges/css_icon.png`,
+        'JavaScript': `${this.bucketURL}/skills-badges/js_icon.png`,
+        'TypeScript': `${this.bucketURL}/skills-badges/ts_icon.png`,
+        'Node.js': `${this.bucketURL}/skills-badges/node_icon.png`,
+        'NestJS': `${this.bucketURL}/skills-badges/nestjs_icon.png`,
+        'Vue.js': `${this.bucketURL}/skills-badges/vue_icon.png`,
+        'Vuetify': 'https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-light.svg',
+        'Docker': `${this.bucketURL}/skills-badges/docker_icon.png`,
+        'Git': `${this.bucketURL}/skills-badges/git_icon.png`,
+        'MongoDB': `${this.bucketURL}/skills-badges/mongodb_icon.png`,
+        'GraphQL': `${this.bucketURL}/skills-badges/graphql_icon.png`,
+        'Express': `${this.bucketURL}/skills-badges/express_icon.webp`,
+        'MariaDB': `${this.bucketURL}/skills-badges/mariadb_icon.png`,
+        'Neo4j': `${this.bucketURL}/skills-badges/neo4j_icon.webp`,
+        'Redis': `${this.bucketURL}/skills-badges/redis_icon.webp`,
+        'Nuxt.js': `${this.bucketURL}/skills-badges/nuxt_icon.svg`,
+        'RabbitMQ': `${this.bucketURL}/skills-badges/rabbitmq.png`,}
+      }
+  }
 };
 </script>
 
