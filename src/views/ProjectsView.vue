@@ -3,11 +3,14 @@
     <div class="projects-container">
       <div class="header-section my-md-10 my-4">
         <div class="title-container ml-md-16 pl-md-16 d-flex align-center">
-          <v-icon size="80" class="title-icon gradiente-yellow-1 mx-md-6 animate-float">
+          <v-icon
+            size="80"
+            class="title-icon gradiente-yellow-1 mx-md-6 animate-float"
+          >
             mdi-hammer-wrench
           </v-icon>
           <h1 class="title-text gradiente-yellow-1" style="font-size: 36pt">
-            {{ $t('projects.title') }}
+            {{ $t("projects.title") }}
           </h1>
         </div>
       </div>
@@ -28,7 +31,7 @@
           >
             <v-card
               class="project-card glass-morphism d-flex flex-column"
-              :class="{'scale-up': hover === i}"
+              :class="{ 'scale-up': hover === i }"
               @mouseover="hover = i"
               @mouseleave="hover = null"
               @click="openProjectModal(proj)"
@@ -42,33 +45,52 @@
                   class="project-image rounded-lg"
                   height="200"
                   position="top center"
-                  :aspect-ratio="16/9"
+                  :aspect-ratio="16 / 9"
                   gradient="to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%"
                   loading="lazy"
                   cover
                 >
                   <template v-slot:placeholder>
-                    <v-row class="fill-height ma-0 image-skeleton" align="center" justify="center">
-                      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                    <v-row
+                      class="fill-height ma-0 image-skeleton"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular
+                        indeterminate
+                        color="primary"
+                      ></v-progress-circular>
                     </v-row>
                   </template>
                 </v-img>
               </div>
 
-              <v-card-title class="project-title text-h5 font-weight-bold pt-4 pb-2">
+              <v-card-title
+                class="project-title text-h5 font-weight-bold pt-4 pb-2"
+              >
                 {{ proj.name }}
               </v-card-title>
 
-              <v-card-text class="project-description flex-grow-1 d-flex flex-column">
+              <v-card-text
+                class="project-description flex-grow-1 d-flex flex-column"
+              >
                 <div class="description-text">
                   {{ proj.description }}
                 </div>
-                
+
                 <div class="skills-container mt-auto pt-4" v-if="proj.skills">
                   <div class="skill-icons-container mb-2">
-                    <v-tooltip bottom v-for="(skill, index) in proj.skills" :key="index">
+                    <v-tooltip
+                      bottom
+                      v-for="(skill, index) in proj.skills"
+                      :key="index"
+                    >
                       <template v-slot:activator="{ on, attrs }">
-                        <div class="skill-icon-wrapper" v-bind="attrs" v-on="on">
+                        <div
+                          class="skill-icon-wrapper"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
                           <v-img
                             :src="skillIcons[skill]"
                             width="24"
@@ -95,7 +117,7 @@
                   color="primary"
                 >
                   <v-icon left>mdi-github</v-icon>
-                  {{ $t('projects.viewCode') }}
+                  {{ $t("projects.viewCode") }}
                 </v-btn>
                 <v-btn
                   v-if="proj.link"
@@ -106,7 +128,7 @@
                   color="secondary"
                 >
                   <v-icon left>mdi-web</v-icon>
-                  {{ $t('projects.viewProject') }}
+                  {{ $t("projects.viewProject") }}
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -123,11 +145,7 @@
       >
         <v-card v-if="selectedProject" class="project-modal glass-morphism">
           <v-card-title class="modal-close-button">
-            <v-btn
-              icon
-              @click="closeModal"
-              class="close-button"
-            >
+            <v-btn icon @click="closeModal" class="close-button">
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-card-title>
@@ -135,11 +153,7 @@
           <v-container fluid class="pa-6">
             <v-row>
               <!-- Coluna da Imagem para Desktop -->
-              <v-col
-                cols="12"
-                md="6"
-                class="project-image-section"
-              >
+              <v-col cols="12" md="6" class="project-image-section">
                 <v-img
                   :src="selectedProject.img"
                   class="project-full-image rounded-lg"
@@ -149,8 +163,15 @@
                   cover
                 >
                   <template v-slot:placeholder>
-                    <v-row class="fill-height ma-0 image-skeleton" align="center" justify="center">
-                      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                    <v-row
+                      class="fill-height ma-0 image-skeleton"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular
+                        indeterminate
+                        color="primary"
+                      ></v-progress-circular>
                     </v-row>
                   </template>
                 </v-img>
@@ -168,12 +189,20 @@
 
                 <div class="technologies-section mb-6">
                   <h3 class="text-h6 font-weight-medium mb-4">
-                    {{ $t('projects.technologies') }}
+                    {{ $t("projects.technologies") }}
                   </h3>
                   <div class="skill-icons-grid mb-4">
-                    <v-tooltip bottom v-for="(skill, index) in selectedProject.skills" :key="index">
+                    <v-tooltip
+                      bottom
+                      v-for="(skill, index) in selectedProject.skills"
+                      :key="index"
+                    >
                       <template v-slot:activator="{ on, attrs }">
-                        <div class="skill-icon-wrapper-modal" v-bind="attrs" v-on="on">
+                        <div
+                          class="skill-icon-wrapper-modal"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
                           <v-img
                             :src="skillIcons[skill]"
                             width="40"
@@ -189,7 +218,7 @@
                   <div class="skills-grid">
                     <v-chip
                       v-for="(skill, index) in selectedProject.skills"
-                      :key="'chip-'+index"
+                      :key="'chip-' + index"
                       class="mr-2 mb-2 skill-chip-modal"
                       outlined
                     >
@@ -209,7 +238,7 @@
                     large
                   >
                     <v-icon left>mdi-github</v-icon>
-                    {{ $t('projects.viewCode') }}
+                    {{ $t("projects.viewCode") }}
                   </v-btn>
                   <v-btn
                     v-if="selectedProject.link"
@@ -221,7 +250,7 @@
                     large
                   >
                     <v-icon left>mdi-web</v-icon>
-                    {{ $t('projects.viewProject') }}
+                    {{ $t("projects.viewProject") }}
                   </v-btn>
                 </div>
               </v-col>
@@ -234,113 +263,17 @@
 </template>
 
 <script>
-
 export default {
-  components: {  },
+  components: {},
   data() {
     return {
       bucketURL: "https://pub-2ef3f3f83051412fb2c3429d023b815f.r2.dev",
+      projectsPath: "/demo-projects",
+      skillsPath: "/skills-badges",
       hover: null,
       imageLoading: {},
       showModal: false,
       selectedProject: null,
-      projects: [
-        {
-          name: "Brazilians in USA - Community Portal",
-          img: this.optimizeImageUrl(`${this.bucketURL}/screencapture-ass-br-eua-demo-netlify-app-2024-12-26-20_23_55.png`, 800),
-          description:
-            "Institutional portal developed to connect and assist Brazilians in the United States. The site provides essential resources such as informative guides on immigration, employment, housing, and education, along with a directory of Brazilian services and professionals. ",
-          link: "https://ass-br-eua-demo.netlify.app/",
-          skills: ["HTML", "CSS", "JavaScript", "Vue.js", "Vuetify", "Git", "Nuxt.js"],
-          repository: "https://github.com/raphaelbertoldo/abeua-demo",
-        },
-        {
-          name: "European Citizenship Portal",
-          img: this.optimizeImageUrl(`${this.bucketURL}/site-inst-cid-ue.png`, 800),
-          description:
-            "An institutional portal designed to provide information and assistance for European citizenship services. The site features essential resources including guides on citizenship applications, legal requirements, and a directory of professionals offering related services.",
-          link: "https://cidadania-ue-demo.netlify.app/",
-          skills: ["HTML", "CSS", "JavaScript", "Vue.js", "Vuetify", "Git", "Nuxt.js"],
-          repository: "https://github.com/raphaelbertoldo/ue-cid-demo",
-        },
-        {
-          name: "Prowess Technology",
-          img: this.optimizeImageUrl(`${this.bucketURL}/prowerss.png`, 800),
-          description:
-            "An institutional demo portal for a technology company, Prowess showcases innovative solutions and services. The site provides essential information about technology trends, project showcases, and a directory of services offered by the company.",
-          link: "https://expertise-ti-demo.netlify.app/",
-          skills: ["HTML", "CSS", "JavaScript", "Vue.js", "Vuetify", "Git", "Nuxt.js"],
-          repository: "https://github.com/raphaelbertoldo/expertise-demo",
-        },
-        {
-          name: "Movie Storm",
-          img: `${this.bucketURL}/movie-storm.png`,
-          description:
-            "A user interface where users can explore various hit movies from the past year, rate these movies, and get more recommendations.",
-          link: "https://movie-storm.netlify.app/",
-          skills: ["Vue.js", "Node.js", "GraphQL", "MongoDB"],
-          repository: "https://github.com/raphaelbertoldo/moviestorm-frontend",
-        },
-        {
-          name: "API - Movie Storm",
-          img: `${this.bucketURL}/movie-storm-api.png`,
-          description:
-            "This project is a GraphQL API for managing movies, genres, and users. It also includes search and recommendation algorithms.",
-          skills: ["GraphQL", "Node.js", "MongoDB", "JavaScript"],
-          repository: "https://github.com/raphaelbertoldo/moviee-storm-api",
-        },
-        {
-          name: "E-commerce Microservices API",
-          img: `${this.bucketURL}/ecommerce.png`,
-          description:
-            "This project was developed to improve my architecture skills, using Node.js, Express, MongoDB, and RabbitMQ.",
-          skills: ["Node.js", "Express", "RabbitMQ", "MongoDB"],
-          repository: "https://github.com/raphaelbertoldo/microservices-ecommerce",
-        },
-        {
-          name: "The Hash Game",
-          img: this.optimizeImageUrl(`${this.bucketURL}/hash-game.png`, 800),
-          description:
-            "A classic tic-tac-toe project, fully designed by me with the goal of enhancing problem-solving skills.",
-          link: "https://the-hash-game.netlify.app/",
-          skills: ["Vue.js", "JavaScript", "HTML", "CSS"],
-          repository: "https://github.com/raphaelbertoldo/the-hashgame",
-        },
-        {
-          name: "Oráculo Beats",
-          img: `${this.bucketURL}/oraculo.png`,
-          description:
-            "A website for a beatmaker to sell beats, instrumentals, and other services. The site features a track listing and music player.",
-          link: "https://oraculobeats.netlify.app/",
-          skills: ["Vue.js", "Node.js", "MongoDB", "NestJS"],
-          repository: "https://github.com/raphaelbertoldo/oraculo-front",
-        },
-        {
-          name: "API - Oráculo Beats",
-          img: `${this.bucketURL}/oraculo-api.png`,
-          description:
-            "A Nest.js and MongoDB API providing CRUD functionality for track management.",
-          repository: "https://github.com/raphaelbertoldo/oraculo-back",
-          skills: ["NestJS", "MongoDB", "Node.js", "TypeScript"],
-        },
-        {
-          name: "Atomic App",
-          img: `${this.bucketURL}/atomic.png`,
-          description:
-            "A project for skill improvement and study, developed with Vue 3.",
-          link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
-          skills: ["Vue.js", "JavaScript", "HTML", "CSS"],
-          repository: "https://github.com/raphaelbertoldo/atomic",
-        },
-        {
-          name: "API for a Social Network",
-          img: `${this.bucketURL}/nestjs-project.png`,
-          description:
-            "A backend project featuring user authentication, a photo upload system, and user posts management.",
-          repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
-          skills: ["NestJS", "MongoDB", "Node.js", "TypeScript"],
-        },
-      ],
     };
   },
   mounted() {
@@ -353,27 +286,29 @@ export default {
         this.$vloading.hide();
       }, 1000);
     },
-    optimizeImageUrl(url, width) {
-      // Se a URL for uma importação local, retorna direto
-      if (typeof url === 'object' || !url.startsWith('http')) {
-        return url;
-      }
-      
-      // Para URLs do R2/Cloudflare, adiciona parâmetros de otimização
-      if (url.includes('r2.dev')) {
-        return `${url}?width=${width}&format=webp&quality=80`;
-      }
-      
-      // Para URLs do ibb.co, usa o formato otimizado deles
-      if (url.includes('ibb.co')) {
-        return url.replace('/Novo-Projeto', '/Novo-Projeto_optimize');
-      }
-      
-      return url;
-    },
+    // optimizeImageUrl(url, width) {
+    //   // Se a URL for uma importação local, retorna direto
+    //   if (typeof url === "object" || !url.startsWith("http")) {
+    //     return url;
+    //   }
+
+    //   // Para URLs do R2/Cloudflare, adiciona parâmetros de otimização
+    //   if (url.includes("r2.dev")) {
+    //     return `${url}?width=${width}&format=webp&quality=80`;
+    //   }
+
+    //   // Para URLs do ibb.co, usa o formato otimizado deles
+    //   if (url.includes("ibb.co")) {
+    //     return url.replace("/Novo-Projeto", "/Novo-Projeto_optimize");
+    //   }
+
+    //   return url;
+    // },
     generateBlurHash(projectName) {
       // Gera um placeholder colorido único baseado no nome do projeto
-      const hash = projectName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      const hash = projectName
+        .split("")
+        .reduce((acc, char) => acc + char.charCodeAt(0), 0);
       const hue = hash % 360;
       return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='1'/%3E%3C/filter%3E%3Crect width='8' height='5' fill='hsl(${hue}, 20%, 20%)'/%3E%3C/svg%3E`;
     },
@@ -383,7 +318,11 @@ export default {
     handleImageError(projectName) {
       console.error(`Failed to load image for project: ${projectName}`);
       // Usa uma imagem de fallback em caso de erro
-      this.$set(this.projects.find(p => p.name === projectName), 'img', '/fallback-image.jpg');
+      this.$set(
+        this.projects.find((p) => p.name === projectName),
+        "img",
+        "/fallback-image.jpg"
+      );
     },
     openProjectModal(project) {
       this.selectedProject = project;
@@ -394,30 +333,157 @@ export default {
       setTimeout(() => {
         this.selectedProject = null;
       }, 300);
-    }
+    },
   },
   computed: {
     skillIcons() {
-       return { 'HTML': `${this.bucketURL}/skills-badges/html_icon.png`,
-        'CSS': `${this.bucketURL}/skills-badges/css_icon.png`,
-        'JavaScript': `${this.bucketURL}/skills-badges/js_icon.png`,
-        'TypeScript': `${this.bucketURL}/skills-badges/ts_icon.png`,
-        'Node.js': `${this.bucketURL}/skills-badges/node_icon.png`,
-        'NestJS': `${this.bucketURL}/skills-badges/nestjs_icon.png`,
-        'Vue.js': `${this.bucketURL}/skills-badges/vue_icon.png`,
-        'Vuetify': 'https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-light.svg',
-        'Docker': `${this.bucketURL}/skills-badges/docker_icon.png`,
-        'Git': `${this.bucketURL}/skills-badges/git_icon.png`,
-        'MongoDB': `${this.bucketURL}/skills-badges/mongodb_icon.png`,
-        'GraphQL': `${this.bucketURL}/skills-badges/graphql_icon.png`,
-        'Express': `${this.bucketURL}/skills-badges/express_icon.webp`,
-        'MariaDB': `${this.bucketURL}/skills-badges/mariadb_icon.png`,
-        'Neo4j': `${this.bucketURL}/skills-badges/neo4j_icon.webp`,
-        'Redis': `${this.bucketURL}/skills-badges/redis_icon.webp`,
-        'Nuxt.js': `${this.bucketURL}/skills-badges/nuxt_icon.svg`,
-        'RabbitMQ': `${this.bucketURL}/skills-badges/rabbitmq.png`,}
-      }
-  }
+      return {
+        HTML: `${this.bucketURL}${this.skillsPath}/html_icon.png`,
+        CSS: `${this.bucketURL}${this.skillsPath}/css_icon.png`,
+        JavaScript: `${this.bucketURL}${this.skillsPath}/js_icon.png`,
+        TypeScript: `${this.bucketURL}${this.skillsPath}/ts_icon.png`,
+        "Node.js": `${this.bucketURL}${this.skillsPath}/node_icon.png`,
+        NestJS: `${this.bucketURL}${this.skillsPath}/nestjs_icon.png`,
+        "Vue.js": `${this.bucketURL}${this.skillsPath}/vue_icon.png`,
+        Vuetify:
+          "https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-light.svg",
+        Docker: `${this.bucketURL}${this.skillsPath}/docker_icon.png`,
+        Git: `${this.bucketURL}${this.skillsPath}/git_icon.png`,
+        MongoDB: `${this.bucketURL}${this.skillsPath}/mongodb_icon.png`,
+        GraphQL: `${this.bucketURL}${this.skillsPath}/graphql_icon.png`,
+        Express: `${this.bucketURL}${this.skillsPath}/express_icon.webp`,
+        MariaDB: `${this.bucketURL}${this.skillsPath}/mariadb_icon.png`,
+        Neo4j: `${this.bucketURL}${this.skillsPath}/neo4j_icon.webp`,
+        Redis: `${this.bucketURL}${this.skillsPath}/redis_icon.webp`,
+        "Nuxt.js": `${this.bucketURL}${this.skillsPath}/nuxt_icon.svg`,
+        RabbitMQ: `${this.bucketURL}${this.skillsPath}/rabbitmq.png`,
+      };
+    },
+    projects() {
+      return [
+        {
+          name: "Brazilians in USA - Community Portal",
+          img: `${this.bucketURL}${this.projectsPath}/eua.png`,
+          description:
+            "Institutional portal developed to connect and assist Brazilians in the United States. The site provides essential resources such as informative guides on immigration, employment, housing, and education, along with a directory of Brazilian services and professionals. ",
+          link: "https://ass-br-eua-demo.netlify.app/",
+          skills: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Vue.js",
+            "Vuetify",
+            "Git",
+            "Nuxt.js",
+          ],
+          repository: "https://github.com/raphaelbertoldo/abeua-demo",
+        },
+        {
+          name: "European Citizenship Portal",
+          img: `${this.bucketURL}${this.projectsPath}/ue.png`,
+          description:
+            "An institutional portal designed to provide information and assistance for European citizenship services. The site features essential resources including guides on citizenship applications, legal requirements, and a directory of professionals offering related services.",
+          link: "https://cidadania-ue-demo.netlify.app/",
+          skills: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Vue.js",
+            "Vuetify",
+            "Git",
+            "Nuxt.js",
+          ],
+          repository: "https://github.com/raphaelbertoldo/ue-cid-demo",
+        },
+        {
+          name: "Prowess Technology",
+          img: `${this.bucketURL}${this.projectsPath}/prowerss.png`,
+          description:
+            "An institutional demo portal for a technology company, Prowess showcases innovative solutions and services. The site provides essential information about technology trends, project showcases, and a directory of services offered by the company.",
+          link: "https://expertise-ti-demo.netlify.app/",
+          skills: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Vue.js",
+            "Vuetify",
+            "Git",
+            "Nuxt.js",
+          ],
+          repository: "https://github.com/raphaelbertoldo/expertise-demo",
+        },
+        {
+          name: "Movie Storm",
+          img: `${this.bucketURL}${this.projectsPath}/movieStorm.png`,
+          description:
+            "A user interface where users can explore various hit movies from the past year, rate these movies, and get more recommendations.",
+          link: "https://movie-storm.netlify.app/",
+          skills: ["Vue.js", "Node.js", "GraphQL", "MongoDB"],
+          repository: "https://github.com/raphaelbertoldo/moviestorm-frontend",
+        },
+        {
+          name: "API - Movie Storm",
+          img: `${this.bucketURL}${this.projectsPath}/movieStormApi.png`,
+          description:
+            "This project is a GraphQL API for managing movies, genres, and users. It also includes search and recommendation algorithms.",
+          skills: ["GraphQL", "Node.js", "MongoDB", "JavaScript"],
+          repository: "https://github.com/raphaelbertoldo/moviee-storm-api",
+        },
+        {
+          name: "E-commerce Microservices API",
+          img: `${this.bucketURL}${this.projectsPath}/ecom.png`,
+          description:
+            "This project was developed to improve my architecture skills, using Node.js, Express, MongoDB, and RabbitMQ.",
+          skills: ["Node.js", "Express", "RabbitMQ", "MongoDB"],
+          repository:
+            "https://github.com/raphaelbertoldo/microservices-ecommerce",
+        },
+        {
+          name: "The Hash Game",
+          img: `${this.bucketURL}${this.projectsPath}/the-hash-game.png`,
+          description:
+            "A classic tic-tac-toe project, fully designed by me with the goal of enhancing problem-solving skills.",
+          link: "https://the-hash-game.netlify.app/",
+          skills: ["Vue.js", "JavaScript", "HTML", "CSS"],
+          repository: "https://github.com/raphaelbertoldo/the-hashgame",
+        },
+        {
+          name: "Oráculo Beats",
+          img: `${this.bucketURL}${this.projectsPath}/oraculo.png`,
+          description:
+            "A website for a beatmaker to sell beats, instrumentals, and other services. The site features a track listing and music player.",
+          link: "https://oraculobeats.netlify.app/",
+          skills: ["Vue.js", "Node.js", "MongoDB", "NestJS"],
+          repository: "https://github.com/raphaelbertoldo/oraculo-front",
+        },
+        {
+          name: "API - Oráculo Beats",
+          img: `${this.bucketURL}${this.projectsPath}/oraculo-api.png`,
+          description:
+            "A Nest.js and MongoDB API providing CRUD functionality for track management.",
+          repository: "https://github.com/raphaelbertoldo/oraculo-back",
+          skills: ["NestJS", "MongoDB", "Node.js", "TypeScript"],
+        },
+        {
+          name: "Atomic App",
+          img: `${this.bucketURL}${this.projectsPath}/atomic.png`,
+          description:
+            "A project for skill improvement and study, developed with Vue 3.",
+          link: "https://atomic-raphaels-projects-281f551e.vercel.app/",
+          skills: ["Vue.js", "JavaScript", "HTML", "CSS"],
+          repository: "https://github.com/raphaelbertoldo/atomic",
+        },
+        {
+          name: "API for a Social Network",
+          img: `${this.bucketURL}${this.projectsPath}/nestjs.png`,
+          description:
+            "A backend project featuring user authentication, a photo upload system, and user posts management.",
+          repository: "https://github.com/raphaelbertoldo/nestjs-social-media",
+          skills: ["NestJS", "MongoDB", "Node.js", "TypeScript"],
+        },
+      ];
+    },
+  },
 };
 </script>
 
@@ -461,7 +527,7 @@ export default {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  background: linear-gradient(to right, #FFD700, #FFA500);
+  background: linear-gradient(to right, #ffd700, #ffa500);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -574,7 +640,7 @@ export default {
 }
 
 .action-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -594,7 +660,7 @@ export default {
 }
 
 .glass-morphism {
-  background: rgba(255, 255, 255, 0.05); 
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -647,10 +713,11 @@ export default {
 }
 
 .image-skeleton {
-  background: linear-gradient(90deg, 
-    rgba(255,255,255,0.1) 25%, 
-    rgba(255,255,255,0.2) 37%, 
-    rgba(255,255,255,0.1) 63%
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 37%,
+    rgba(255, 255, 255, 0.1) 63%
   );
   background-size: 400% 100%;
   animation: skeleton-loading 1.4s ease infinite;
@@ -678,11 +745,11 @@ export default {
   .project-card {
     margin-bottom: 20px;
   }
-  
+
   .project-title {
     font-size: 1.5rem !important;
   }
-  
+
   .action-button {
     width: 100%;
     margin-bottom: 8px;
@@ -739,7 +806,7 @@ export default {
 }
 
 .modal-title {
-  background: linear-gradient(to right, #FFD700, #FFA500);
+  background: linear-gradient(to right, #ffd700, #ffa500);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 24px;
@@ -760,7 +827,7 @@ export default {
 }
 
 .technologies-section h3 {
-  color: #FFD700;
+  color: #ffd700;
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
@@ -783,7 +850,7 @@ export default {
 .skill-chip-modal:hover {
   background: rgba(255, 215, 0, 0.2) !important;
   transform: translateY(-2px);
-  border-color: #FFD700 !important;
+  border-color: #ffd700 !important;
 }
 
 .modal-action-button {
@@ -796,7 +863,7 @@ export default {
 }
 
 .modal-action-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -847,12 +914,12 @@ export default {
     width: 100%;
     margin: 8px 0;
   }
-  
+
   .project-full-image {
     min-height: 400px;
     max-height: 500px;
   }
-  
+
   .technologies-section {
     margin: 16px 0;
     padding: 16px;
